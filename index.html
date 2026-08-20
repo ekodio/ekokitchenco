@@ -37,8 +37,8 @@
                class="w-full p-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-amber-500 focus:outline-none text-sm font-medium">
       </div>
       <div>
-        <label class="block text-xs font-bold text-slate-600 mb-1">Room / Bed Number *</label>
-        <input type="text" id="room-number" placeholder="e.g., Room 204 - Bed B" 
+        <label class="block text-xs font-bold text-slate-600 mb-1">Room Number *</label>
+        <input type="text" id="room-number" placeholder="e.g., 204" 
                class="w-full p-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-amber-500 focus:outline-none text-sm font-medium">
       </div>
     </div>
@@ -230,25 +230,33 @@
     </div>
   </div>
 
-  <!-- UPI PAYMENT QR MODAL -->
+  <!-- UPI PAYMENT & PROOF UPLOAD MODAL -->
   <div id="payment-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-    <div class="bg-white w-full max-w-sm rounded-3xl p-6 text-center space-y-4 shadow-2xl relative">
+    <div class="bg-white w-full max-w-sm rounded-3xl p-5 text-center space-y-3 shadow-2xl relative">
       <button onclick="closePaymentModal()" class="absolute top-4 right-4 text-slate-400 text-xl font-bold">✕</button>
 
-      <h3 class="font-black text-slate-900 text-lg">Scan & Pay via Any UPI App</h3>
-      <p class="text-xs text-slate-500">Pay exact total: <span id="modal-pay-amount" class="font-bold text-amber-600 text-base">₹0</span></p>
+      <h3 class="font-black text-slate-900 text-base">Scan & Pay via Any UPI App</h3>
+      <p class="text-xs text-slate-500">Total Amount: <span id="modal-pay-amount" class="font-black text-amber-600 text-base">₹0</span></p>
 
       <!-- QR Code Image -->
-      <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 flex justify-center">
-        <!-- REPLACE "upi-qr.jpg" WITH YOUR ACTUAL QR IMAGE FILE NAME -->
-        <img id="qr-image" src="upi-qr.jpg" alt="Eko Kitchen Co. UPI QR Code" class="w-48 h-48 object-contain">
+      <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200 flex justify-center">
+        <img id="qr-image" src="upi-qr.jpg" alt="Eko Kitchen Co. UPI QR Code" class="w-40 h-40 object-contain">
       </div>
 
-      <p class="text-[11px] text-slate-400">GPay • PhonePe • Paytm • BHIM</p>
+      <!-- Screenshot Upload Section -->
+      <div class="bg-amber-50/60 p-3 rounded-xl border border-amber-200/60 text-left space-y-1.5">
+        <label class="block text-xs font-bold text-amber-900">
+          Upload Payment Screenshot *
+        </label>
+        <input type="file" id="screenshot-file" accept="image/*" onchange="validateFileSelected()" 
+               class="block w-full text-xs text-slate-500 file:mr-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-amber-500 file:text-slate-950 hover:file:bg-amber-400">
+        <p class="text-[10px] text-slate-500 italic">Select proof image to unlock submission button below.</p>
+      </div>
 
-      <button onclick="sendWhatsAppOrder()" 
-              class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-black py-3 rounded-xl text-sm transition shadow-md flex items-center justify-center gap-2">
-        <span>✅ I Have Paid — Send to Kitchen</span>
+      <!-- Send Order Button -->
+      <button id="send-whatsapp-btn" onclick="sendWhatsAppOrder()" disabled
+              class="w-full bg-slate-300 text-slate-500 font-black py-3 rounded-xl text-sm transition shadow-md flex items-center justify-center gap-2 cursor-not-allowed">
+        <span>✅ Attach Proof & Send to Kitchen</span>
       </button>
     </div>
   </div>
@@ -295,7 +303,7 @@
       const room = document.getElementById('room-number').value.trim();
 
       if (!name || !room) {
-        alert("Please enter both your Name and Room/Bed Number before proceeding!");
+        alert("Please enter both your Name and Room Number before proceeding!");
         return;
       }
 
@@ -306,6 +314,21 @@
 
     function closePaymentModal() {
       document.getElementById('payment-modal').classList.add('hidden');
+    }
+
+    function validateFileSelected() {
+      const fileInput = document.getElementById('screenshot-file');
+      const btn = document.getElementById('send-whatsapp-btn');
+
+      if (fileInput.files && fileInput.files.length > 0) {
+        btn.disabled = false;
+        btn.classList.remove('bg-slate-300', 'text-slate-500', 'cursor-not-allowed');
+        btn.classList.add('bg-emerald-600', 'hover:bg-emerald-500', 'text-white');
+      } else {
+        btn.disabled = true;
+        btn.classList.add('bg-slate-300', 'text-slate-500', 'cursor-not-allowed');
+        btn.classList.remove('bg-emerald-600', 'hover:bg-emerald-500', 'text-white');
+      }
     }
 
     function sendWhatsAppOrder() {
@@ -324,7 +347,7 @@
                  `📋 *ORDER ITEMS:*\n${itemSummary}\n\n` +
                  `💰 *Total Paid:* ₹${Math.round(finalTotal)}\n` +
                  `📝 *Instructions:* ${instructions || 'None'}\n\n` +
-                 `✅ *Payment Status:* Paid via QR Code`;
+                 `📷 *Payment Proof:* Screenshot attached below in chat.`;
 
       let encodedText = encodeURIComponent(text);
       
