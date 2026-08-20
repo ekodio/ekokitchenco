@@ -6,7 +6,7 @@
   <title>Eko Kitchen Co. | In-Room Menu</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-slate-100 text-slate-800 pb-32">
+<body class="bg-slate-100 text-slate-800 pb-36">
 
   <!-- Header -->
   <header class="bg-slate-900 text-white p-4 sticky top-0 z-20 shadow-md">
@@ -43,6 +43,17 @@
       </div>
     </div>
 
+    <!-- CART SUMMARY BREAKDOWN (Shows selected items & quantity controls) -->
+    <div id="cart-details-card" class="bg-white p-4 rounded-2xl shadow-sm border border-amber-300 space-y-3 hidden">
+      <div class="flex justify-between items-center border-b border-slate-200 pb-2">
+        <h3 class="text-xs font-black uppercase tracking-wider text-slate-900">Your Order Breakdown</h3>
+        <button onclick="clearCart()" class="text-[11px] font-bold text-red-500 hover:underline">Clear All</button>
+      </div>
+      <div id="cart-item-list" class="space-y-2 text-xs">
+        <!-- Selected items with + and - will render dynamically here -->
+      </div>
+    </div>
+
     <!-- MAINS CATEGORY -->
     <section class="space-y-3">
       <h2 class="font-black text-slate-900 text-lg uppercase tracking-wide border-b border-slate-300 pb-1">Mains</h2>
@@ -51,9 +62,9 @@
       <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex flex-col gap-2">
         <h3 class="font-bold text-slate-800">Grilled Sandwich</h3>
         <div class="flex gap-2 text-xs font-semibold">
-          <button onclick="addToCart('Grilled Sandwich (Veg)', 60)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 rounded-lg transition text-slate-800">Veg ₹60</button>
-          <button onclick="addToCart('Grilled Sandwich (Paneer)', 80)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 rounded-lg transition text-slate-800">Paneer ₹80</button>
-          <button onclick="addToCart('Grilled Sandwich (Chicken)', 100)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 rounded-lg transition text-slate-800">Chicken ₹100</button>
+          <button onclick="changeQty('Grilled Sandwich (Veg)', 60, 1)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 rounded-lg transition text-slate-800">+ Veg ₹60</button>
+          <button onclick="changeQty('Grilled Sandwich (Paneer)', 80, 1)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 rounded-lg transition text-slate-800">+ Paneer ₹80</button>
+          <button onclick="changeQty('Grilled Sandwich (Chicken)', 100, 1)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 rounded-lg transition text-slate-800">+ Chicken ₹100</button>
         </div>
       </div>
 
@@ -61,9 +72,9 @@
       <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex flex-col gap-2">
         <h3 class="font-bold text-slate-800">Kathi Roll</h3>
         <div class="flex gap-2 text-xs font-semibold">
-          <button onclick="addToCart('Kathi Roll (Paneer)', 80)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 rounded-lg transition text-slate-800">Paneer ₹80</button>
-          <button onclick="addToCart('Kathi Roll (Egg)', 100)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 rounded-lg transition text-slate-800">Egg ₹100</button>
-          <button onclick="addToCart('Kathi Roll (Chicken)', 130)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 rounded-lg transition text-slate-800">Chicken ₹130</button>
+          <button onclick="changeQty('Kathi Roll (Paneer)', 80, 1)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 rounded-lg transition text-slate-800">+ Paneer ₹80</button>
+          <button onclick="changeQty('Kathi Roll (Egg)', 100, 1)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 rounded-lg transition text-slate-800">+ Egg ₹100</button>
+          <button onclick="changeQty('Kathi Roll (Chicken)', 130, 1)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 rounded-lg transition text-slate-800">+ Chicken ₹130</button>
         </div>
       </div>
 
@@ -71,8 +82,8 @@
       <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex flex-col gap-2">
         <h3 class="font-bold text-slate-800">Pasta</h3>
         <div class="flex gap-2 text-xs font-semibold">
-          <button onclick="addToCart('Pasta (White Sauce)', 100)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 rounded-lg transition text-slate-800">White Sauce ₹100</button>
-          <button onclick="addToCart('Pasta (Red Sauce)', 120)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 rounded-lg transition text-slate-800">Red Sauce ₹120</button>
+          <button onclick="changeQty('Pasta (White Sauce)', 100, 1)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 rounded-lg transition text-slate-800">+ White Sauce ₹100</button>
+          <button onclick="changeQty('Pasta (Red Sauce)', 120, 1)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 rounded-lg transition text-slate-800">+ Red Sauce ₹120</button>
         </div>
       </div>
 
@@ -80,9 +91,9 @@
       <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex flex-col gap-2">
         <h3 class="font-bold text-slate-800">Biryani</h3>
         <div class="flex gap-2 text-xs font-semibold">
-          <button onclick="addToCart('Biryani (Veg)', 100)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 rounded-lg transition text-slate-800">Veg ₹100</button>
-          <button onclick="addToCart('Biryani (Egg)', 130)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 rounded-lg transition text-slate-800">Egg ₹130</button>
-          <button onclick="addToCart('Biryani (Chicken)', 150)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 rounded-lg transition text-slate-800">Chicken ₹150</button>
+          <button onclick="changeQty('Biryani (Veg)', 100, 1)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 rounded-lg transition text-slate-800">+ Veg ₹100</button>
+          <button onclick="changeQty('Biryani (Egg)', 130, 1)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 rounded-lg transition text-slate-800">+ Egg ₹130</button>
+          <button onclick="changeQty('Biryani (Chicken)', 150, 1)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 rounded-lg transition text-slate-800">+ Chicken ₹150</button>
         </div>
       </div>
 
@@ -92,15 +103,15 @@
         <div class="space-y-2">
           <div class="text-xs font-bold text-slate-600">Noodles:</div>
           <div class="flex gap-1.5 text-xs font-semibold">
-            <button onclick="addToCart('Noodles (Veg)', 70)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 py-1.5 rounded transition">Veg ₹70</button>
-            <button onclick="addToCart('Noodles (Egg)', 90)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 py-1.5 rounded transition">Egg ₹90</button>
-            <button onclick="addToCart('Noodles (Chicken)', 120)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 py-1.5 rounded transition">Chicken ₹120</button>
+            <button onclick="changeQty('Noodles (Veg)', 70, 1)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 py-1.5 rounded transition">+ Veg ₹70</button>
+            <button onclick="changeQty('Noodles (Egg)', 90, 1)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 py-1.5 rounded transition">+ Egg ₹90</button>
+            <button onclick="changeQty('Noodles (Chicken)', 120, 1)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 py-1.5 rounded transition">+ Chicken ₹120</button>
           </div>
           <div class="text-xs font-bold text-slate-600 mt-2">Fried Rice:</div>
           <div class="flex gap-1.5 text-xs font-semibold">
-            <button onclick="addToCart('Fried Rice (Veg)', 80)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 py-1.5 rounded transition">Veg ₹80</button>
-            <button onclick="addToCart('Fried Rice (Egg)', 100)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 py-1.5 rounded transition">Egg ₹100</button>
-            <button onclick="addToCart('Fried Rice (Chicken)', 130)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 py-1.5 rounded transition">Chicken ₹130</button>
+            <button onclick="changeQty('Fried Rice (Veg)', 80, 1)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 py-1.5 rounded transition">+ Veg ₹80</button>
+            <button onclick="changeQty('Fried Rice (Egg)', 100, 1)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 py-1.5 rounded transition">+ Egg ₹100</button>
+            <button onclick="changeQty('Fried Rice (Chicken)', 130, 1)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 py-1.5 rounded transition">+ Chicken ₹130</button>
           </div>
         </div>
       </div>
@@ -114,8 +125,8 @@
       <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex justify-between items-center">
         <h3 class="font-bold text-slate-800">French Fries</h3>
         <div class="flex gap-2 text-xs font-semibold">
-          <button onclick="addToCart('French Fries (Salted)', 80)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-3 py-1.5 rounded-lg">Salted ₹80</button>
-          <button onclick="addToCart('French Fries (Peri Peri)', 100)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-3 py-1.5 rounded-lg">Peri Peri ₹100</button>
+          <button onclick="changeQty('French Fries (Salted)', 80, 1)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-3 py-1.5 rounded-lg">+ Salted ₹80</button>
+          <button onclick="changeQty('French Fries (Peri Peri)', 100, 1)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-3 py-1.5 rounded-lg">+ Peri Peri ₹100</button>
         </div>
       </div>
 
@@ -125,22 +136,22 @@
         <div class="flex justify-between items-center text-xs">
           <span class="font-semibold text-slate-700">Chilli Paneer (₹180)</span>
           <div class="flex gap-1">
-            <button onclick="addToCart('Chilli Paneer (Dry)', 180)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-1 rounded">Dry</button>
-            <button onclick="addToCart('Chilli Paneer (Gravy)', 180)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-1 rounded">Gravy</button>
+            <button onclick="changeQty('Chilli Paneer (Dry)', 180, 1)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-1 rounded">+ Dry</button>
+            <button onclick="changeQty('Chilli Paneer (Gravy)', 180, 1)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-1 rounded">+ Gravy</button>
           </div>
         </div>
         <div class="flex justify-between items-center text-xs">
           <span class="font-semibold text-slate-700">Chilli Chicken (₹220)</span>
           <div class="flex gap-1">
-            <button onclick="addToCart('Chilli Chicken (Dry)', 220)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-1 rounded">Dry</button>
-            <button onclick="addToCart('Chilli Chicken (Gravy)', 220)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-1 rounded">Gravy</button>
+            <button onclick="changeQty('Chilli Chicken (Dry)', 220, 1)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-1 rounded">+ Dry</button>
+            <button onclick="changeQty('Chilli Chicken (Gravy)', 220, 1)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-1 rounded">+ Gravy</button>
           </div>
         </div>
         <div class="flex justify-between items-center text-xs">
           <span class="font-semibold text-slate-700">Chilli Mushroom (₹200)</span>
           <div class="flex gap-1">
-            <button onclick="addToCart('Chilli Mushroom (Dry)', 200)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-1 rounded">Dry</button>
-            <button onclick="addToCart('Chilli Mushroom (Gravy)', 200)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-1 rounded">Gravy</button>
+            <button onclick="changeQty('Chilli Mushroom (Dry)', 200, 1)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-1 rounded">+ Dry</button>
+            <button onclick="changeQty('Chilli Mushroom (Gravy)', 200, 1)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-1 rounded">+ Gravy</button>
           </div>
         </div>
       </div>
@@ -149,9 +160,9 @@
       <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex flex-col gap-2">
         <h3 class="font-bold text-slate-800">Momos</h3>
         <div class="flex gap-2 text-xs font-semibold">
-          <button onclick="addToCart('Momos (Veg)', 80)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 py-2 rounded-lg">Veg ₹80</button>
-          <button onclick="addToCart('Momos (Paneer)', 100)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 py-2 rounded-lg">Paneer ₹100</button>
-          <button onclick="addToCart('Momos (Chicken)', 120)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 py-2 rounded-lg">Chicken ₹120</button>
+          <button onclick="changeQty('Momos (Veg)', 80, 1)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 py-2 rounded-lg">+ Veg ₹80</button>
+          <button onclick="changeQty('Momos (Paneer)', 100, 1)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 py-2 rounded-lg">+ Paneer ₹100</button>
+          <button onclick="changeQty('Momos (Chicken)', 120, 1)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 py-2 rounded-lg">+ Chicken ₹120</button>
         </div>
       </div>
 
@@ -159,9 +170,9 @@
       <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex flex-col gap-2">
         <h3 class="font-bold text-slate-800">Maggie</h3>
         <div class="flex gap-2 text-xs font-semibold">
-          <button onclick="addToCart('Maggie (Plain)', 40)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 py-2 rounded-lg">Plain ₹40</button>
-          <button onclick="addToCart('Maggie (Veg)', 60)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 py-2 rounded-lg">Veg ₹60</button>
-          <button onclick="addToCart('Maggie (Egg)', 80)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 py-2 rounded-lg">Egg ₹80</button>
+          <button onclick="changeQty('Maggie (Plain)', 40, 1)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 py-2 rounded-lg">+ Plain ₹40</button>
+          <button onclick="changeQty('Maggie (Veg)', 60, 1)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 py-2 rounded-lg">+ Veg ₹60</button>
+          <button onclick="changeQty('Maggie (Egg)', 80, 1)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 py-2 rounded-lg">+ Egg ₹80</button>
         </div>
       </div>
 
@@ -170,15 +181,15 @@
         <div class="flex justify-between items-center text-xs">
           <span class="font-bold text-slate-800">Egg (2 pcs)</span>
           <div class="flex gap-1.5 font-semibold">
-            <button onclick="addToCart('Egg Boiled (2 pcs)', 40)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-3 py-1.5 rounded-lg">Boiled ₹40</button>
-            <button onclick="addToCart('Egg Omelette (2 pcs)', 50)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-3 py-1.5 rounded-lg">Omelette ₹50</button>
+            <button onclick="changeQty('Egg Boiled (2 pcs)', 40, 1)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-3 py-1.5 rounded-lg">+ Boiled ₹40</button>
+            <button onclick="changeQty('Egg Omelette (2 pcs)', 50, 1)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-3 py-1.5 rounded-lg">+ Omelette ₹50</button>
           </div>
         </div>
         <div class="flex justify-between items-center text-xs">
           <span class="font-bold text-slate-800">Bread (4 pcs)</span>
           <div class="flex gap-1.5 font-semibold">
-            <button onclick="addToCart('Bread Plain (4 pcs)', 20)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-3 py-1.5 rounded-lg">Plain ₹20</button>
-            <button onclick="addToCart('Bread Butter Toasted (4 pcs)', 40)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-3 py-1.5 rounded-lg">Butter Toasted ₹40</button>
+            <button onclick="changeQty('Bread Plain (4 pcs)', 20, 1)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-3 py-1.5 rounded-lg">+ Plain ₹20</button>
+            <button onclick="changeQty('Bread Butter Toasted (4 pcs)', 40, 1)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-3 py-1.5 rounded-lg">+ Butter Toasted ₹40</button>
           </div>
         </div>
       </div>
@@ -190,18 +201,18 @@
       <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 space-y-3">
         <div class="flex justify-between items-center">
           <span class="font-bold text-slate-800 text-sm">Chai (Medium Cup)</span>
-          <button onclick="addToCart('Chai (Medium Cup)', 50)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-4 py-1.5 rounded-lg text-xs font-bold">₹50</button>
+          <button onclick="changeQty('Chai (Medium Cup)', 50, 1)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-4 py-1.5 rounded-lg text-xs font-bold">+ ₹50</button>
         </div>
         <div class="flex justify-between items-center">
           <span class="font-bold text-slate-800 text-sm">Coffee</span>
           <div class="flex gap-1.5 text-xs font-semibold">
-            <button onclick="addToCart('Coffee (Hot)', 80)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-3 py-1.5 rounded-lg">Hot ₹80</button>
-            <button onclick="addToCart('Coffee (Cold)', 100)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-3 py-1.5 rounded-lg">Cold ₹100</button>
+            <button onclick="changeQty('Coffee (Hot)', 80, 1)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-3 py-1.5 rounded-lg">+ Hot ₹80</button>
+            <button onclick="changeQty('Coffee (Cold)', 100, 1)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-3 py-1.5 rounded-lg">+ Cold ₹100</button>
           </div>
         </div>
         <div class="flex justify-between items-center">
           <span class="font-bold text-slate-800 text-sm">Oreo Shake</span>
-          <button onclick="addToCart('Oreo Shake', 100)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-4 py-1.5 rounded-lg text-xs font-bold">₹100</button>
+          <button onclick="changeQty('Oreo Shake', 100, 1)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-4 py-1.5 rounded-lg text-xs font-bold">+ ₹100</button>
         </div>
       </div>
     </section>
@@ -209,7 +220,7 @@
     <!-- Special Instructions Input -->
     <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200">
       <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">Special Instructions for Chef</label>
-      <img id="qr-image" src="upi-qr.jpg" alt="Eko Kitchen Co. UPI QR Code" class="w-40 h-40 object-contain"> 
+      <input type="text" id="special-instructions" placeholder="e.g., Less spicy, no onions, extra sauce" 
              class="w-full p-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-amber-500 focus:outline-none text-xs">
     </div>
 
@@ -240,7 +251,7 @@
 
       <!-- QR Code Image -->
       <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200 flex justify-center">
-        <img id="qr-image" src="upi-qr.jpg.jpg" alt="Eko Kitchen Co. UPI QR Code" class="w-40 h-40 object-contain">
+        <img id="qr-image" src="upi-qr.jpg" alt="Eko Kitchen Co. UPI QR Code" class="w-40 h-40 object-contain">
       </div>
 
       <!-- Screenshot Upload Section -->
@@ -262,15 +273,34 @@
   </div>
 
   <script>
-    let cart = [];
+    // Cart stored as an object: { "Item Name": { price: 80, qty: 2 } }
+    let cart = {};
 
-    function addToCart(itemName, price) {
-      cart.push({ name: itemName, price: price });
+    function changeQty(name, price, delta) {
+      if (!cart[name]) {
+        cart[name] = { price: price, qty: 0 };
+      }
+      
+      cart[name].qty += delta;
+
+      if (cart[name].qty <= 0) {
+        delete cart[name];
+      }
+
       updateCartUI();
     }
 
+    function clearCart() {
+      cart = {};
+      updateCartUI();
+    }
+
+    function getTotalItemCount() {
+      return Object.values(cart).reduce((sum, item) => sum + item.qty, 0);
+    }
+
     function calculateTotal() {
-      let subtotal = cart.reduce((sum, item) => sum + item.price, 0);
+      let subtotal = Object.values(cart).reduce((sum, item) => sum + (item.price * item.qty), 0);
       let discount = 0;
       let discountText = "";
 
@@ -288,13 +318,40 @@
 
     function updateCartUI() {
       const cartBar = document.getElementById('cart-bar');
-      if (cart.length > 0) {
+      const cartCard = document.getElementById('cart-details-card');
+      const cartItemList = document.getElementById('cart-item-list');
+      const totalCount = getTotalItemCount();
+
+      if (totalCount > 0) {
         cartBar.classList.remove('hidden');
+        cartCard.classList.remove('hidden');
+
+        // Render dynamic quantity controls in the Breakdown Card
+        cartItemList.innerHTML = Object.keys(cart).map(name => {
+          const item = cart[name];
+          return `
+            <div class="flex justify-between items-center bg-slate-50 p-2 rounded-xl border border-slate-200">
+              <span class="font-bold text-slate-800 flex-1">${name}</span>
+              <div class="flex items-center gap-2">
+                <span class="font-bold text-slate-600">₹${item.price * item.qty}</span>
+                <div class="flex items-center border border-slate-300 rounded-lg overflow-hidden bg-white">
+                  <button onclick="changeQty('${name}', ${item.price}, -1)" class="px-2 py-0.5 bg-slate-100 font-black text-slate-700 hover:bg-slate-200">-</button>
+                  <span class="px-2 font-black text-amber-600">${item.qty}</span>
+                  <button onclick="changeQty('${name}', ${item.price}, 1)" class="px-2 py-0.5 bg-slate-100 font-black text-slate-700 hover:bg-slate-200">+</button>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+
         const { finalTotal, discount, discountText } = calculateTotal();
 
-        document.getElementById('cart-summary').innerText = `${cart.length} item(s) selected`;
+        document.getElementById('cart-summary').innerText = `${totalCount} item(s) selected`;
         document.getElementById('discount-label').innerText = discountText;
         document.getElementById('cart-final-total').innerText = `₹${Math.round(finalTotal)} ${discount > 0 ? `(Saved ₹${Math.round(discount)})` : ''}`;
+      } else {
+        cartBar.classList.add('hidden');
+        cartCard.classList.add('hidden');
       }
     }
 
@@ -337,7 +394,10 @@
       const instructions = document.getElementById('special-instructions').value.trim();
       const { finalTotal } = calculateTotal();
 
-      let itemSummary = cart.map(i => `• ${i.name} - ₹${i.price}`).join('\n');
+      // Formatted list showing quantities
+      let itemSummary = Object.keys(cart)
+        .map(name => `• ${name} x ${cart[name].qty} - ₹${cart[name].price * cart[name].qty}`)
+        .join('\n');
 
       let text = `🚨 *NEW PREPAID ORDER - EKO KITCHEN CO.* 🚨\n\n` +
                  `👤 *Name:* ${name}\n` +
