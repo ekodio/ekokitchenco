@@ -209,7 +209,7 @@
     <!-- Special Instructions Input -->
     <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200">
       <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">Special Instructions for Chef</label>
-      <img id="qr-image" src="upi-qr.jpg.jpg" alt="Eko Kitchen Co. UPI QR Code" class="w-40 h-40 object-contain"> 
+      <input type="text" id="special-instructions" placeholder="e.g., Less spicy, no onions, extra sauce" 
              class="w-full p-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-amber-500 focus:outline-none text-xs">
     </div>
 
@@ -240,7 +240,7 @@
 
       <!-- QR Code Image -->
       <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200 flex justify-center">
-        <img id="qr-image" src="upi-qr.jpg" alt="Eko Kitchen Co. UPI QR Code" class="w-40 h-40 object-contain">
+        <img id="qr-image" src="upi-qr.jpg.jpg" alt="Eko Kitchen Co. UPI QR Code" class="w-40 h-40 object-contain">
       </div>
 
       <!-- Screenshot Upload Section -->
@@ -337,10 +337,8 @@
       const instructions = document.getElementById('special-instructions').value.trim();
       const { finalTotal } = calculateTotal();
 
-      // Item Summary
       let itemSummary = cart.map(i => `• ${i.name} - ₹${i.price}`).join('\n');
 
-      // WhatsApp Message Text
       let text = `🚨 *NEW PREPAID ORDER - EKO KITCHEN CO.* 🚨\n\n` +
                  `👤 *Name:* ${name}\n` +
                  `🚪 *Room:* ${room}\n\n` +
@@ -350,9 +348,9 @@
                  `📷 *Payment Proof:* Screenshot attached below in chat.`;
 
       let encodedText = encodeURIComponent(text);
+      let waUrl = `https://wa.me/918448784783?text=${encodedText}`;
       
-      // Direct WhatsApp link to kitchen phone number
-      window.location.href = `https://wa.me/918448784783?text=${encodedText}`;
+      window.open(waUrl, '_blank');
     }
   </script>
 </body>
