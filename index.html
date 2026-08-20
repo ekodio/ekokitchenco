@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eko Kitchen Co. | In-Room Menu</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body class="bg-slate-100 text-slate-800 pb-32">
+
+  <!-- Header -->
+  <header class="bg-slate-900 text-white p-4 sticky top-0 z-20 shadow-md">
+    <div class="max-w-md mx-auto flex justify-between items-center">
+      <div>
+        <h1 class="font-black text-xl tracking-wider text-amber-400">EKO KITCHEN CO.</h1>
+        <p class="text-xs text-slate-300 font-medium">In-Room Dining • 08 a.m. to 10 p.m.</p>
+      </div>
+      <div class="bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold px-3 py-1 rounded-full">
+        Prepaid Only
+      </div>
+    </div>
+  </header>
+
+  <!-- Special Offers Banner -->
+  <div class="bg-red-600 text-white text-xs text-center py-2 px-4 font-bold tracking-wide shadow-inner">
+    🎁 OFFERS: 10% OFF on orders > ₹299 | 30% OFF on orders > ₹999
+  </div>
+
+  <main class="max-w-md mx-auto p-4 space-y-6">
+
+    <!-- Room Selection -->
+    <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200">
+      <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">Room / Bed Number *</label>
+      <input type="text" id="room-number" placeholder="e.g., Room 204 - Bed B" 
+             class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-amber-500 focus:outline-none text-sm font-medium">
+    </div>
+
+    <!-- MAINS CATEGORY -->
+    <section class="space-y-3">
+      <h2 class="font-black text-slate-900 text-lg uppercase tracking-wide border-b border-slate-300 pb-1">Mains</h2>
+      
+      <!-- Grilled Sandwich -->
+      <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex flex-col gap-2">
+        <div class="flex justify-between items-start">
+          <div>
+            <h3 class="font-bold text-slate-800">Grilled Sandwich</h3>
+            <p class="text-xs text-slate-500">Select variant</p>
+          </div>
+        </div>
+        <div class="flex gap-2 text-xs font-semibold">
+          <button onclick="addToCart('Grilled Sandwich (Veg)', 60)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 rounded-lg transition text-slate-800">Veg ₹60</button>
+          <button onclick="addToCart('Grilled Sandwich (Paneer)', 80)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 rounded-lg transition text-slate-800">Paneer ₹80</button>
+          <button onclick="addToCart('Grilled Sandwich (Chicken)', 100)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 rounded-lg transition text-slate-800">Chicken ₹100</button>
+        </div>
+      </div>
+
+      <!-- Kathi Roll -->
+      <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex flex-col gap-2">
+        <div>
+          <h3 class="font-bold text-slate-800">Kathi Roll</h3>
+          <p class="text-xs text-slate-500">Select variant</p>
+        </div>
+        <div class="flex gap-2 text-xs font-semibold">
+          <button onclick="addToCart('Kathi Roll (Paneer)', 80)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 rounded-lg transition text-slate-800">Paneer ₹80</button>
+          <button onclick="addToCart('Kathi Roll (Egg)', 100)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 rounded-lg transition text-slate-800">Egg ₹100</button>
+          <button onclick="addToCart('Kathi Roll (Chicken)', 130)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 rounded-lg transition text-slate-800">Chicken ₹130</button>
+        </div>
+      </div>
+
+      <!-- Pasta -->
+      <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex flex-col gap-2">
+        <div>
+          <h3 class="font-bold text-slate-800">Pasta</h3>
+          <p class="text-xs text-slate-500">Select sauce choice</p>
+        </div>
+        <div class="flex gap-2 text-xs font-semibold">
+          <button onclick="addToCart('Pasta (White Sauce)', 100)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 rounded-lg transition text-slate-800">White Sauce ₹100</button>
+          <button onclick="addToCart('Pasta (Red Sauce)', 120)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 rounded-lg transition text-slate-800">Red Sauce ₹120</button>
+        </div>
+      </div>
+
+      <!-- Biryani -->
+      <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex flex-col gap-2">
+        <div>
+          <h3 class="font-bold text-slate-800">Biryani</h3>
+          <p class="text-xs text-slate-500">Select style</p>
+        </div>
+        <div class="flex gap-2 text-xs font-semibold">
+          <button onclick="addToCart('Biryani (Veg)', 100)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 rounded-lg transition text-slate-800">Veg ₹100</button>
+          <button onclick="addToCart('Biryani (Egg)', 130)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 rounded-lg transition text-slate-800">Egg ₹130</button>
+          <button onclick="addToCart('Biryani (Chicken)', 150)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 rounded-lg transition text-slate-800">Chicken ₹150</button>
+        </div>
+      </div>
+
+      <!-- Noodles & Fried Rice -->
+      <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex flex-col gap-2">
+        <div>
+          <h3 class="font-bold text-slate-800">Noodles / Fried Rice</h3>
+        </div>
+        <div class="space-y-2">
+          <div class="text-xs font-bold text-slate-600">Noodles:</div>
+          <div class="flex gap-1.5 text-xs font-semibold">
+            <button onclick="addToCart('Noodles (Veg)', 70)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded transition text-slate-800">Veg ₹70</button>
+            <button onclick="addToCart('Noodles (Egg)', 90)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded transition text-slate-800">Egg ₹90</button>
+            <button onclick="addToCart('Noodles (Chicken)', 120)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded transition text-slate-800">Chicken ₹120</button>
+          </div>
+          <div class="text-xs font-bold text-slate-600 mt-2">Fried Rice:</div>
+          <div class="flex gap-1.5 text-xs font-semibold">
+            <button onclick="addToCart('Fried Rice (Veg)', 80)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded transition text-slate-800">Veg ₹80</button>
+            <button onclick="addToCart('Fried Rice (Egg)', 100)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded transition text-slate-800">Egg ₹100</button>
+            <button onclick="addToCart('Fried Rice (Chicken)', 130)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded transition text-slate-800">Chicken ₹130</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SNACKS CATEGORY -->
+    <section class="space-y-3">
+      <h2 class="font-black text-slate-900 text-lg uppercase tracking-wide border-b border-slate-300 pb-1">Snacks</h2>
+      
+      <!-- French Fries -->
+      <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex justify-between items-center">
+        <div>
+          <h3 class="font-bold text-slate-800">French Fries</h3>
+        </div>
+        <div class="flex gap-2 text-xs font-semibold">
+          <button onclick="addToCart('French Fries (Salted)', 80)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 px-3 py-1.5 rounded-lg transition text-slate-800">Salted ₹80</button>
+          <button onclick="addToCart('French Fries (Peri Peri)', 100)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 px-3 py-1.5 rounded-lg transition text-slate-800">Peri Peri ₹100</button>
+        </div>
+      </div>
+
+      <!-- Chilli Specials -->
+      <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 space-y-3">
+        <h3 class="font-bold text-slate-800">Indo-Chinese Specials (Dry/Gravy)</h3>
+        
+        <div class="flex justify-between items-center text-xs">
+          <span class="font-semibold text-slate-700">Chilli Paneer (₹180)</span>
+          <div class="flex gap-1">
+            <button onclick="addToCart('Chilli Paneer (Dry)', 180)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-1 rounded">Dry</button>
+            <button onclick="addToCart('Chilli Paneer (Gravy)', 180)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-1 rounded">Gravy</button>
+          </div>
+        </div>
+
+        <div class="flex justify-between items-center text-xs">
+          <span class="font-semibold text-slate-700">Chilli Chicken (₹220)</span>
+          <div class="flex gap-1">
+            <button onclick="addToCart('Chilli Chicken (Dry)', 220)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-1 rounded">Dry</button>
+            <button onclick="addToCart('Chilli Chicken (Gravy)', 220)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-1 rounded">Gravy</button>
+          </div>
+        </div>
+
+        <div class="flex justify-between items-center text-xs">
+          <span class="font-semibold text-slate-700">Chilli Mushroom (₹200)</span>
+          <div class="flex gap-1">
+            <button onclick="addToCart('Chilli Mushroom (Dry)', 200)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-1 rounded">Dry</button>
+            <button onclick="addToCart('Chilli Mushroom (Gravy)', 200)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-1 rounded">Gravy</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Momos -->
+      <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex flex-col gap-2">
+        <div>
+          <h3 class="font-bold text-slate-800">Momos</h3>
+        </div>
+        <div class="flex gap-2 text-xs font-semibold">
+          <button onclick="addToCart('Momos (Veg)', 80)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 rounded-lg transition text-slate-800">Veg ₹80</button>
+          <button onclick="addToCart('Momos (Paneer)', 100)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 rounded-lg transition text-slate-800">Paneer ₹100</button>
+          <button onclick="addToCart('Momos (Chicken)', 120)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 rounded-lg transition text-slate-800">Chicken ₹120</button>
+        </div>
+      </div>
+
+      <!-- Maggie -->
+      <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex flex-col gap-2">
+        <div>
+          <h3 class="font-bold text-slate-800">Maggie</h3>
+        </div>
+        <div class="flex gap-2 text-xs font-semibold">
+          <button onclick="addToCart('Maggie (Plain)', 40)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 rounded-lg transition text-slate-800">Plain ₹40</button>
+          <button onclick="addToCart('Maggie (Veg)', 60)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 rounded-lg transition text-slate-800">Veg ₹60</button>
+          <button onclick="addToCart('Maggie (Egg)', 80)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 rounded-lg transition text-slate-800">Egg ₹80</button>
+        </div>
+      </div>
+
+      <!-- Egg & Bread -->
+      <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 space-y-3">
+        <div class="flex justify-between items-center text-xs">
+          <div>
+            <p class="font-bold text-slate-800">Egg (2 pcs)</p>
+          </div>
+          <div class="flex gap-1.5 font-semibold">
+            <button onclick="addToCart('Egg Boiled (2 pcs)', 40)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-3 py-1.5 rounded-lg">Boiled ₹40</button>
+            <button onclick="addToCart('Egg Omelette (2 pcs)', 50)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-3 py-1.5 rounded-lg">Omelette ₹50</button>
+          </div>
+        </div>
+        <div class="flex justify-between items-center text-xs">
+          <div>
+            <p class="font-bold text-slate-800">Bread (4 pcs)</p>
+          </div>
+          <div class="flex gap-1.5 font-semibold">
+            <button onclick="addToCart('Bread Plain (4 pcs)', 20)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-3 py-1.5 rounded-lg">Plain ₹20</button>
+            <button onclick="addToCart('Bread Butter Toasted (4 pcs)', 40)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-3 py-1.5 rounded-lg">Butter Toasted ₹40</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BEVERAGES CATEGORY -->
+    <section class="space-y-3">
+      <h2 class="font-black text-slate-900 text-lg uppercase tracking-wide border-b border-slate-300 pb-1">Beverages</h2>
+      
+      <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 space-y-3">
+        <div class="flex justify-between items-center">
+          <span class="font-bold text-slate-800 text-sm">Chai (Medium Cup)</span>
+          <button onclick="addToCart('Chai (Medium Cup)', 50)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-4 py-1.5 rounded-lg text-xs font-bold">₹50</button>
+        </div>
+
+        <div class="flex justify-between items-center">
+          <span class="font-bold text-slate-800 text-sm">Coffee</span>
+          <div class="flex gap-1.5 text-xs font-semibold">
+            <button onclick="addToCart('Coffee (Hot)', 80)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-3 py-1.5 rounded-lg">Hot ₹80</button>
+            <button onclick="addToCart('Coffee (Cold)', 100)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-3 py-1.5 rounded-lg">Cold ₹100</button>
+          </div>
+        </div>
+
+        <div class="flex justify-between items-center">
+          <span class="font-bold text-slate-800 text-sm">Oreo Shake</span>
+          <button onclick="addToCart('Oreo Shake', 100)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-4 py-1.5 rounded-lg text-xs font-bold">₹100</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Special Instructions Input -->
+    <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200">
+      <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">Special Instructions for Chef</label>
+      <input type="text" id="special-instructions" placeholder="e.g., Less spicy, no onions, extra sauce" 
+             class="w-full p-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-amber-500 focus:outline-none text-xs">
+    </div>
+
+  </main>
+
+  <!-- Sticky Bottom Checkout Bar -->
+  <div id="cart-bar" class="fixed bottom-0 left-0 right-0 bg-slate-900 text-white p-4 shadow-2xl hidden z-30">
+    <div class="max-w-md mx-auto flex justify-between items-center">
+      <div>
+        <p class="text-xs text-slate-400" id="cart-summary">0 items selected</p>
+        <p class="text-xs text-emerald-400 font-bold" id="discount-label"></p>
+        <p class="text-xl font-black text-amber-400" id="cart-final-total">₹0</p>
+      </div>
+      <button onclick="proceedToPrepaidCheckout()" 
+              class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-black px-6 py-3 rounded-xl text-sm transition shadow-lg">
+        Pay & Order Now
+      </button>
+    </div>
+  </div>
+
+  <script>
+    let cart = [];
+
+    function addToCart(itemName, price) {
+      cart.push({ name: itemName, price: price });
+      updateCartUI();
+    }
+
+    function calculateTotal() {
+      let subtotal = cart.reduce((sum, item) => sum + item.price, 0);
+      let discount = 0;
+      let discountText = "";
+
+      if (subtotal > 999) {
+        discount = subtotal * 0.30;
+        discountText = "30% Special Discount Applied!";
+      } else if (subtotal > 299) {
+        discount = subtotal * 0.10;
+        discountText = "10% Discount Applied!";
+      }
+
+      let finalTotal = subtotal - discount;
+      return { subtotal, discount, finalTotal, discountText };
+    }
+
+    function updateCartUI() {
+      const cartBar = document.getElementById('cart-bar');
+      if (cart.length > 0) {
+        cartBar.classList.remove('hidden');
+        const { subtotal, discount, finalTotal, discountText } = calculateTotal();
+
+        document.getElementById('cart-summary').innerText = `${cart.length} item(s) in cart`;
+        document.getElementById('discount-label').innerText = discountText;
+        document.getElementById('cart-final-total').innerText = `₹${Math.round(finalTotal)} ${discount > 0 ? `(Saved ₹${Math.round(discount)})` : ''}`;
+      }
+    }
+
+    function proceedToPrepaidCheckout() {
+      const roomNum = document.getElementById('room-number').value.trim();
+      const instructions = document.getElementById('special-instructions').value.trim();
+
+      if (!roomNum) {
+        alert("Please enter your Room / Bed Number so the kitchen knows where to deliver!");
+        document.getElementById('room-number').focus();
+        return;
+      }
+
+      const { finalTotal } = calculateTotal();
+
+      // Trigger Razorpay Payment Gateway
+      const options = {
+        "key": "YOUR_RAZORPAY_KEY_ID", // Insert your live/test Razorpay Key ID
+        "amount": Math.round(finalTotal) * 100, // Amount in paise
+        "currency": "INR",
+        "name": "Eko Kitchen Co.",
+        "description": `In-Room Meal Order - ${roomNum}`,
+        "handler": function (response) {
+          // Executed ONLY when payment is successfully captured
+          const orderPayload = {
+            paymentId: response.razorpay_payment_id,
+            room: roomNum,
+            items: cart,
+            totalPaid: Math.round(finalTotal),
+            notes: instructions,
+            timestamp: new Date().toISOString()
+          };
+          
+          sendOrderToChef(orderPayload);
+        },
+        "prefill": {
+          "contact": "",
+          "email": ""
+        },
+        "theme": { "color": "#f59e0b" }
+      };
+
+      const rzp = new Razorpay(options);
+      rzp.open();
+    }
+
+    function sendOrderToChef(payload) {
+      // Send payload via Webhook to Kitchen Tablet Display / WhatsApp Notification
+      console.log("PAYMENT CONFIRMED. ORDER SENT TO CHEF:", payload);
+      alert(`Payment Successful! Your order has been placed directly with the chef for ${payload.room}.`);
+      
+      // Reset state
+      cart = [];
+      document.getElementById('special-instructions').value = '';
+      document.getElementById('cart-bar').classList.add('hidden');
+    }
+  </script>
+</body>
+</html>
