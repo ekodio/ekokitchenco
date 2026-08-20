@@ -43,15 +43,13 @@
       </div>
     </div>
 
-    <!-- CART SUMMARY BREAKDOWN (Shows selected items & quantity controls) -->
+    <!-- CART SUMMARY BREAKDOWN -->
     <div id="cart-details-card" class="bg-white p-4 rounded-2xl shadow-sm border border-amber-300 space-y-3 hidden">
       <div class="flex justify-between items-center border-b border-slate-200 pb-2">
         <h3 class="text-xs font-black uppercase tracking-wider text-slate-900">Your Order Breakdown</h3>
         <button onclick="clearCart()" class="text-[11px] font-bold text-red-500 hover:underline">Clear All</button>
       </div>
-      <div id="cart-item-list" class="space-y-2 text-xs">
-        <!-- Selected items with + and - will render dynamically here -->
-      </div>
+      <div id="cart-item-list" class="space-y-2 text-xs"></div>
     </div>
 
     <!-- MAINS CATEGORY -->
@@ -261,19 +259,18 @@
         </label>
         <input type="file" id="screenshot-file" accept="image/*" onchange="validateFileSelected()" 
                class="block w-full text-xs text-slate-500 file:mr-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-amber-500 file:text-slate-950 hover:file:bg-amber-400">
-        <p class="text-[10px] text-slate-500 italic">Select proof image to unlock submission button below.</p>
+        <p class="text-[10px] text-slate-600 font-semibold">Select screenshot to confirm you have proof ready to send in WhatsApp.</p>
       </div>
 
       <!-- Send Order Button -->
       <button id="send-whatsapp-btn" onclick="sendWhatsAppOrder()" disabled
               class="w-full bg-slate-300 text-slate-500 font-black py-3 rounded-xl text-sm transition shadow-md flex items-center justify-center gap-2 cursor-not-allowed">
-        <span>✅ Attach Proof & Send to Kitchen</span>
+        <span>✅ Proceed & Send Order to Kitchen</span>
       </button>
     </div>
   </div>
 
   <script>
-    // Cart stored as an object: { "Item Name": { price: 80, qty: 2 } }
     let cart = {};
 
     function changeQty(name, price, delta) {
@@ -326,7 +323,6 @@
         cartBar.classList.remove('hidden');
         cartCard.classList.remove('hidden');
 
-        // Render dynamic quantity controls in the Breakdown Card
         cartItemList.innerHTML = Object.keys(cart).map(name => {
           const item = cart[name];
           return `
@@ -394,7 +390,6 @@
       const instructions = document.getElementById('special-instructions').value.trim();
       const { finalTotal } = calculateTotal();
 
-      // Formatted list showing quantities
       let itemSummary = Object.keys(cart)
         .map(name => `• ${name} x ${cart[name].qty} - ₹${cart[name].price * cart[name].qty}`)
         .join('\n');
@@ -405,7 +400,9 @@
                  `📋 *ORDER ITEMS:*\n${itemSummary}\n\n` +
                  `💰 *Total Paid:* ₹${Math.round(finalTotal)}\n` +
                  `📝 *Instructions:* ${instructions || 'None'}\n\n` +
-                 `📷 *Payment Proof:* Screenshot attached below in chat.`;
+                 `⚠️ *PLEASE ATTACH YOUR PAYMENT SCREENSHOT HERE NOW 📸*`;
+
+      alert("Opening WhatsApp... Please tap the CAMERA icon (📷) in WhatsApp and attach your payment screenshot before sending!");
 
       let encodedText = encodeURIComponent(text);
       let waUrl = `https://wa.me/918448784783?text=${encodedText}`;
