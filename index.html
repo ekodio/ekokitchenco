@@ -181,7 +181,7 @@
         </div>
       </div>
 
-      <!-- Chilli Specials (Reordered: Paneer -> Mushroom -> Chicken) -->
+      <!-- Chilli Specials -->
       <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-200 flex gap-3">
         <img src="chilli-specials.jpg" alt="Chilli Specials" class="w-20 h-20 rounded-xl object-cover">
         <div class="flex-1 space-y-2">
@@ -195,7 +195,7 @@
             <span class="font-semibold text-slate-700">Paneer (₹180)</span>
             <div class="flex gap-1">
               <button onclick="changeQty('Chilli Paneer (Dry)', 180, 1)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2 py-0.5 rounded text-[10px] font-bold">+ Dry</button>
-              <button onclick="changeQty('Chilli Paneer (Gravy)', 180, 1)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2 py-0.5 rounded text-[10px] font-bold">+ Gravy</button>
+              <button onclick="changeQty('Chilli Paneer (Gravy)', 180, 1)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-0.5 rounded text-[10px] font-bold">+ Gravy</button>
             </div>
           </div>
 
@@ -204,7 +204,7 @@
             <span class="font-semibold text-slate-700">Mushroom (₹200)</span>
             <div class="flex gap-1">
               <button onclick="changeQty('Chilli Mushroom (Dry)', 200, 1)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2 py-0.5 rounded text-[10px] font-bold">+ Dry</button>
-              <button onclick="changeQty('Chilli Mushroom (Gravy)', 200, 1)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2 py-0.5 rounded text-[10px] font-bold">+ Gravy</button>
+              <button onclick="changeQty('Chilli Mushroom (Gravy)', 200, 1)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-0.5 rounded text-[10px] font-bold">+ Gravy</button>
             </div>
           </div>
 
@@ -213,7 +213,7 @@
             <span class="font-semibold text-slate-700">Chicken (₹220)</span>
             <div class="flex gap-1">
               <button onclick="changeQty('Chilli Chicken (Dry)', 220, 1)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2 py-0.5 rounded text-[10px] font-bold">+ Dry</button>
-              <button onclick="changeQty('Chilli Chicken (Gravy)', 220, 1)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2 py-0.5 rounded text-[10px] font-bold">+ Gravy</button>
+              <button onclick="changeQty('Chilli Chicken (Gravy)', 220, 1)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-0.5 rounded text-[10px] font-bold">+ Gravy</button>
             </div>
           </div>
         </div>
@@ -346,33 +346,32 @@
     </div>
   </div>
 
-  <!-- UPI PAYMENT & PROOF UPLOAD MODAL -->
+  <!-- UPI PAYMENT & CONFIRMATION MODAL -->
   <div id="payment-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
     <div class="bg-white w-full max-w-sm rounded-3xl p-5 text-center space-y-3 shadow-2xl relative">
       <button onclick="closePaymentModal()" class="absolute top-4 right-4 text-slate-400 text-xl font-bold">✕</button>
 
       <h3 class="font-black text-slate-900 text-base">Scan & Pay via Any UPI App</h3>
-      <p class="text-xs text-slate-500">Total Amount: <span id="modal-pay-amount" class="font-black text-amber-600 text-base">₹0</span></p>
+      <p class="text-xs text-slate-500">Pay Exact Amount: <span id="modal-pay-amount" class="font-black text-amber-600 text-base">₹0</span></p>
 
       <!-- QR Code Image -->
       <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200 flex justify-center">
         <img id="qr-image" src="upi-qr.jpg" alt="Eko Kitchen Co. UPI QR Code" class="w-40 h-40 object-contain">
       </div>
 
-      <!-- Screenshot Upload Section -->
-      <div class="bg-amber-50/60 p-3 rounded-xl border border-amber-200/60 text-left space-y-1.5">
-        <label class="block text-xs font-bold text-amber-900">
-          Upload Payment Screenshot *
+      <!-- Confirmation Checkbox (Option 3) -->
+      <div class="bg-amber-50/80 p-3 rounded-xl border border-amber-200 text-left flex items-start gap-2.5">
+        <input type="checkbox" id="payment-checkbox" onchange="toggleOrderButton()" 
+               class="mt-0.5 w-4 h-4 text-emerald-600 bg-white border-slate-300 rounded focus:ring-emerald-500 cursor-pointer">
+        <label for="payment-checkbox" class="text-xs text-amber-950 font-medium cursor-pointer leading-tight">
+          I have scanned & paid <span id="checkbox-pay-amount" class="font-black text-emerald-700">₹0</span> on UPI, and I will share the screenshot on WhatsApp.
         </label>
-        <input type="file" id="screenshot-file" accept="image/*" onchange="validateFileSelected()" 
-               class="block w-full text-xs text-slate-500 file:mr-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-amber-500 file:text-slate-950 hover:file:bg-amber-400">
-        <p class="text-[10px] text-slate-600 font-semibold">Select screenshot to confirm you have proof ready to send in WhatsApp.</p>
       </div>
 
-      <!-- Send Order Button -->
+      <!-- Send Order Button (Enabled ONLY when checkbox is ticked) -->
       <button id="send-whatsapp-btn" onclick="sendWhatsAppOrder()" disabled
               class="w-full bg-slate-300 text-slate-500 font-black py-3 rounded-xl text-sm transition shadow-md flex items-center justify-center gap-2 cursor-not-allowed">
-        <span>✅ Proceed & Send Order to Kitchen</span>
+        <span>✅ Send Paid Order to Kitchen</span>
       </button>
     </div>
   </div>
@@ -482,7 +481,15 @@
       }
 
       const { finalTotal } = calculateTotal();
-      document.getElementById('modal-pay-amount').innerText = `₹${Math.round(finalTotal)}`;
+      const formattedTotal = `₹${Math.round(finalTotal)}`;
+      document.getElementById('modal-pay-amount').innerText = formattedTotal;
+      document.getElementById('checkbox-pay-amount').innerText = formattedTotal;
+      
+      // Reset checkbox state
+      const checkbox = document.getElementById('payment-checkbox');
+      checkbox.checked = false;
+      toggleOrderButton();
+
       document.getElementById('payment-modal').classList.remove('hidden');
     }
 
@@ -490,11 +497,11 @@
       document.getElementById('payment-modal').classList.add('hidden');
     }
 
-    function validateFileSelected() {
-      const fileInput = document.getElementById('screenshot-file');
+    function toggleOrderButton() {
+      const checkbox = document.getElementById('payment-checkbox');
       const btn = document.getElementById('send-whatsapp-btn');
 
-      if (fileInput.files && fileInput.files.length > 0) {
+      if (checkbox.checked) {
         btn.disabled = false;
         btn.classList.remove('bg-slate-300', 'text-slate-500', 'cursor-not-allowed');
         btn.classList.add('bg-emerald-600', 'hover:bg-emerald-500', 'text-white');
@@ -521,9 +528,9 @@
                  `📋 *ORDER ITEMS:*\n${itemSummary}\n\n` +
                  `💰 *Total Paid:* ₹${Math.round(finalTotal)}\n` +
                  `📝 *Instructions:* ${instructions || 'None'}\n\n` +
-                 `⚠️ *PLEASE ATTACH YOUR PAYMENT SCREENSHOT HERE NOW 📸*`;
+                 `📸 *Payment Proof:* Attaching screenshot below in chat 👇`;
 
-      alert("Opening WhatsApp... Please tap the CAMERA icon (📷) in WhatsApp and attach your payment screenshot before sending!");
+      alert("Opening WhatsApp... Please attach your payment screenshot in the chat now to confirm your order with the chef!");
 
       let encodedText = encodeURIComponent(text);
       let waUrl = `https://wa.me/918448784783?text=${encodedText}`;
