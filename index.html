@@ -289,10 +289,40 @@
       </div>
     </section>
 
+    <!-- CUSTOMIZATIONS / ADD-ONS SECTION -->
+    <div class="bg-white p-4 rounded-2xl shadow-sm border border-amber-200 space-y-2.5">
+      <div class="flex justify-between items-center">
+        <div>
+          <h3 class="text-xs font-black uppercase tracking-wider text-amber-700">Add-Ons & Customizations</h3>
+          <p class="text-[11px] text-slate-500 font-medium">Add extra fillings or customize your dish</p>
+        </div>
+        <span class="bg-amber-100 text-amber-800 text-[10px] font-black px-2 py-0.5 rounded-md">+₹30 each</span>
+      </div>
+      
+      <div class="grid grid-cols-2 gap-2 text-xs font-bold">
+        <button onclick="changeQty('Add-on: Extra Egg', 30, 1)" class="bg-amber-50/70 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 px-2.5 rounded-xl transition text-slate-800 text-left flex justify-between items-center">
+          <span>+ Extra Egg</span>
+          <span class="text-amber-700 font-black">₹30</span>
+        </button>
+        <button onclick="changeQty('Add-on: Extra Paneer', 30, 1)" class="bg-amber-50/70 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 px-2.5 rounded-xl transition text-slate-800 text-left flex justify-between items-center">
+          <span>+ Extra Paneer</span>
+          <span class="text-amber-700 font-black">₹30</span>
+        </button>
+        <button onclick="changeQty('Add-on: Extra Chicken', 30, 1)" class="bg-amber-50/70 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 px-2.5 rounded-xl transition text-slate-800 text-left flex justify-between items-center">
+          <span>+ Extra Chicken</span>
+          <span class="text-amber-700 font-black">₹30</span>
+        </button>
+        <button onclick="changeQty('Add-on: Extra Cheese', 30, 1)" class="bg-amber-50/70 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-2 px-2.5 rounded-xl transition text-slate-800 text-left flex justify-between items-center">
+          <span>+ Extra Cheese</span>
+          <span class="text-amber-700 font-black">₹30</span>
+        </button>
+      </div>
+    </div>
+
     <!-- Special Instructions Input -->
     <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200">
       <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">Special Instructions for Chef</label>
-      <input type="text" id="special-instructions" placeholder="e.g., Less spicy, extra onions, no mayo" 
+      <input type="text" id="special-instructions" placeholder="e.g., Put extra egg inside Paneer Roll, make it spicy" 
              class="w-full p-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-amber-500 focus:outline-none text-xs">
     </div>
 
@@ -492,7 +522,6 @@
       }
     }
 
-    // Step 1: Open Bill Summary
     function openBillModal() {
       const name = document.getElementById('student-name').value.trim();
       const room = document.getElementById('room-number').value.trim();
@@ -510,7 +539,6 @@
       document.getElementById('bill-subtotal').innerText = `₹${subtotal}`;
       document.getElementById('bill-grand-total').innerText = `₹${Math.round(finalTotal)}`;
 
-      // Render items in bill
       const itemsContainer = document.getElementById('bill-items-container');
       itemsContainer.innerHTML = Object.keys(cart).map(name => {
         const item = cart[name];
@@ -522,7 +550,6 @@
         `;
       }).join('');
 
-      // Discount row
       const discountRow = document.getElementById('bill-discount-row');
       if (discount > 0) {
         discountRow.classList.remove('hidden');
@@ -539,7 +566,6 @@
       document.getElementById('bill-modal').classList.add('hidden');
     }
 
-    // Step 2: Go to Payment Modal
     function goToPaymentModal() {
       closeBillModal();
 
