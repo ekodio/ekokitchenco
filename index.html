@@ -51,7 +51,7 @@
         <button onclick="switchTab('mains')" id="tab-mains" class="tab-btn flex-1 py-2 rounded-xl bg-amber-500 text-slate-950 transition">Mains</button>
         <button onclick="switchTab('snacks')" id="tab-snacks" class="tab-btn flex-1 py-2 rounded-xl text-slate-500 hover:bg-slate-100 transition">Snacks</button>
         <button onclick="switchTab('beverages')" id="tab-beverages" class="tab-btn flex-1 py-2 rounded-xl text-slate-500 hover:bg-slate-100 transition">Beverages</button>
-        <button onclick="switchTab('dessert')" id="tab-dessert" class="tab-btn flex-1 py-2 rounded-xl text-slate-500 hover:bg-slate-100 transition">Dessert</button>
+        <button onclick="switchTab('desserts')" id="tab-desserts" class="tab-btn flex-1 py-2 rounded-xl text-slate-500 hover:bg-slate-100 transition">Desserts</button>
       </div>
     </div>
 
@@ -93,14 +93,20 @@
         </div>
       </div>
 
-      <!-- Pasta -->
+      <!-- Pasta (Veg & Chicken Options) -->
       <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-200 flex gap-3 items-center">
         <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=300&q=80" alt="Pasta" class="w-16 h-16 rounded-xl object-cover">
         <div class="flex-1 space-y-2">
           <h3 class="font-bold text-sm text-slate-800">Pasta</h3>
-          <div class="flex gap-1.5">
-            <button onclick="changeQty('Pasta (White Sauce)', 100, 1)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded-lg text-[11px] font-bold">+ White Sauce ₹100</button>
-            <button onclick="changeQty('Pasta (Red Sauce)', 120, 1)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded-lg text-[11px] font-bold">+ Red Sauce ₹120</button>
+          <div class="space-y-1.5">
+            <div class="flex gap-1.5">
+              <button onclick="changeQty('Pasta Veg (White Sauce)', 100, 1)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded-lg text-[10px] font-bold">+ Veg White ₹100</button>
+              <button onclick="changeQty('Pasta Veg (Red Sauce)', 120, 1)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded-lg text-[10px] font-bold">+ Veg Red ₹120</button>
+            </div>
+            <div class="flex gap-1.5">
+              <button onclick="changeQty('Pasta Chicken (White Sauce)', 130, 1)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded-lg text-[10px] font-bold">+ Chk White ₹130</button>
+              <button onclick="changeQty('Pasta Chicken (Red Sauce)', 150, 1)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded-lg text-[10px] font-bold">+ Chk Red ₹150</button>
+            </div>
           </div>
         </div>
       </div>
@@ -108,12 +114,50 @@
       <!-- Biryani -->
       <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-200 flex gap-3 items-center">
         <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=300&q=80" alt="Biryani" class="w-16 h-16 rounded-xl object-cover">
-        <div class="flex-1 space-y-2">
-          <h3 class="font-bold text-sm text-slate-800">Biryani</h3>
-          <div class="flex gap-1.5">
+        <div class="flex-1 space-y-1.5">
+          <div>
+            <h3 class="font-bold text-sm text-slate-800">Biryani</h3>
+            <p class="text-[11px] text-amber-700 font-medium italic">Served with mint chutney and raita</p>
+          </div>
+          <div class="flex gap-1.5 pt-0.5">
             <button onclick="changeQty('Biryani (Veg)', 100, 1)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded-lg text-[11px] font-bold">+ Veg ₹100</button>
             <button onclick="changeQty('Biryani (Egg)', 130, 1)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded-lg text-[11px] font-bold">+ Egg ₹130</button>
             <button onclick="changeQty('Biryani (Chicken)', 150, 1)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded-lg text-[11px] font-bold">+ Chk ₹150</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chilli Specials (Moved to Mains) -->
+      <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-200 flex gap-3 items-center">
+        <img src="chilli-specials.jpg" alt="Chilli Specials" class="w-16 h-16 rounded-xl object-cover">
+        <div class="flex-1 space-y-2">
+          <h3 class="font-bold text-sm text-slate-800">Chilli Specials (Dry/Gravy)</h3>
+          
+          <!-- Paneer -->
+          <div class="flex justify-between items-center text-xs">
+            <span class="font-semibold text-slate-700">Paneer (₹180)</span>
+            <div class="flex gap-1">
+              <button onclick="changeQty('Chilli Paneer (Dry)', 180, 1)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-0.5 rounded text-[10px] font-bold">+ Dry</button>
+              <button onclick="changeQty('Chilli Paneer (Gravy)', 180, 1)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-0.5 rounded text-[10px] font-bold">+ Gravy</button>
+            </div>
+          </div>
+
+          <!-- Mushroom -->
+          <div class="flex justify-between items-center text-xs">
+            <span class="font-semibold text-slate-700">Mushroom (₹200)</span>
+            <div class="flex gap-1">
+              <button onclick="changeQty('Chilli Mushroom (Dry)', 200, 1)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-0.5 rounded text-[10px] font-bold">+ Dry</button>
+              <button onclick="changeQty('Chilli Mushroom (Gravy)', 200, 1)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-0.5 rounded text-[10px] font-bold">+ Gravy</button>
+            </div>
+          </div>
+
+          <!-- Chicken -->
+          <div class="flex justify-between items-center text-xs">
+            <span class="font-semibold text-slate-700">Chicken (₹220)</span>
+            <div class="flex gap-1">
+              <button onclick="changeQty('Chilli Chicken (Dry)', 220, 1)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-0.5 rounded text-[10px] font-bold">+ Dry</button>
+              <button onclick="changeQty('Chilli Chicken (Gravy)', 220, 1)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-0.5 rounded text-[10px] font-bold">+ Gravy</button>
+            </div>
           </div>
         </div>
       </div>
@@ -156,41 +200,6 @@
           <div class="flex gap-1.5">
             <button onclick="changeQty('French Fries (Salted)', 80, 1)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 py-1.5 rounded-lg text-xs font-bold">+ Salted ₹80</button>
             <button onclick="changeQty('French Fries (Peri Peri)', 100, 1)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 py-1.5 rounded-lg text-xs font-bold">+ Peri Peri ₹100</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Chilli Specials -->
-      <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-200 flex gap-3 items-center">
-        <img src="chilli-specials.jpg" alt="Chilli Specials" class="w-16 h-16 rounded-xl object-cover">
-        <div class="flex-1 space-y-2">
-          <h3 class="font-bold text-sm text-slate-800">Chilli Specials (Dry/Gravy)</h3>
-          
-          <!-- Paneer -->
-          <div class="flex justify-between items-center text-xs">
-            <span class="font-semibold text-slate-700">Paneer (₹180)</span>
-            <div class="flex gap-1">
-              <button onclick="changeQty('Chilli Paneer (Dry)', 180, 1)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-0.5 rounded text-[10px] font-bold">+ Dry</button>
-              <button onclick="changeQty('Chilli Paneer (Gravy)', 180, 1)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-0.5 rounded text-[10px] font-bold">+ Gravy</button>
-            </div>
-          </div>
-
-          <!-- Mushroom -->
-          <div class="flex justify-between items-center text-xs">
-            <span class="font-semibold text-slate-700">Mushroom (₹200)</span>
-            <div class="flex gap-1">
-              <button onclick="changeQty('Chilli Mushroom (Dry)', 200, 1)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-0.5 rounded text-[10px] font-bold">+ Dry</button>
-              <button onclick="changeQty('Chilli Mushroom (Gravy)', 200, 1)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-0.5 rounded text-[10px] font-bold">+ Gravy</button>
-            </div>
-          </div>
-
-          <!-- Chicken -->
-          <div class="flex justify-between items-center text-xs">
-            <span class="font-semibold text-slate-700">Chicken (₹220)</span>
-            <div class="flex gap-1">
-              <button onclick="changeQty('Chilli Chicken (Dry)', 220, 1)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-0.5 rounded text-[10px] font-bold">+ Dry</button>
-              <button onclick="changeQty('Chilli Chicken (Gravy)', 220, 1)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-0.5 rounded text-[10px] font-bold">+ Gravy</button>
-            </div>
           </div>
         </div>
       </div>
@@ -274,8 +283,8 @@
       </div>
     </section>
 
-    <!-- TAB 4: DESSERT -->
-    <section id="section-dessert" class="menu-section space-y-3 hidden">
+    <!-- TAB 4: DESSERTS -->
+    <section id="section-desserts" class="menu-section space-y-3 hidden">
       <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 text-center space-y-2">
         <span class="text-3xl">🍰</span>
         <h3 class="font-bold text-slate-800 text-sm">Sweet Treats Coming Soon!</h3>
