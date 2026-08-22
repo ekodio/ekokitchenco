@@ -296,13 +296,13 @@
     <!-- TAB 3: BEVERAGES -->
     <section id="section-beverages" class="menu-section space-y-3 hidden">
       
-      <!-- Chai (With Flavor Customization) -->
+      <!-- Chai -->
       <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-200 flex gap-3 items-center">
         <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=300&q=80" alt="Chai" class="w-16 h-16 rounded-xl object-cover">
         <div class="flex-1 flex justify-between items-center">
           <div>
             <h3 class="font-bold text-sm text-slate-800">Chai (Medium Cup)</h3>
-            <p class="text-[11px] text-slate-400">Plain or flavored</p>
+            <p class="text-[11px] text-slate-400">Plain, Elaichi, Ginger, Masala</p>
           </div>
           <button onclick="openCustomizationModal('Chai (Medium Cup)', 50, 'chai')" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-4 py-1.5 rounded-lg text-xs font-bold">+ ₹50</button>
         </div>
@@ -387,9 +387,7 @@
 
       <div class="space-y-2.5">
         <p class="text-xs font-bold uppercase tracking-wider text-slate-600">Choose Customization / Add-Ons:</p>
-        <div id="custom-options-container" class="space-y-2 text-xs">
-          <!-- Populated dynamically based on item type -->
-        </div>
+        <div id="custom-options-container" class="space-y-2 text-xs"></div>
       </div>
 
       <div class="flex gap-2 pt-2">
@@ -497,7 +495,6 @@
     let cart = {};
     let currentCustomItem = { name: '', price: 0, type: '' };
 
-    // Customization config mapping based on user specifications
     const customConfig = {
       pizza: [
         { label: 'Extra Veggies', price: 30 },
@@ -515,9 +512,9 @@
         { label: 'Extra Veggies', price: 30 }
       ],
       chai: [
-        { label: 'Elaichi Flavor', price: 10 },
-        { label: 'Ginger Flavor', price: 10 },
-        { label: 'Masala Flavor', price: 10 }
+        { label: 'Elaichi', price: 10 },
+        { label: 'Ginger', price: 10 },
+        { label: 'Masala', price: 10 }
       ]
     };
 
