@@ -67,19 +67,19 @@
     <!-- TAB 1: MAINS -->
     <section id="section-mains" class="menu-section space-y-3">
       
-      <!-- Pizza (New) -->
+      <!-- Pizza -->
       <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-200 flex gap-3 items-center">
         <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=300&q=80" alt="Pizza" class="w-16 h-16 rounded-xl object-cover">
         <div class="flex-1 space-y-1.5">
           <div class="flex justify-between items-center">
-            <h3 class="font-bold text-sm text-slate-800">Fresh Baked Pizza</h3>
+            <h3 class="font-bold text-sm text-slate-800">Pizza</h3>
             <span class="text-[10px] bg-slate-100 text-slate-600 font-bold px-1.5 py-0.5 rounded">4 Slices</span>
           </div>
           <div class="grid grid-cols-2 gap-1.5">
-            <button onclick="openCustomizationModal('Veg Pizza (4 slices)', 130)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1 rounded-lg text-[10px] font-bold">+ Veg ₹130</button>
-            <button onclick="openCustomizationModal('Margherita Pizza (4 slices)', 150)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1 rounded-lg text-[10px] font-bold">+ Margherita ₹150</button>
-            <button onclick="openCustomizationModal('Paneer Pizza (4 slices)', 160)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1 rounded-lg text-[10px] font-bold">+ Paneer ₹160</button>
-            <button onclick="openCustomizationModal('Chicken Pizza (4 slices)', 180)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1 rounded-lg text-[10px] font-bold">+ Chicken ₹180</button>
+            <button onclick="openCustomizationModal('Veg Pizza (4 slices)', 130, 'pizza')" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1 rounded-lg text-[10px] font-bold">+ Veg ₹130</button>
+            <button onclick="openCustomizationModal('Margherita Pizza (4 slices)', 150, 'pizza')" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1 rounded-lg text-[10px] font-bold">+ Margherita ₹150</button>
+            <button onclick="openCustomizationModal('Paneer Pizza (4 slices)', 160, 'pizza')" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1 rounded-lg text-[10px] font-bold">+ Paneer ₹160</button>
+            <button onclick="openCustomizationModal('Chicken Pizza (4 slices)', 180, 'pizza')" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1 rounded-lg text-[10px] font-bold">+ Chicken ₹180</button>
           </div>
         </div>
       </div>
@@ -90,9 +90,9 @@
         <div class="flex-1 space-y-2">
           <h3 class="font-bold text-sm text-slate-800">Grilled Sandwich</h3>
           <div class="flex gap-1.5">
-            <button onclick="openCustomizationModal('Grilled Sandwich (Veg)', 60)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded-lg text-[11px] font-bold">+ Veg ₹60</button>
-            <button onclick="openCustomizationModal('Grilled Sandwich (Paneer)', 80)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded-lg text-[11px] font-bold">+ Paneer ₹80</button>
-            <button onclick="openCustomizationModal('Grilled Sandwich (Chicken)', 100)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded-lg text-[11px] font-bold">+ Chk ₹100</button>
+            <button onclick="openCustomizationModal('Grilled Sandwich (Veg)', 60, 'sandwich')" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded-lg text-[11px] font-bold">+ Veg ₹60</button>
+            <button onclick="openCustomizationModal('Grilled Sandwich (Paneer)', 80, 'sandwich')" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded-lg text-[11px] font-bold">+ Paneer ₹80</button>
+            <button onclick="openCustomizationModal('Grilled Sandwich (Chicken)', 100, 'sandwich')" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded-lg text-[11px] font-bold">+ Chk ₹100</button>
           </div>
         </div>
       </div>
@@ -103,9 +103,9 @@
         <div class="flex-1 space-y-2">
           <h3 class="font-bold text-sm text-slate-800">Kathi Roll</h3>
           <div class="flex gap-1.5">
-            <button onclick="openCustomizationModal('Kathi Roll (Paneer)', 80)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded-lg text-[11px] font-bold">+ Paneer ₹80</button>
-            <button onclick="openCustomizationModal('Kathi Roll (Egg)', 100)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded-lg text-[11px] font-bold">+ Egg ₹100</button>
-            <button onclick="openCustomizationModal('Kathi Roll (Chicken)', 130)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded-lg text-[11px] font-bold">+ Chk ₹130</button>
+            <button onclick="openCustomizationModal('Kathi Roll (Paneer)', 80, 'kathi')" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded-lg text-[11px] font-bold">+ Paneer ₹80</button>
+            <button onclick="openCustomizationModal('Kathi Roll (Egg)', 100, 'kathi')" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded-lg text-[11px] font-bold">+ Egg ₹100</button>
+            <button onclick="openCustomizationModal('Kathi Roll (Chicken)', 130, 'kathi')" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded-lg text-[11px] font-bold">+ Chk ₹130</button>
           </div>
         </div>
       </div>
@@ -117,12 +117,12 @@
           <h3 class="font-bold text-sm text-slate-800">Pasta</h3>
           <div class="space-y-1.5">
             <div class="flex gap-1.5">
-              <button onclick="openCustomizationModal('Pasta Veg (White Sauce)', 100)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded-lg text-[10px] font-bold">+ Veg White ₹100</button>
-              <button onclick="openCustomizationModal('Pasta Veg (Red Sauce)', 120)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded-lg text-[10px] font-bold">+ Veg Red ₹120</button>
+              <button onclick="openCustomizationModal('Pasta Veg (White Sauce)', 100, 'pasta')" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded-lg text-[10px] font-bold">+ Veg White ₹100</button>
+              <button onclick="openCustomizationModal('Pasta Veg (Red Sauce)', 120, 'pasta')" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded-lg text-[10px] font-bold">+ Veg Red ₹120</button>
             </div>
             <div class="flex gap-1.5">
-              <button onclick="openCustomizationModal('Pasta Chicken (White Sauce)', 130)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded-lg text-[10px] font-bold">+ Chk White ₹130</button>
-              <button onclick="openCustomizationModal('Pasta Chicken (Red Sauce)', 150)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded-lg text-[10px] font-bold">+ Chk Red ₹150</button>
+              <button onclick="openCustomizationModal('Pasta Chicken (White Sauce)', 130, 'pasta')" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded-lg text-[10px] font-bold">+ Chk White ₹130</button>
+              <button onclick="openCustomizationModal('Pasta Chicken (Red Sauce)', 150, 'pasta')" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded-lg text-[10px] font-bold">+ Chk Red ₹150</button>
             </div>
           </div>
         </div>
@@ -137,9 +137,9 @@
             <p class="text-[11px] text-amber-700 font-medium italic">Served with mint chutney and raita</p>
           </div>
           <div class="flex gap-1.5 pt-0.5">
-            <button onclick="openCustomizationModal('Biryani (Veg)', 100)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded-lg text-[11px] font-bold">+ Veg ₹100</button>
-            <button onclick="openCustomizationModal('Biryani (Egg)', 130)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded-lg text-[11px] font-bold">+ Egg ₹130</button>
-            <button onclick="openCustomizationModal('Biryani (Chicken)', 150)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded-lg text-[11px] font-bold">+ Chk ₹150</button>
+            <button onclick="addDirectItem('Biryani (Veg)', 100)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded-lg text-[11px] font-bold">+ Veg ₹100</button>
+            <button onclick="addDirectItem('Biryani (Egg)', 130)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded-lg text-[11px] font-bold">+ Egg ₹130</button>
+            <button onclick="addDirectItem('Biryani (Chicken)', 150)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 hover:text-slate-950 py-1.5 rounded-lg text-[11px] font-bold">+ Chk ₹150</button>
           </div>
         </div>
       </div>
@@ -153,24 +153,24 @@
           <div class="flex justify-between items-center text-xs">
             <span class="font-semibold text-slate-700">Paneer (₹180)</span>
             <div class="flex gap-1">
-              <button onclick="openCustomizationModal('Chilli Paneer (Dry)', 180)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-0.5 rounded text-[10px] font-bold">+ Dry</button>
-              <button onclick="openCustomizationModal('Chilli Paneer (Gravy)', 180)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-0.5 rounded text-[10px] font-bold">+ Gravy</button>
+              <button onclick="addDirectItem('Chilli Paneer (Dry)', 180)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-0.5 rounded text-[10px] font-bold">+ Dry</button>
+              <button onclick="addDirectItem('Chilli Paneer (Gravy)', 180)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-0.5 rounded text-[10px] font-bold">+ Gravy</button>
             </div>
           </div>
 
           <div class="flex justify-between items-center text-xs">
             <span class="font-semibold text-slate-700">Mushroom (₹200)</span>
             <div class="flex gap-1">
-              <button onclick="openCustomizationModal('Chilli Mushroom (Dry)', 200)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-0.5 rounded text-[10px] font-bold">+ Dry</button>
-              <button onclick="openCustomizationModal('Chilli Mushroom (Gravy)', 200)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-0.5 rounded text-[10px] font-bold">+ Gravy</button>
+              <button onclick="addDirectItem('Chilli Mushroom (Dry)', 200)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-0.5 rounded text-[10px] font-bold">+ Dry</button>
+              <button onclick="addDirectItem('Chilli Mushroom (Gravy)', 200)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-0.5 rounded text-[10px] font-bold">+ Gravy</button>
             </div>
           </div>
 
           <div class="flex justify-between items-center text-xs">
             <span class="font-semibold text-slate-700">Chicken (₹220)</span>
             <div class="flex gap-1">
-              <button onclick="openCustomizationModal('Chilli Chicken (Dry)', 220)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-0.5 rounded text-[10px] font-bold">+ Dry</button>
-              <button onclick="openCustomizationModal('Chilli Chicken (Gravy)', 220)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-0.5 rounded text-[10px] font-bold">+ Gravy</button>
+              <button onclick="addDirectItem('Chilli Chicken (Dry)', 220)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-0.5 rounded text-[10px] font-bold">+ Dry</button>
+              <button onclick="addDirectItem('Chilli Chicken (Gravy)', 220)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-0.5 rounded text-[10px] font-bold">+ Gravy</button>
             </div>
           </div>
         </div>
@@ -182,9 +182,9 @@
         <div class="flex-1 space-y-2">
           <h3 class="font-bold text-sm text-slate-800">Noodles</h3>
           <div class="flex gap-1.5">
-            <button onclick="openCustomizationModal('Noodles (Veg)', 70)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 py-1.5 rounded-lg text-[11px] font-bold">+ Veg ₹70</button>
-            <button onclick="openCustomizationModal('Noodles (Egg)', 90)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 py-1.5 rounded-lg text-[11px] font-bold">+ Egg ₹90</button>
-            <button onclick="openCustomizationModal('Noodles (Chicken)', 120)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 py-1.5 rounded-lg text-[11px] font-bold">+ Chk ₹120</button>
+            <button onclick="addDirectItem('Noodles (Veg)', 70)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 py-1.5 rounded-lg text-[11px] font-bold">+ Veg ₹70</button>
+            <button onclick="addDirectItem('Noodles (Egg)', 90)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 py-1.5 rounded-lg text-[11px] font-bold">+ Egg ₹90</button>
+            <button onclick="addDirectItem('Noodles (Chicken)', 120)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 py-1.5 rounded-lg text-[11px] font-bold">+ Chk ₹120</button>
           </div>
         </div>
       </div>
@@ -195,9 +195,9 @@
         <div class="flex-1 space-y-2">
           <h3 class="font-bold text-sm text-slate-800">Fried Rice</h3>
           <div class="flex gap-1.5">
-            <button onclick="openCustomizationModal('Fried Rice (Veg)', 80)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 py-1.5 rounded-lg text-[11px] font-bold">+ Veg ₹80</button>
-            <button onclick="openCustomizationModal('Fried Rice (Egg)', 100)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 py-1.5 rounded-lg text-[11px] font-bold">+ Egg ₹100</button>
-            <button onclick="openCustomizationModal('Fried Rice (Chicken)', 130)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 py-1.5 rounded-lg text-[11px] font-bold">+ Chk ₹130</button>
+            <button onclick="addDirectItem('Fried Rice (Veg)', 80)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 py-1.5 rounded-lg text-[11px] font-bold">+ Veg ₹80</button>
+            <button onclick="addDirectItem('Fried Rice (Egg)', 100)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 py-1.5 rounded-lg text-[11px] font-bold">+ Egg ₹100</button>
+            <button onclick="addDirectItem('Fried Rice (Chicken)', 130)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 py-1.5 rounded-lg text-[11px] font-bold">+ Chk ₹130</button>
           </div>
         </div>
       </div>
@@ -206,38 +206,32 @@
     <!-- TAB 2: SNACKS -->
     <section id="section-snacks" class="menu-section space-y-3 hidden">
       
-      <!-- Samosa (New) -->
+      <!-- Samosa -->
       <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-200 flex gap-3 items-center">
         <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=300&q=80" alt="Samosa" class="w-16 h-16 rounded-xl object-cover">
         <div class="flex-1 flex justify-between items-center">
           <div>
             <h3 class="font-bold text-sm text-slate-800">Crispy Samosa</h3>
-            <p class="text-[11px] text-slate-400">2 pcs with mint & saunth chutney</p>
+            <p class="text-[11px] text-slate-400">2 pcs with chutney</p>
           </div>
           <button onclick="addDirectItem('Samosa (2 pcs)', 40)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-4 py-1.5 rounded-lg text-xs font-bold">+ ₹40</button>
         </div>
       </div>
 
-      <!-- Spring Roll (New) -->
+      <!-- Spring Roll -->
       <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-200 flex gap-3 items-center">
         <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=300&q=80" alt="Spring Roll" class="w-16 h-16 rounded-xl object-cover">
         <div class="flex-1 flex justify-between items-center">
-          <div>
-            <h3 class="font-bold text-sm text-slate-800">Crunchy Spring Roll</h3>
-            <p class="text-[11px] text-slate-400">Served with hot garlic sauce</p>
-          </div>
+          <h3 class="font-bold text-sm text-slate-800">Spring Roll</h3>
           <button onclick="addDirectItem('Spring Roll', 80)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-4 py-1.5 rounded-lg text-xs font-bold">+ ₹80</button>
         </div>
       </div>
 
-      <!-- Dahi Ke Sholey (New) -->
+      <!-- Dahi Ke Sholey -->
       <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-200 flex gap-3 items-center">
         <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=300&q=80" alt="Dahi Ke Sholey" class="w-16 h-16 rounded-xl object-cover">
         <div class="flex-1 flex justify-between items-center">
-          <div>
-            <h3 class="font-bold text-sm text-slate-800">Dahi Ke Sholey</h3>
-            <p class="text-[11px] text-slate-400">Crispy spiced hung curd pockets</p>
-          </div>
+          <h3 class="font-bold text-sm text-slate-800">Dahi Ke Sholey</h3>
           <button onclick="addDirectItem('Dahi Ke Sholey', 120)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-4 py-1.5 rounded-lg text-xs font-bold">+ ₹120</button>
         </div>
       </div>
@@ -302,23 +296,26 @@
     <!-- TAB 3: BEVERAGES -->
     <section id="section-beverages" class="menu-section space-y-3 hidden">
       
-      <!-- Chai -->
+      <!-- Chai (With Flavor Customization) -->
       <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-200 flex gap-3 items-center">
         <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=300&q=80" alt="Chai" class="w-16 h-16 rounded-xl object-cover">
         <div class="flex-1 flex justify-between items-center">
-          <h3 class="font-bold text-sm text-slate-800">Chai (Medium Cup)</h3>
-          <button onclick="addDirectItem('Chai (Medium Cup)', 50)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-4 py-1.5 rounded-lg text-xs font-bold">+ ₹50</button>
+          <div>
+            <h3 class="font-bold text-sm text-slate-800">Chai (Medium Cup)</h3>
+            <p class="text-[11px] text-slate-400">Plain or flavored</p>
+          </div>
+          <button onclick="openCustomizationModal('Chai (Medium Cup)', 50, 'chai')" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-4 py-1.5 rounded-lg text-xs font-bold">+ ₹50</button>
         </div>
       </div>
 
       <!-- Coffee -->
       <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-200 flex gap-3 items-center">
         <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=300&q=80" alt="Coffee" class="w-16 h-16 rounded-xl object-cover">
-        <div class="flex-1 flex justify-between items-center">
+        <div class="flex-1 space-y-2">
           <h3 class="font-bold text-sm text-slate-800">Coffee</h3>
           <div class="flex gap-1.5">
-            <button onclick="addDirectItem('Coffee (Hot)', 80)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-3 py-1.5 rounded-lg text-xs font-bold">+ Hot ₹80</button>
-            <button onclick="addDirectItem('Coffee (Cold)', 100)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-3 py-1.5 rounded-lg text-xs font-bold">+ Cold ₹100</button>
+            <button onclick="addDirectItem('Coffee (Hot)', 80)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 px-3 py-1.5 rounded-lg text-xs font-bold">+ Hot ₹80</button>
+            <button onclick="addDirectItem('Coffee (Cold)', 100)" class="flex-1 bg-amber-50 border border-amber-300 hover:bg-amber-500 px-3 py-1.5 rounded-lg text-xs font-bold">+ Cold ₹100</button>
           </div>
         </div>
       </div>
@@ -333,14 +330,14 @@
       </div>
     </section>
 
-    <!-- TAB 4: DESSERTS (New Items) -->
+    <!-- TAB 4: DESSERTS -->
     <section id="section-desserts" class="menu-section space-y-3 hidden">
       
       <!-- Pancakes -->
       <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-200 flex gap-3 items-center">
         <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=300&q=80" alt="Pancake" class="w-16 h-16 rounded-xl object-cover">
         <div class="flex-1 space-y-1.5">
-          <h3 class="font-bold text-sm text-slate-800">Fluffy Pancakes</h3>
+          <h3 class="font-bold text-sm text-slate-800">Pancakes</h3>
           <div class="grid grid-cols-2 gap-1.5">
             <button onclick="addDirectItem('Pancake (Plain)', 50)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 py-1 rounded-lg text-[10px] font-bold">+ Plain ₹50</button>
             <button onclick="addDirectItem('Pancake (+ Choco Sauce)', 60)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 py-1 rounded-lg text-[10px] font-bold">+ Choco ₹60</button>
@@ -354,10 +351,7 @@
       <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-200 flex gap-3 items-center">
         <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=300&q=80" alt="Fruit Custard" class="w-16 h-16 rounded-xl object-cover">
         <div class="flex-1 flex justify-between items-center">
-          <div>
-            <h3 class="font-bold text-sm text-slate-800">Fresh Fruit Custard</h3>
-            <p class="text-[11px] text-slate-400">Rich creamy vanilla with fresh seasonal fruits</p>
-          </div>
+          <h3 class="font-bold text-sm text-slate-800">Fruit Custard</h3>
           <button onclick="addDirectItem('Fruit Custard', 70)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-4 py-1.5 rounded-lg text-xs font-bold">+ ₹70</button>
         </div>
       </div>
@@ -366,10 +360,7 @@
       <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-200 flex gap-3 items-center">
         <img src="https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=300&q=80" alt="Halwa" class="w-16 h-16 rounded-xl object-cover">
         <div class="flex-1 flex justify-between items-center">
-          <div>
-            <h3 class="font-bold text-sm text-slate-800">Desi Ghee Halwa</h3>
-            <p class="text-[11px] text-slate-400">Warm homestyle rich semolina halwa</p>
-          </div>
+          <h3 class="font-bold text-sm text-slate-800">Halwa</h3>
           <button onclick="addDirectItem('Halwa', 60)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-4 py-1.5 rounded-lg text-xs font-bold">+ ₹60</button>
         </div>
       </div>
@@ -384,7 +375,7 @@
 
   </main>
 
-  <!-- ITEM CUSTOMIZATION MODAL (For Mains) -->
+  <!-- ITEM-SPECIFIC CUSTOMIZATION MODAL -->
   <div id="custom-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
     <div class="bg-white w-full max-w-sm rounded-3xl p-5 space-y-4 shadow-2xl relative">
       <button onclick="closeCustomizationModal()" class="absolute top-4 right-4 text-slate-400 text-xl font-bold">✕</button>
@@ -395,49 +386,15 @@
       </div>
 
       <div class="space-y-2.5">
-        <div class="flex justify-between items-center">
-          <p class="text-xs font-bold uppercase tracking-wider text-slate-600">Choose Add-Ons / Fillings:</p>
-          <span class="text-[10px] font-black text-amber-700 bg-amber-50 px-2 py-0.5 rounded">+₹30 each</span>
-        </div>
-
-        <div class="space-y-2 text-xs">
-          <label class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-200 cursor-pointer hover:bg-amber-50/50">
-            <span class="font-bold text-slate-800 flex items-center gap-2">
-              <input type="checkbox" value="Extra Egg" class="addon-checkbox w-4 h-4 text-amber-500 rounded focus:ring-amber-400">
-              Extra Egg
-            </span>
-            <span class="font-bold text-slate-600">+₹30</span>
-          </label>
-
-          <label class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-200 cursor-pointer hover:bg-amber-50/50">
-            <span class="font-bold text-slate-800 flex items-center gap-2">
-              <input type="checkbox" value="Extra Paneer" class="addon-checkbox w-4 h-4 text-amber-500 rounded focus:ring-amber-400">
-              Extra Paneer
-            </span>
-            <span class="font-bold text-slate-600">+₹30</span>
-          </label>
-
-          <label class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-200 cursor-pointer hover:bg-amber-50/50">
-            <span class="font-bold text-slate-800 flex items-center gap-2">
-              <input type="checkbox" value="Extra Chicken" class="addon-checkbox w-4 h-4 text-amber-500 rounded focus:ring-amber-400">
-              Extra Chicken
-            </span>
-            <span class="font-bold text-slate-600">+₹30</span>
-          </label>
-
-          <label class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-200 cursor-pointer hover:bg-amber-50/50">
-            <span class="font-bold text-slate-800 flex items-center gap-2">
-              <input type="checkbox" value="Extra Cheese" class="addon-checkbox w-4 h-4 text-amber-500 rounded focus:ring-amber-400">
-              Extra Cheese
-            </span>
-            <span class="font-bold text-slate-600">+₹30</span>
-          </label>
+        <p class="text-xs font-bold uppercase tracking-wider text-slate-600">Choose Customization / Add-Ons:</p>
+        <div id="custom-options-container" class="space-y-2 text-xs">
+          <!-- Populated dynamically based on item type -->
         </div>
       </div>
 
       <div class="flex gap-2 pt-2">
         <button onclick="confirmCustomization(false)" class="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-2.5 rounded-xl text-xs transition">
-          No Add-Ons
+          Plain / No Add-On
         </button>
         <button onclick="confirmCustomization(true)" class="flex-1 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black py-2.5 rounded-xl text-xs transition shadow-md">
           Add to Cart
@@ -471,7 +428,6 @@
         <p class="text-xs text-slate-400 font-medium">Eko Kitchen Co.</p>
       </div>
 
-      <!-- Resident Info Box -->
       <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs space-y-1">
         <div class="flex justify-between">
           <span class="text-slate-500 font-bold">Resident:</span>
@@ -483,13 +439,11 @@
         </div>
       </div>
 
-      <!-- Itemized Receipt -->
       <div class="space-y-2 max-h-48 overflow-y-auto pr-1">
         <p class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Items Ordered</p>
         <div id="bill-items-container" class="space-y-1.5 text-xs"></div>
       </div>
 
-      <!-- Financial Calculation Breakdown -->
       <div class="border-t border-slate-200 pt-3 space-y-1 text-xs">
         <div class="flex justify-between text-slate-600">
           <span>Subtotal:</span>
@@ -505,7 +459,6 @@
         </div>
       </div>
 
-      <!-- Action Button -->
       <button onclick="goToPaymentModal()" 
               class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-black py-3 rounded-xl text-sm transition shadow-lg flex items-center justify-center gap-2">
         <span>Proceed to UPI Payment →</span>
@@ -521,12 +474,10 @@
       <h3 class="font-black text-slate-900 text-base">Scan & Pay via Any UPI App</h3>
       <p class="text-xs text-slate-500">Pay Exact Amount: <span id="modal-pay-amount" class="font-black text-amber-600 text-base">₹0</span></p>
 
-      <!-- QR Code Image -->
       <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200 flex justify-center">
         <img id="qr-image" src="upi-qr.jpg?v=3" alt="Eko Kitchen Co. UPI QR Code" class="w-56 h-56 object-contain">
       </div>
 
-      <!-- Confirmation Checkbox -->
       <div class="bg-amber-50/80 p-3 rounded-xl border border-amber-200 text-left flex items-start gap-2.5">
         <input type="checkbox" id="payment-checkbox" onchange="toggleOrderButton()" 
                class="mt-0.5 w-4 h-4 text-emerald-600 bg-white border-slate-300 rounded focus:ring-emerald-500 cursor-pointer">
@@ -535,7 +486,6 @@
         </label>
       </div>
 
-      <!-- Send Order Button -->
       <button id="send-whatsapp-btn" onclick="sendWhatsAppOrder()" disabled
               class="w-full bg-slate-300 text-slate-500 font-black py-3 rounded-xl text-sm transition shadow-md flex items-center justify-center gap-2 cursor-not-allowed">
         <span>✅ Send Paid Order to Kitchen</span>
@@ -545,7 +495,31 @@
 
   <script>
     let cart = {};
-    let currentCustomItem = { name: '', price: 0 };
+    let currentCustomItem = { name: '', price: 0, type: '' };
+
+    // Customization config mapping based on user specifications
+    const customConfig = {
+      pizza: [
+        { label: 'Extra Veggies', price: 30 },
+        { label: 'Extra Paneer', price: 30 },
+        { label: 'Extra Cheese', price: 30 },
+        { label: 'Extra Chicken', price: 30 }
+      ],
+      sandwich: [
+        { label: 'Extra Cheese', price: 30 }
+      ],
+      kathi: [
+        { label: 'Extra Egg (1)', price: 30 }
+      ],
+      pasta: [
+        { label: 'Extra Veggies', price: 30 }
+      ],
+      chai: [
+        { label: 'Elaichi Flavor', price: 10 },
+        { label: 'Ginger Flavor', price: 10 },
+        { label: 'Masala Flavor', price: 10 }
+      ]
+    };
 
     function switchTab(category) {
       document.querySelectorAll('.menu-section').forEach(el => el.classList.add('hidden'));
@@ -561,12 +535,24 @@
       activeBtn.classList.remove('text-slate-500');
     }
 
-    function openCustomizationModal(name, basePrice) {
-      currentCustomItem = { name: name, price: basePrice };
+    function openCustomizationModal(name, basePrice, type) {
+      currentCustomItem = { name: name, price: basePrice, type: type };
       document.getElementById('custom-item-name').innerText = name;
       document.getElementById('custom-base-price').innerText = `₹${basePrice}`;
       
-      document.querySelectorAll('.addon-checkbox').forEach(cb => cb.checked = false);
+      const options = customConfig[type] || [];
+      const container = document.getElementById('custom-options-container');
+      
+      container.innerHTML = options.map(opt => `
+        <label class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-200 cursor-pointer hover:bg-amber-50/50">
+          <span class="font-bold text-slate-800 flex items-center gap-2">
+            <input type="checkbox" data-label="${opt.label}" data-price="${opt.price}" class="addon-checkbox w-4 h-4 text-amber-500 rounded focus:ring-amber-400">
+            ${opt.label}
+          </span>
+          <span class="font-bold text-slate-600">+₹${opt.price}</span>
+        </label>
+      `).join('');
+
       document.getElementById('custom-modal').classList.remove('hidden');
     }
 
@@ -581,8 +567,8 @@
       if (includeAddons) {
         let selectedAddons = [];
         document.querySelectorAll('.addon-checkbox:checked').forEach(cb => {
-          selectedAddons.push(cb.value);
-          finalPrice += 30;
+          selectedAddons.push(cb.getAttribute('data-label'));
+          finalPrice += parseInt(cb.getAttribute('data-price'), 10);
         });
 
         if (selectedAddons.length > 0) {
