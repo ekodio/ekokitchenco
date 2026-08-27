@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Eko Kitchen Co. | In-Room Menu</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Client-side QR generator for dynamic dynamic amount QR codes -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body class="bg-slate-100 text-slate-800 pb-36 font-sans">
 
@@ -464,53 +466,36 @@
     </div>
   </div>
 
-  <!-- STEP 2: FAST UPI & APP SELECTOR MODAL -->
+  <!-- STEP 2: ROBUST UNIVERSAL PAYMENT MODAL -->
   <div id="payment-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
     <div class="bg-white w-full max-w-sm rounded-3xl p-5 text-center space-y-3.5 shadow-2xl relative">
       <button onclick="closePaymentModal()" class="absolute top-4 right-4 text-slate-400 text-xl font-bold">✕</button>
 
       <div>
-        <h3 class="font-black text-slate-900 text-base">Pay with Any UPI App</h3>
+        <h3 class="font-black text-slate-900 text-base">Select UPI Payment</h3>
         <p class="text-xs text-slate-500">Pay Exact Amount: <span id="modal-pay-amount" class="font-black text-amber-600 text-base">₹0</span></p>
       </div>
 
-      <!-- App Specific Launchers -->
-      <div class="grid grid-cols-3 gap-2">
-        <button onclick="payViaApp('gpay')" class="bg-slate-50 hover:bg-blue-50 border border-slate-200 hover:border-blue-400 p-2.5 rounded-2xl text-center shadow-sm flex flex-col items-center justify-center transition active:scale-95">
-          <span class="text-lg">🔵</span>
-          <span class="text-[11px] font-black text-slate-800 mt-1">Google Pay</span>
-        </button>
-        <button onclick="payViaApp('phonepe')" class="bg-slate-50 hover:bg-purple-50 border border-slate-200 hover:border-purple-400 p-2.5 rounded-2xl text-center shadow-sm flex flex-col items-center justify-center transition active:scale-95">
-          <span class="text-lg">🟣</span>
-          <span class="text-[11px] font-black text-slate-800 mt-1">PhonePe</span>
-        </button>
-        <button onclick="payViaApp('paytm')" class="bg-slate-50 hover:bg-cyan-50 border border-slate-200 hover:border-cyan-400 p-2.5 rounded-2xl text-center shadow-sm flex flex-col items-center justify-center transition active:scale-95">
-          <span class="text-lg">🔷</span>
-          <span class="text-[11px] font-black text-slate-800 mt-1">Paytm</span>
-        </button>
+      <!-- Real-Time Auto-Generated Dynamic QR Code -->
+      <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200 flex flex-col items-center">
+        <div id="dynamic-qr-container" class="bg-white p-2 rounded-xl border border-slate-200"></div>
+        <p class="text-[10px] font-extrabold text-slate-500 mt-2">Scan with GPay / PhonePe / Paytm / Camera</p>
       </div>
 
-      <!-- Quick Copy UPI ID Helper -->
+      <!-- Native Universal Tap-to-Pay Button -->
+      <button onclick="triggerUniversalUPI()" class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-black py-3 px-4 rounded-xl text-xs transition shadow-md flex items-center justify-center gap-2">
+        <span>🚀 Tap to Open UPI App</span>
+      </button>
+
+      <!-- Instant Copy UPI ID Helper -->
       <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-200 flex justify-between items-center text-xs">
         <div class="text-left">
-          <p class="text-[10px] text-slate-400 font-bold uppercase">UPI ID</p>
+          <p class="text-[9px] text-slate-400 font-bold uppercase">UPI ID</p>
           <p class="font-black text-slate-800 text-[11px]">paytm.s1n4ilc@pty</p>
         </div>
         <button id="copy-vpa-btn" onclick="copyUPIId()" class="bg-slate-200 hover:bg-amber-400 text-slate-900 font-bold px-3 py-1 rounded-lg text-[10px] transition">
           📋 Copy ID
         </button>
-      </div>
-
-      <!-- Collapsible QR Code Toggle -->
-      <div>
-        <button onclick="toggleQRSection()" type="button" class="text-[11px] font-bold text-amber-700 hover:underline">
-          📷 Or view QR code image
-        </button>
-      </div>
-
-      <!-- QR Code Image Box -->
-      <div id="qr-container" class="bg-slate-50 p-2.5 rounded-2xl border border-slate-200 justify-center hidden">
-        <img id="qr-image" src="upi-qr.jpg?v=3" alt="Eko Kitchen Co. UPI QR Code" class="w-44 h-44 object-contain mx-auto">
       </div>
 
       <!-- Confirmation Checkbox -->
@@ -748,11 +733,6 @@
       document.getElementById('bill-modal').classList.add('hidden');
     }
 
-    function toggleQRSection() {
-      const qrBox = document.getElementById('qr-container');
-      qrBox.classList.toggle('hidden');
-    }
-
     function goToPaymentModal() {
       closeBillModal();
 
@@ -762,6 +742,21 @@
 
       document.getElementById('modal-pay-amount').innerText = formattedTotal;
       document.getElementById('checkbox-pay-amount').innerText = roundedTotal > 0 ? formattedTotal : '₹0';
+
+      // Universal URI Standard compatible with iOS Safari & Android
+      const upiUrl = `upi://pay?pa=${encodeURIComponent(UPI_ID)}&pn=${encodeURIComponent(PAYEE_NAME)}&am=${roundedTotal}&cu=INR&tn=EkoKitchenOrder`;
+
+      // Render Dynamic QR code containing amount
+      const qrContainer = document.getElementById('dynamic-qr-container');
+      qrContainer.innerHTML = '';
+      new QRCode(qrContainer, {
+        text: upiUrl,
+        width: 160,
+        height: 160,
+        colorDark: "#0f172a",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.M
+      });
 
       const checkbox = document.getElementById('payment-checkbox');
       checkbox.checked = false;
@@ -774,42 +769,11 @@
       document.getElementById('payment-modal').classList.add('hidden');
     }
 
-    // Direct App-Specific Launch Logic
-    function payViaApp(app) {
+    function triggerUniversalUPI() {
       const { finalTotal } = calculateTotal();
-      const amount = Math.round(finalTotal);
-      const isAndroid = /Android/i.test(navigator.userAgent);
-      const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-
-      let targetUrl = "";
-
-      if (app === 'gpay') {
-        if (isAndroid) {
-          targetUrl = `intent://pay?pa=${encodeURIComponent(UPI_ID)}&pn=${encodeURIComponent(PAYEE_NAME)}&am=${amount}&cu=INR&tn=EkoKitchenOrder#Intent;scheme=upi;package=com.google.android.apps.nbu.paisa.user;end`;
-        } else if (isIOS) {
-          targetUrl = `gpay://upi/pay?pa=${encodeURIComponent(UPI_ID)}&pn=${encodeURIComponent(PAYEE_NAME)}&am=${amount}&cu=INR&tn=EkoKitchenOrder`;
-        } else {
-          targetUrl = `upi://pay?pa=${encodeURIComponent(UPI_ID)}&pn=${encodeURIComponent(PAYEE_NAME)}&am=${amount}&cu=INR&tn=EkoKitchenOrder`;
-        }
-      } else if (app === 'phonepe') {
-        if (isAndroid) {
-          targetUrl = `intent://pay?pa=${encodeURIComponent(UPI_ID)}&pn=${encodeURIComponent(PAYEE_NAME)}&am=${amount}&cu=INR&tn=EkoKitchenOrder#Intent;scheme=upi;package=com.phonepe.app;end`;
-        } else if (isIOS) {
-          targetUrl = `phonepe://pay?pa=${encodeURIComponent(UPI_ID)}&pn=${encodeURIComponent(PAYEE_NAME)}&am=${amount}&cu=INR&tn=EkoKitchenOrder`;
-        } else {
-          targetUrl = `phonepe://pay?pa=${encodeURIComponent(UPI_ID)}&pn=${encodeURIComponent(PAYEE_NAME)}&am=${amount}&cu=INR&tn=EkoKitchenOrder`;
-        }
-      } else if (app === 'paytm') {
-        if (isAndroid) {
-          targetUrl = `intent://pay?pa=${encodeURIComponent(UPI_ID)}&pn=${encodeURIComponent(PAYEE_NAME)}&am=${amount}&cu=INR&tn=EkoKitchenOrder#Intent;scheme=upi;package=net.one97.paytm;end`;
-        } else if (isIOS) {
-          targetUrl = `paytmmp://pay?pa=${encodeURIComponent(UPI_ID)}&pn=${encodeURIComponent(PAYEE_NAME)}&am=${amount}&cu=INR&tn=EkoKitchenOrder`;
-        } else {
-          targetUrl = `paytmmp://pay?pa=${encodeURIComponent(UPI_ID)}&pn=${encodeURIComponent(PAYEE_NAME)}&am=${amount}&cu=INR&tn=EkoKitchenOrder`;
-        }
-      }
-
-      window.location.href = targetUrl;
+      const roundedTotal = Math.round(finalTotal);
+      const upiUrl = `upi://pay?pa=${encodeURIComponent(UPI_ID)}&pn=${encodeURIComponent(PAYEE_NAME)}&am=${roundedTotal}&cu=INR&tn=EkoKitchenOrder`;
+      window.location.href = upiUrl;
     }
 
     function copyUPIId() {
