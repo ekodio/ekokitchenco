@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Eko Kitchen Co. | In-Room Menu</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Dynamic QR generator -->
+  <!-- Real-time Dynamic QR generator -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body class="bg-slate-100 text-slate-800 pb-36 font-sans">
@@ -461,51 +461,42 @@
 
       <button onclick="goToPaymentModal()" 
               class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-black py-3 rounded-xl text-sm transition shadow-lg flex items-center justify-center gap-2">
-        <span>Proceed to Fast Payment →</span>
+        <span>Proceed to Payment →</span>
       </button>
     </div>
   </div>
 
-  <!-- STEP 2: DIRECT APP-SPECIFIC INTENT & DYNAMIC QR MODAL -->
+  <!-- STEP 2: ZERO-ERROR PAYMENT MODAL -->
   <div id="payment-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
     <div class="bg-white w-full max-w-sm rounded-3xl p-5 text-center space-y-3.5 shadow-2xl relative">
       <button onclick="closePaymentModal()" class="absolute top-4 right-4 text-slate-400 text-xl font-bold">✕</button>
 
       <div>
-        <h3 class="font-black text-slate-900 text-base">Select Your UPI App</h3>
+        <h3 class="font-black text-slate-900 text-base">Pay via Any UPI App</h3>
         <p class="text-xs text-slate-500">Pay Exact Amount: <span id="modal-pay-amount" class="font-black text-amber-600 text-base">₹0</span></p>
-      </div>
-
-      <!-- DIRECT APP LAUNCHERS (Tez/GPay, PhonePe, Paytm) -->
-      <div class="grid grid-cols-3 gap-2">
-        <a id="btn-gpay" href="#" target="_blank" class="bg-slate-50 hover:bg-blue-50 border border-slate-200 hover:border-blue-400 p-2.5 rounded-2xl text-center shadow-sm flex flex-col items-center justify-center transition active:scale-95">
-          <span class="text-xl">🔵</span>
-          <span class="text-[11px] font-black text-slate-800 mt-1">Google Pay</span>
-        </a>
-        <a id="btn-phonepe" href="#" target="_blank" class="bg-slate-50 hover:bg-purple-50 border border-slate-200 hover:border-purple-400 p-2.5 rounded-2xl text-center shadow-sm flex flex-col items-center justify-center transition active:scale-95">
-          <span class="text-xl">🟣</span>
-          <span class="text-[11px] font-black text-slate-800 mt-1">PhonePe</span>
-        </a>
-        <a id="btn-paytm" href="#" target="_blank" class="bg-slate-50 hover:bg-cyan-50 border border-slate-200 hover:border-cyan-400 p-2.5 rounded-2xl text-center shadow-sm flex flex-col items-center justify-center transition active:scale-95">
-          <span class="text-xl">🔷</span>
-          <span class="text-[11px] font-black text-slate-800 mt-1">Paytm</span>
-        </a>
       </div>
 
       <!-- Real-Time Auto-Generated Dynamic Amount QR Code -->
       <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200 flex flex-col items-center">
-        <div id="dynamic-qr-container" class="bg-white p-2 rounded-xl border border-slate-200"></div>
-        <p class="text-[10px] font-extrabold text-slate-500 mt-2">Scan or Screenshot to pay in UPI app</p>
+        <div id="dynamic-qr-container" class="bg-white p-2 rounded-xl border border-slate-200 shadow-sm"></div>
+        <p class="text-[10px] font-extrabold text-slate-500 mt-2">Take screenshot & scan in GPay / PhonePe / Paytm</p>
       </div>
 
-      <!-- Instant Copy UPI ID Helper -->
+      <!-- Android Direct Intent Launcher (Only shown on Android) -->
+      <div id="android-intent-box" class="hidden">
+        <a id="btn-android-upi" href="#" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-black py-2.5 px-4 rounded-xl text-xs transition shadow-md flex items-center justify-center gap-2">
+          <span>🚀 Open UPI App on this Phone</span>
+        </a>
+      </div>
+
+      <!-- Instant Copy UPI ID Helper (For iPhone & Android) -->
       <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-200 flex justify-between items-center text-xs">
         <div class="text-left">
           <p class="text-[9px] text-slate-400 font-bold uppercase">UPI ID</p>
           <p class="font-black text-slate-800 text-[11px]">paytm.s1n4ilc@pty</p>
         </div>
-        <button id="copy-vpa-btn" onclick="copyUPIId()" class="bg-slate-200 hover:bg-amber-400 text-slate-900 font-bold px-3 py-1 rounded-lg text-[10px] transition">
-          📋 Copy ID
+        <button id="copy-vpa-btn" onclick="copyUPIId()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-black px-3.5 py-1.5 rounded-lg text-[10px] transition shadow-sm">
+          📋 Copy UPI ID
         </button>
       </div>
 
@@ -514,7 +505,7 @@
         <input type="checkbox" id="payment-checkbox" onchange="toggleOrderButton()" 
                class="mt-0.5 w-4 h-4 text-emerald-600 bg-white border-slate-300 rounded focus:ring-emerald-500 cursor-pointer">
         <label for="payment-checkbox" class="text-[11px] text-amber-950 font-medium cursor-pointer leading-tight">
-          I have completed payment of <span id="checkbox-pay-amount" class="font-black text-emerald-700">₹0</span> and will share the receipt on WhatsApp.
+          I have paid <span id="checkbox-pay-amount" class="font-black text-emerald-700">₹0</span> and will share the receipt on WhatsApp.
         </label>
       </div>
 
@@ -755,38 +746,24 @@
       document.getElementById('checkbox-pay-amount').innerText = roundedTotal > 0 ? formattedTotal : '₹0';
 
       const isAndroid = /Android/i.test(navigator.userAgent);
-      const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-
       const upiParams = `pa=${encodeURIComponent(UPI_ID)}&pn=${encodeURIComponent(PAYEE_NAME)}&am=${roundedTotal}&cu=INR&tn=EkoKitchenOrder`;
 
-      const btnGpay = document.getElementById('btn-gpay');
-      const btnPhonepe = document.getElementById('btn-phonepe');
-      const btnPaytm = document.getElementById('btn-paytm');
-
-      if (isIOS) {
-        // Official iOS registered URL schemes
-        btnGpay.href = `tez://upi/pay?${upiParams}`;
-        btnPhonepe.href = `phonepe://pay?${upiParams}`;
-        btnPaytm.href = `paytmmp://pay?${upiParams}`;
-      } else if (isAndroid) {
-        // Direct Android App Package Invocation
-        btnGpay.href = `intent://pay?${upiParams}#Intent;scheme=upi;package=com.google.android.apps.nbu.paisa.user;end`;
-        btnPhonepe.href = `intent://pay?${upiParams}#Intent;scheme=upi;package=com.phonepe.app;end`;
-        btnPaytm.href = `intent://pay?${upiParams}#Intent;scheme=upi;package=net.one97.paytm;end`;
+      // Show Android 1-tap launcher only on Android devices
+      const androidBox = document.getElementById('android-intent-box');
+      if (isAndroid) {
+        androidBox.classList.remove('hidden');
+        document.getElementById('btn-android-upi').href = `intent://pay?${upiParams}#Intent;scheme=upi;end`;
       } else {
-        const fallbackUrl = `upi://pay?${upiParams}`;
-        btnGpay.href = fallbackUrl;
-        btnPhonepe.href = fallbackUrl;
-        btnPaytm.href = fallbackUrl;
+        androidBox.classList.add('hidden');
       }
 
-      // Generate Dynamic QR code matching the exact live amount
+      // Generate clean live dynamic QR matching the exact total
       const qrContainer = document.getElementById('dynamic-qr-container');
       qrContainer.innerHTML = '';
       new QRCode(qrContainer, {
         text: `upi://pay?${upiParams}`,
-        width: 155,
-        height: 155,
+        width: 165,
+        height: 165,
         colorDark: "#0f172a",
         colorLight: "#ffffff",
         correctLevel: QRCode.CorrectLevel.M
@@ -807,11 +784,13 @@
       navigator.clipboard.writeText(UPI_ID).then(() => {
         const btn = document.getElementById('copy-vpa-btn');
         btn.innerText = "✅ Copied!";
+        btn.classList.remove('bg-amber-500');
         btn.classList.add('bg-emerald-400');
         setTimeout(() => {
-          btn.innerText = "📋 Copy ID";
+          btn.innerText = "📋 Copy UPI ID";
           btn.classList.remove('bg-emerald-400');
-        }, 2500);
+          btn.classList.add('bg-amber-500');
+        }, 2000);
       });
     }
 
