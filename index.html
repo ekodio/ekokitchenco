@@ -9,6 +9,7 @@
 </head>
 <body class="bg-slate-100 text-slate-800 pb-36 font-sans">
 
+  <!-- Header -->
   <header class="bg-slate-900 text-white p-4 sticky top-0 z-30 shadow-md">
     <div class="max-w-md mx-auto flex justify-between items-center">
       <div>
@@ -21,12 +22,14 @@
     </div>
   </header>
 
+  <!-- Special Offers Banner -->
   <div class="bg-red-600 text-white text-xs text-center py-2 px-4 font-bold tracking-wide shadow-inner">
     🎁 OFFERS: 10% OFF on orders > ₹299 | 30% OFF on orders > ₹999
   </div>
 
   <main class="max-w-md mx-auto p-4 space-y-4">
 
+    <!-- Resident Details Card -->
     <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 space-y-3">
       <h3 class="text-xs font-black uppercase tracking-wider text-amber-600">Resident Info</h3>
       <div class="grid grid-cols-2 gap-3">
@@ -43,6 +46,7 @@
       </div>
     </div>
 
+    <!-- Category Tabs Navigation -->
     <div class="sticky top-16 z-20 bg-slate-100 py-1">
       <div class="flex bg-white p-1 rounded-2xl shadow-sm border border-slate-200 gap-1 text-xs font-black">
         <button onclick="switchTab('mains')" id="tab-mains" class="tab-btn flex-1 py-2 rounded-xl bg-amber-500 text-slate-950 transition">Mains</button>
@@ -52,6 +56,7 @@
       </div>
     </div>
 
+    <!-- Live Cart Quick Summary -->
     <div id="cart-details-card" class="bg-white p-4 rounded-2xl shadow-sm border border-amber-300 space-y-3 hidden">
       <div class="flex justify-between items-center border-b border-slate-200 pb-2">
         <h3 class="text-xs font-black uppercase tracking-wider text-slate-900">Your Selected Items</h3>
@@ -60,8 +65,9 @@
       <div id="cart-item-list" class="space-y-2 text-xs"></div>
     </div>
 
+    <!-- TAB 1: MAINS -->
     <section id="section-mains" class="menu-section space-y-3">
-      
+      <!-- Pizza -->
       <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-200 flex gap-3 items-center">
         <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=300&q=80" alt="Pizza" class="w-16 h-16 rounded-xl object-cover">
         <div class="flex-1 space-y-1.5">
@@ -78,6 +84,7 @@
         </div>
       </div>
 
+      <!-- Grilled Sandwich -->
       <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-200 flex gap-3 items-center">
         <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=300&q=80" alt="Sandwich" class="w-16 h-16 rounded-xl object-cover">
         <div class="flex-1 space-y-2">
@@ -90,6 +97,7 @@
         </div>
       </div>
 
+      <!-- Kathi Roll -->
       <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-200 flex gap-3 items-center">
         <img src="kathi-roll.jpg" alt="Kathi Roll" class="w-16 h-16 rounded-xl object-cover">
         <div class="flex-1 space-y-2">
@@ -102,6 +110,7 @@
         </div>
       </div>
 
+      <!-- Pasta -->
       <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-200 flex gap-3 items-center">
         <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=300&q=80" alt="Pasta" class="w-16 h-16 rounded-xl object-cover">
         <div class="flex-1 space-y-1.5">
@@ -119,6 +128,7 @@
         </div>
       </div>
 
+      <!-- Biryani -->
       <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-200 flex gap-3 items-center">
         <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=300&q=80" alt="Biryani" class="w-16 h-16 rounded-xl object-cover">
         <div class="flex-1 space-y-1.5">
@@ -134,11 +144,11 @@
         </div>
       </div>
 
+      <!-- Chilli Specials -->
       <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-200 flex gap-3 items-center">
         <img src="chilli-specials.jpg" alt="Chilli Specials" class="w-16 h-16 rounded-xl object-cover">
         <div class="flex-1 space-y-2">
           <h3 class="font-bold text-sm text-slate-800">Chilli Specials (Dry/Gravy)</h3>
-          
           <div class="flex justify-between items-center text-xs">
             <span class="font-semibold text-slate-700">Paneer (₹180)</span>
             <div class="flex gap-1">
@@ -146,7 +156,6 @@
               <button onclick="addDirectItem('Chilli Paneer (Gravy)', 180)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-0.5 rounded text-[10px] font-bold">+ Gravy</button>
             </div>
           </div>
-
           <div class="flex justify-between items-center text-xs">
             <span class="font-semibold text-slate-700">Mushroom (₹200)</span>
             <div class="flex gap-1">
@@ -154,7 +163,6 @@
               <button onclick="addDirectItem('Chilli Mushroom (Gravy)', 200)" class="bg-amber-50 border border-amber-300 hover:bg-amber-500 px-2.5 py-0.5 rounded text-[10px] font-bold">+ Gravy</button>
             </div>
           </div>
-
           <div class="flex justify-between items-center text-xs">
             <span class="font-semibold text-slate-700">Chicken (₹220)</span>
             <div class="flex gap-1">
@@ -165,6 +173,7 @@
         </div>
       </div>
 
+      <!-- Noodles -->
       <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-200 flex gap-3 items-center">
         <img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=300&q=80" alt="Noodles" class="w-16 h-16 rounded-xl object-cover">
         <div class="flex-1 space-y-2">
@@ -177,6 +186,7 @@
         </div>
       </div>
 
+      <!-- Fried Rice -->
       <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-200 flex gap-3 items-center">
         <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=300&q=80" alt="Fried Rice" class="w-16 h-16 rounded-xl object-cover">
         <div class="flex-1 space-y-2">
@@ -190,8 +200,9 @@
       </div>
     </section>
 
+    <!-- TAB 2: SNACKS -->
     <section id="section-snacks" class="menu-section space-y-3 hidden">
-      
+      <!-- Samosa -->
       <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-200 flex gap-3 items-center">
         <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=300&q=80" alt="Samosa" class="w-16 h-16 rounded-xl object-cover">
         <div class="flex-1 flex justify-between items-center">
@@ -203,6 +214,7 @@
         </div>
       </div>
 
+      <!-- Spring Roll -->
       <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-200 flex gap-3 items-center">
         <img src="spring-roll.jpg" alt="Spring Roll" class="w-16 h-16 rounded-xl object-cover">
         <div class="flex-1 flex justify-between items-center">
@@ -211,6 +223,7 @@
         </div>
       </div>
 
+      <!-- Dahi Ke Sholey -->
       <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-200 flex gap-3 items-center">
         <img src="dahi-sholey.jpg" alt="Dahi Ke Sholey" class="w-16 h-16 rounded-xl object-cover">
         <div class="flex-1 flex justify-between items-center">
@@ -219,6 +232,7 @@
         </div>
       </div>
 
+      <!-- French Fries -->
       <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-200 flex gap-3 items-center">
         <img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?auto=format&fit=crop&w=300&q=80" alt="Fries" class="w-16 h-16 rounded-xl object-cover">
         <div class="flex-1 space-y-2">
@@ -230,6 +244,7 @@
         </div>
       </div>
 
+      <!-- Momos -->
       <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-200 flex gap-3 items-center">
         <img src="https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9?auto=format&fit=crop&w=300&q=80" alt="Momos" class="w-16 h-16 rounded-xl object-cover">
         <div class="flex-1 space-y-2">
@@ -242,6 +257,7 @@
         </div>
       </div>
 
+      <!-- Maggie -->
       <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-200 flex gap-3 items-center">
         <img src="maggie.jpg" alt="Maggie" class="w-16 h-16 rounded-xl object-cover">
         <div class="flex-1 space-y-2">
@@ -254,6 +270,7 @@
         </div>
       </div>
 
+      <!-- Egg & Bread -->
       <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-200 space-y-2">
         <div class="flex justify-between items-center">
           <span class="font-bold text-xs text-slate-800">Egg (2 pcs)</span>
@@ -272,8 +289,9 @@
       </div>
     </section>
 
+    <!-- TAB 3: BEVERAGES -->
     <section id="section-beverages" class="menu-section space-y-3 hidden">
-      
+      <!-- Chai -->
       <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-200 flex gap-3 items-center">
         <img src="chai.jpg" alt="Chai" class="w-16 h-16 rounded-xl object-cover">
         <div class="flex-1 flex justify-between items-center">
@@ -285,6 +303,7 @@
         </div>
       </div>
 
+      <!-- Coffee -->
       <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-200 flex gap-3 items-center">
         <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=300&q=80" alt="Coffee" class="w-16 h-16 rounded-xl object-cover">
         <div class="flex-1 space-y-2">
@@ -296,6 +315,7 @@
         </div>
       </div>
 
+      <!-- Oreo Shake -->
       <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-200 flex gap-3 items-center">
         <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=300&q=80" alt="Oreo Shake" class="w-16 h-16 rounded-xl object-cover">
         <div class="flex-1 flex justify-between items-center">
@@ -305,8 +325,9 @@
       </div>
     </section>
 
+    <!-- TAB 4: DESSERTS -->
     <section id="section-desserts" class="menu-section space-y-3 hidden">
-      
+      <!-- Pancakes -->
       <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-200 flex gap-3 items-center">
         <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=300&q=80" alt="Pancake" class="w-16 h-16 rounded-xl object-cover">
         <div class="flex-1 space-y-1.5">
@@ -320,6 +341,7 @@
         </div>
       </div>
 
+      <!-- Fruit Custard -->
       <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-200 flex gap-3 items-center">
         <img src="fruit-custard.jpg" alt="Fruit Custard" class="w-16 h-16 rounded-xl object-cover">
         <div class="flex-1 flex justify-between items-center">
@@ -328,6 +350,7 @@
         </div>
       </div>
 
+      <!-- Halwa -->
       <div class="bg-white p-3.5 rounded-2xl shadow-sm border border-slate-200 flex gap-3 items-center">
         <img src="halwa.jpg" alt="Halwa" class="w-16 h-16 rounded-xl object-cover">
         <div class="flex-1 flex justify-between items-center">
@@ -337,13 +360,17 @@
       </div>
     </section>
 
+    <!-- Special Instructions Input -->
     <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200">
       <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">Special Instructions for Chef</label>
       <input type="text" id="special-instructions" placeholder="e.g., Less spicy, no onions, extra green chutney" 
              class="w-full p-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-amber-500 focus:outline-none text-xs">
     </div>
 
-  </main><div id="custom-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+  </main>
+
+  <!-- ITEM-SPECIFIC CUSTOMIZATION MODAL -->
+  <div id="custom-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
     <div class="bg-white w-full max-w-sm rounded-3xl p-5 space-y-4 shadow-2xl relative">
       <button onclick="closeCustomizationModal()" class="absolute top-4 right-4 text-slate-400 text-xl font-bold">✕</button>
 
@@ -357,17 +384,16 @@
         <div id="custom-options-container" class="space-y-2 text-xs"></div>
       </div>
 
-      <div class="flex gap-2 pt-2">
-        <button onclick="confirmCustomization(false)" class="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-2.5 rounded-xl text-xs transition">
-          Classic / No Extras
-        </button>
-        <button onclick="confirmCustomization(true)" class="flex-1 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black py-2.5 rounded-xl text-xs transition shadow-md">
+      <!-- Single Primary Action Button -->
+      <div class="pt-2">
+        <button onclick="confirmCustomization()" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-black py-3 rounded-xl text-xs transition shadow-md">
           Add to Cart
         </button>
       </div>
     </div>
   </div>
 
+  <!-- Sticky Bottom Checkout Bar -->
   <div id="cart-bar" class="fixed bottom-0 left-0 right-0 bg-slate-900 text-white p-4 shadow-2xl hidden z-30">
     <div class="max-w-md mx-auto flex justify-between items-center">
       <div>
@@ -382,6 +408,7 @@
     </div>
   </div>
 
+  <!-- STEP 1: BILL SUMMARY MODAL -->
   <div id="bill-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
     <div class="bg-white w-full max-w-sm rounded-3xl p-5 space-y-4 shadow-2xl relative">
       <button onclick="closeBillModal()" class="absolute top-4 right-4 text-slate-400 text-xl font-bold">✕</button>
@@ -429,6 +456,7 @@
     </div>
   </div>
 
+  <!-- STEP 2: PAYMENT & VERIFICATION MODAL -->
   <div id="payment-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
     <div class="bg-white w-full max-w-sm rounded-3xl p-5 text-center space-y-3.5 shadow-2xl relative">
       <button onclick="closePaymentModal()" class="absolute top-4 right-4 text-slate-400 text-xl font-bold">✕</button>
@@ -438,17 +466,20 @@
         <p class="text-xs text-slate-500">Pay Exact Amount: <span id="modal-pay-amount" class="font-black text-amber-600 text-base">₹0</span></p>
       </div>
 
+      <!-- Real-Time Auto-Generated Dynamic Amount QR Code -->
       <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200 flex flex-col items-center">
         <div id="dynamic-qr-container" class="bg-white p-2 rounded-xl border border-slate-200 shadow-sm"></div>
         <p class="text-[10px] font-extrabold text-slate-500 mt-2">Take screenshot & scan in GPay / PhonePe / Paytm</p>
       </div>
 
+      <!-- Android Direct Intent Launcher (Only shown on Android) -->
       <div id="android-intent-box" class="hidden">
         <a id="btn-android-upi" href="#" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-black py-2.5 px-4 rounded-xl text-xs transition shadow-md flex items-center justify-center gap-2">
           <span>🚀 Open UPI App on this Phone</span>
         </a>
       </div>
 
+      <!-- Instant Copy UPI ID Helper -->
       <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-200 flex justify-between items-center text-xs">
         <div class="text-left">
           <p class="text-[9px] text-slate-400 font-bold uppercase">UPI ID</p>
@@ -459,6 +490,7 @@
         </button>
       </div>
 
+      <!-- Screenshot Requirement Warning Box -->
       <div class="bg-red-50 p-2.5 rounded-xl border border-red-200 text-left flex items-start gap-2">
         <span class="text-red-600 text-sm font-bold">⚠️</span>
         <p class="text-[11px] text-red-900 font-bold leading-tight">
@@ -466,6 +498,7 @@
         </p>
       </div>
 
+      <!-- Confirmation Checkbox -->
       <div class="bg-amber-50/80 p-2.5 rounded-xl border border-amber-200 text-left flex items-start gap-2.5">
         <input type="checkbox" id="payment-checkbox" onchange="toggleOrderButton()" 
                class="mt-0.5 w-4 h-4 text-emerald-600 bg-white border-slate-300 rounded focus:ring-emerald-500 cursor-pointer">
@@ -474,6 +507,7 @@
         </label>
       </div>
 
+      <!-- Send Order Button -->
       <button id="send-whatsapp-btn" onclick="sendWhatsAppOrder()" disabled
               class="w-full bg-slate-300 text-slate-500 font-black py-3 rounded-xl text-sm transition shadow-md flex items-center justify-center gap-2 cursor-not-allowed">
         <span>📸 Share Screenshot & Confirm Order</span>
@@ -533,16 +567,28 @@
       const options = customConfig[type] || [];
       const container = document.getElementById('custom-options-container');
       
-      container.innerHTML = options.map(opt => `
+      // Default checked 'Classic / No Extras'
+      let html = `
         <label class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-200 cursor-pointer hover:bg-amber-50/50">
           <span class="font-bold text-slate-800 flex items-center gap-2">
-            <input type="checkbox" data-label="${opt.label}" data-price="${opt.price}" class="addon-checkbox w-4 h-4 text-amber-500 rounded focus:ring-amber-400">
+            <input type="radio" name="modal-addon" data-label="" data-price="0" checked class="addon-radio w-4 h-4 text-amber-500 focus:ring-amber-400">
+            Classic / No Extras
+          </span>
+          <span class="font-bold text-slate-400">+₹0</span>
+        </label>
+      `;
+
+      html += options.map(opt => `
+        <label class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-200 cursor-pointer hover:bg-amber-50/50">
+          <span class="font-bold text-slate-800 flex items-center gap-2">
+            <input type="radio" name="modal-addon" data-label="${opt.label}" data-price="${opt.price}" class="addon-radio w-4 h-4 text-amber-500 focus:ring-amber-400">
             ${opt.label}
           </span>
           <span class="font-bold text-slate-600">+₹${opt.price}</span>
         </label>
       `).join('');
 
+      container.innerHTML = html;
       document.getElementById('custom-modal').classList.remove('hidden');
     }
 
@@ -550,19 +596,18 @@
       document.getElementById('custom-modal').classList.add('hidden');
     }
 
-    function confirmCustomization(includeAddons) {
+    function confirmCustomization() {
       let finalName = currentCustomItem.name;
       let finalPrice = currentCustomItem.price;
 
-      if (includeAddons) {
-        let selectedAddons = [];
-        document.querySelectorAll('.addon-checkbox:checked').forEach(cb => {
-          selectedAddons.push(cb.getAttribute('data-label'));
-          finalPrice += parseInt(cb.getAttribute('data-price'), 10);
-        });
+      const selected = document.querySelector('input[name="modal-addon"]:checked');
+      if (selected) {
+        const extraLabel = selected.getAttribute('data-label');
+        const extraPrice = parseInt(selected.getAttribute('data-price'), 10);
 
-        if (selectedAddons.length > 0) {
-          finalName = `${currentCustomItem.name} (+ ${selectedAddons.join(', ')})`;
+        if (extraLabel && extraPrice > 0) {
+          finalName = `${currentCustomItem.name} (+ ${extraLabel})`;
+          finalPrice += extraPrice;
         }
       }
 
