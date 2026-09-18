@@ -375,72 +375,109 @@
     .variant-stack {
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 7px;
       width: 100%;
     }
 
-    .variant-row-btn {
+    /* Interactive Row Stepper Button */
+    .variant-row {
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 8px;
-      padding: 8px 12px;
+      padding: 6px 10px 6px 12px;
       border: 1px solid #dcdad0;
       background: #fafaf8;
       border-radius: 10px;
       color: var(--ink);
-      font-size: 11px;
-      font-weight: 500;
-      transition: all 0.18s ease;
+      font-size: 12px;
+      transition: all 0.15s ease;
     }
 
-    .variant-row-btn:hover {
+    .variant-row:hover {
+      border-color: #b5b3a6;
+    }
+
+    .variant-row.active-row {
+      border-color: var(--olive);
+      background: #f6f7f2;
+    }
+
+    .variant-info {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      flex: 1;
+    }
+
+    .variant-name {
+      font-weight: 600;
+      color: var(--ink);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 12px;
+    }
+
+    .variant-price {
+      font-weight: 700;
+      color: #64675e;
+      font-size: 11px;
+      margin-top: 1px;
+    }
+
+    /* Clean Stepper / Add button */
+    .btn-add-action {
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--ink);
+      background: white;
+      border: 1px solid #dcdad0;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .btn-add-action:hover {
       background: var(--ink);
       color: white;
       border-color: var(--ink);
     }
 
-    .variant-row-btn:hover .variant-price {
-      color: #f8f6f0;
-    }
-
-    .variant-row-btn.has-items {
-      border-color: var(--olive);
-      background: #f4f5f0;
-    }
-
-    .variant-label-wrap {
+    .stepper-control {
       display: flex;
       align-items: center;
-      gap: 6px;
-      text-align: left;
-      white-space: nowrap;
+      background: white;
+      border: 1px solid var(--olive);
+      border-radius: 8px;
       overflow: hidden;
-      text-overflow: ellipsis;
     }
 
-    .qty-badge {
-      background: var(--olive);
-      color: white;
-      font-size: 10px;
+    .stepper-btn {
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      background: transparent;
+      border: 0;
+      font-size: 14px;
       font-weight: 700;
-      border-radius: 999px;
-      padding: 1px 6px;
-      min-width: 18px;
+      color: var(--oliveDark);
+      transition: background 0.15s;
+    }
+
+    .stepper-btn:hover {
+      background: #eceee6;
+    }
+
+    .stepper-val {
+      min-width: 22px;
       text-align: center;
-      display: none;
-    }
-
-    .qty-badge.visible {
-      display: inline-block;
-    }
-
-    .variant-price {
+      font-size: 12px;
       font-weight: 700;
-      color: #292c27;
-      white-space: nowrap;
-      flex-shrink: 0;
+      color: var(--ink);
     }
 
     .floating-cart {
@@ -573,64 +610,44 @@
     .cart-item-name { font-size: 13px; font-weight: 700; line-height: 1.35; }
     .cart-item-price { font-size: 12px; font-weight: 700; margin-top: 3px; color: #575b50; }
 
-    .quantity-control {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-shrink: 0;
-    }
-
-    .quantity-button {
-      width: 26px;
-      height: 26px;
-      border: 1px solid var(--line);
-      background: var(--ivory);
-      border-radius: 50%;
-      color: var(--ink);
-      font-weight: 700;
-    }
-
-    .quantity-value {
-      min-width: 16px;
-      text-align: center;
-      font-size: 12px;
-      font-weight: 700;
-    }
-
     .note-box {
       margin-top: 14px;
       background: white;
       border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 12px 14px;
+      border-radius: 16px;
+      padding: 14px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
     }
 
     .note-box label {
-      display: block;
+      display: flex;
+      align-items: center;
+      gap: 6px;
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.05em;
       text-transform: uppercase;
-      color: #5d6057;
-      margin-bottom: 6px;
+      color: var(--oliveDark);
+      margin-bottom: 8px;
     }
 
     .note-box textarea {
       width: 100%;
-      height: 58px;
+      height: 64px;
       resize: none;
       border: 1px solid #d8d8cf;
-      border-radius: 9px;
-      padding: 8px 10px;
+      border-radius: 10px;
+      padding: 9px 12px;
       font-size: 12px;
       color: var(--ink);
       background: #fafaf8;
       outline: none;
-      transition: border-color 0.2s;
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
 
     .note-box textarea:focus {
       border-color: var(--olive);
+      box-shadow: 0 0 0 3px rgba(109,118,88,0.12);
     }
 
     .bill-box {
@@ -905,22 +922,22 @@
                   <div class="menu-card-description">Select option below</div>
                 </div>
                 <div class="variant-stack">
-                  <button class="variant-row-btn" data-item-name="Pizza (Veg)" onclick="openCustomization('Pizza (Veg)', 130, 'pizza')">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Veg</span></span>
-                    <span class="variant-price">₹130</span>
-                  </button>
-                  <button class="variant-row-btn" data-item-name="Pizza (Margherita)" onclick="openCustomization('Pizza (Margherita)', 150, 'pizza')">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Margherita</span></span>
-                    <span class="variant-price">₹150</span>
-                  </button>
-                  <button class="variant-row-btn" data-item-name="Pizza (Paneer)" onclick="openCustomization('Pizza (Paneer)', 160, 'pizza')">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Paneer</span></span>
-                    <span class="variant-price">₹160</span>
-                  </button>
-                  <button class="variant-row-btn" data-item-name="Pizza (Chicken)" onclick="openCustomization('Pizza (Chicken)', 180, 'pizza')">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Chicken</span></span>
-                    <span class="variant-price">₹180</span>
-                  </button>
+                  <div class="variant-row" data-name="Pizza (Veg)" data-price="130" data-type="pizza">
+                    <div class="variant-info"><span class="variant-name">Veg</span><span class="variant-price">₹130</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Pizza (Veg)', 130, 'pizza')">+ Add</button></div>
+                  </div>
+                  <div class="variant-row" data-name="Pizza (Margherita)" data-price="150" data-type="pizza">
+                    <div class="variant-info"><span class="variant-name">Margherita</span><span class="variant-price">₹150</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Pizza (Margherita)', 150, 'pizza')">+ Add</button></div>
+                  </div>
+                  <div class="variant-row" data-name="Pizza (Paneer)" data-price="160" data-type="pizza">
+                    <div class="variant-info"><span class="variant-name">Paneer</span><span class="variant-price">₹160</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Pizza (Paneer)', 160, 'pizza')">+ Add</button></div>
+                  </div>
+                  <div class="variant-row" data-name="Pizza (Chicken)" data-price="180" data-type="pizza">
+                    <div class="variant-info"><span class="variant-name">Chicken</span><span class="variant-price">₹180</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Pizza (Chicken)', 180, 'pizza')">+ Add</button></div>
+                  </div>
                 </div>
               </div>
             </article>
@@ -937,18 +954,18 @@
                   <div class="menu-card-description">Select option below</div>
                 </div>
                 <div class="variant-stack">
-                  <button class="variant-row-btn" data-item-name="Grilled Sandwich (Veg)" onclick="openCustomization('Grilled Sandwich (Veg)', 60, 'sandwich')">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Veg</span></span>
-                    <span class="variant-price">₹60</span>
-                  </button>
-                  <button class="variant-row-btn" data-item-name="Grilled Sandwich (Paneer)" onclick="openCustomization('Grilled Sandwich (Paneer)', 80, 'sandwich')">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Paneer</span></span>
-                    <span class="variant-price">₹80</span>
-                  </button>
-                  <button class="variant-row-btn" data-item-name="Grilled Sandwich (Chicken)" onclick="openCustomization('Grilled Sandwich (Chicken)', 100, 'sandwich')">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Chicken</span></span>
-                    <span class="variant-price">₹100</span>
-                  </button>
+                  <div class="variant-row" data-name="Grilled Sandwich (Veg)" data-price="60" data-type="sandwich">
+                    <div class="variant-info"><span class="variant-name">Veg</span><span class="variant-price">₹60</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Grilled Sandwich (Veg)', 60, 'sandwich')">+ Add</button></div>
+                  </div>
+                  <div class="variant-row" data-name="Grilled Sandwich (Paneer)" data-price="80" data-type="sandwich">
+                    <div class="variant-info"><span class="variant-name">Paneer</span><span class="variant-price">₹80</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Grilled Sandwich (Paneer)', 80, 'sandwich')">+ Add</button></div>
+                  </div>
+                  <div class="variant-row" data-name="Grilled Sandwich (Chicken)" data-price="100" data-type="sandwich">
+                    <div class="variant-info"><span class="variant-name">Chicken</span><span class="variant-price">₹100</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Grilled Sandwich (Chicken)', 100, 'sandwich')">+ Add</button></div>
+                  </div>
                 </div>
               </div>
             </article>
@@ -965,18 +982,18 @@
                   <div class="menu-card-description">Select option below</div>
                 </div>
                 <div class="variant-stack">
-                  <button class="variant-row-btn" data-item-name="Kathi Roll (Paneer)" onclick="openCustomization('Kathi Roll (Paneer)', 80, 'kathi')">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Paneer</span></span>
-                    <span class="variant-price">₹80</span>
-                  </button>
-                  <button class="variant-row-btn" data-item-name="Kathi Roll (Egg)" onclick="openCustomization('Kathi Roll (Egg)', 100, 'kathi')">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Egg</span></span>
-                    <span class="variant-price">₹100</span>
-                  </button>
-                  <button class="variant-row-btn" data-item-name="Kathi Roll (Chicken)" onclick="openCustomization('Kathi Roll (Chicken)', 130, 'kathi')">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Chicken</span></span>
-                    <span class="variant-price">₹130</span>
-                  </button>
+                  <div class="variant-row" data-name="Kathi Roll (Paneer)" data-price="80" data-type="kathi">
+                    <div class="variant-info"><span class="variant-name">Paneer</span><span class="variant-price">₹80</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Kathi Roll (Paneer)', 80, 'kathi')">+ Add</button></div>
+                  </div>
+                  <div class="variant-row" data-name="Kathi Roll (Egg)" data-price="100" data-type="kathi">
+                    <div class="variant-info"><span class="variant-name">Egg</span><span class="variant-price">₹100</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Kathi Roll (Egg)', 100, 'kathi')">+ Add</button></div>
+                  </div>
+                  <div class="variant-row" data-name="Kathi Roll (Chicken)" data-price="130" data-type="kathi">
+                    <div class="variant-info"><span class="variant-name">Chicken</span><span class="variant-price">₹130</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Kathi Roll (Chicken)', 130, 'kathi')">+ Add</button></div>
+                  </div>
                 </div>
               </div>
             </article>
@@ -993,22 +1010,22 @@
                   <div class="menu-card-description">Select option below</div>
                 </div>
                 <div class="variant-stack">
-                  <button class="variant-row-btn" data-item-name="Veg Alfredo Pasta" onclick="openCustomization('Veg Alfredo Pasta', 100, 'pasta')">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Veg Alfredo</span></span>
-                    <span class="variant-price">₹100</span>
-                  </button>
-                  <button class="variant-row-btn" data-item-name="Veg Arrabiata Pasta" onclick="openCustomization('Veg Arrabiata Pasta', 120, 'pasta')">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Veg Arrabiata</span></span>
-                    <span class="variant-price">₹120</span>
-                  </button>
-                  <button class="variant-row-btn" data-item-name="Chicken Alfredo Pasta" onclick="openCustomization('Chicken Alfredo Pasta', 130, 'pasta')">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Chicken Alfredo</span></span>
-                    <span class="variant-price">₹130</span>
-                  </button>
-                  <button class="variant-row-btn" data-item-name="Chicken Arrabiata Pasta" onclick="openCustomization('Chicken Arrabiata Pasta', 150, 'pasta')">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Chicken Arrabiata</span></span>
-                    <span class="variant-price">₹150</span>
-                  </button>
+                  <div class="variant-row" data-name="Veg Alfredo Pasta" data-price="100" data-type="pasta">
+                    <div class="variant-info"><span class="variant-name">Veg Alfredo</span><span class="variant-price">₹100</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Veg Alfredo Pasta', 100, 'pasta')">+ Add</button></div>
+                  </div>
+                  <div class="variant-row" data-name="Veg Arrabiata Pasta" data-price="120" data-type="pasta">
+                    <div class="variant-info"><span class="variant-name">Veg Arrabiata</span><span class="variant-price">₹120</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Veg Arrabiata Pasta', 120, 'pasta')">+ Add</button></div>
+                  </div>
+                  <div class="variant-row" data-name="Chicken Alfredo Pasta" data-price="130" data-type="pasta">
+                    <div class="variant-info"><span class="variant-name">Chicken Alfredo</span><span class="variant-price">₹130</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Chicken Alfredo Pasta', 130, 'pasta')">+ Add</button></div>
+                  </div>
+                  <div class="variant-row" data-name="Chicken Arrabiata Pasta" data-price="150" data-type="pasta">
+                    <div class="variant-info"><span class="variant-name">Chicken Arrabiata</span><span class="variant-price">₹150</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Chicken Arrabiata Pasta', 150, 'pasta')">+ Add</button></div>
+                  </div>
                 </div>
               </div>
             </article>
@@ -1025,18 +1042,18 @@
                   <div class="menu-card-description">Select option below</div>
                 </div>
                 <div class="variant-stack">
-                  <button class="variant-row-btn" data-item-name="Biryani (Veg)" onclick="addToCart('Biryani (Veg)', 100)">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Veg</span></span>
-                    <span class="variant-price">₹100</span>
-                  </button>
-                  <button class="variant-row-btn" data-item-name="Biryani (Egg)" onclick="addToCart('Biryani (Egg)', 130)">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Egg</span></span>
-                    <span class="variant-price">₹130</span>
-                  </button>
-                  <button class="variant-row-btn" data-item-name="Biryani (Chicken)" onclick="addToCart('Biryani (Chicken)', 150)">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Chicken</span></span>
-                    <span class="variant-price">₹150</span>
-                  </button>
+                  <div class="variant-row" data-name="Biryani (Veg)" data-price="100">
+                    <div class="variant-info"><span class="variant-name">Veg</span><span class="variant-price">₹100</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Biryani (Veg)', 100)">+ Add</button></div>
+                  </div>
+                  <div class="variant-row" data-name="Biryani (Egg)" data-price="130">
+                    <div class="variant-info"><span class="variant-name">Egg</span><span class="variant-price">₹130</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Biryani (Egg)', 130)">+ Add</button></div>
+                  </div>
+                  <div class="variant-row" data-name="Biryani (Chicken)" data-price="150">
+                    <div class="variant-info"><span class="variant-name">Chicken</span><span class="variant-price">₹150</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Biryani (Chicken)', 150)">+ Add</button></div>
+                  </div>
                 </div>
               </div>
             </article>
@@ -1053,14 +1070,14 @@
                   <div class="menu-card-description">Select option below</div>
                 </div>
                 <div class="variant-stack">
-                  <button class="variant-row-btn" data-item-name="Chilli Paneer (Dry)" onclick="addToCart('Chilli Paneer (Dry)', 180)">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Dry</span></span>
-                    <span class="variant-price">₹180</span>
-                  </button>
-                  <button class="variant-row-btn" data-item-name="Chilli Paneer (Gravy)" onclick="addToCart('Chilli Paneer (Gravy)', 180)">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Gravy</span></span>
-                    <span class="variant-price">₹180</span>
-                  </button>
+                  <div class="variant-row" data-name="Chilli Paneer (Dry)" data-price="180">
+                    <div class="variant-info"><span class="variant-name">Dry</span><span class="variant-price">₹180</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Chilli Paneer (Dry)', 180)">+ Add</button></div>
+                  </div>
+                  <div class="variant-row" data-name="Chilli Paneer (Gravy)" data-price="180">
+                    <div class="variant-info"><span class="variant-name">Gravy</span><span class="variant-price">₹180</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Chilli Paneer (Gravy)', 180)">+ Add</button></div>
+                  </div>
                 </div>
               </div>
             </article>
@@ -1077,14 +1094,14 @@
                   <div class="menu-card-description">Select option below</div>
                 </div>
                 <div class="variant-stack">
-                  <button class="variant-row-btn" data-item-name="Chilli Mushroom (Dry)" onclick="addToCart('Chilli Mushroom (Dry)', 200)">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Dry</span></span>
-                    <span class="variant-price">₹200</span>
-                  </button>
-                  <button class="variant-row-btn" data-item-name="Chilli Mushroom (Gravy)" onclick="addToCart('Chilli Mushroom (Gravy)', 200)">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Gravy</span></span>
-                    <span class="variant-price">₹200</span>
-                  </button>
+                  <div class="variant-row" data-name="Chilli Mushroom (Dry)" data-price="200">
+                    <div class="variant-info"><span class="variant-name">Dry</span><span class="variant-price">₹200</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Chilli Mushroom (Dry)', 200)">+ Add</button></div>
+                  </div>
+                  <div class="variant-row" data-name="Chilli Mushroom (Gravy)" data-price="200">
+                    <div class="variant-info"><span class="variant-name">Gravy</span><span class="variant-price">₹200</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Chilli Mushroom (Gravy)', 200)">+ Add</button></div>
+                  </div>
                 </div>
               </div>
             </article>
@@ -1101,14 +1118,14 @@
                   <div class="menu-card-description">Select option below</div>
                 </div>
                 <div class="variant-stack">
-                  <button class="variant-row-btn" data-item-name="Chilli Chicken (Dry)" onclick="addToCart('Chilli Chicken (Dry)', 220)">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Dry</span></span>
-                    <span class="variant-price">₹220</span>
-                  </button>
-                  <button class="variant-row-btn" data-item-name="Chilli Chicken (Gravy)" onclick="addToCart('Chilli Chicken (Gravy)', 220)">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Gravy</span></span>
-                    <span class="variant-price">₹220</span>
-                  </button>
+                  <div class="variant-row" data-name="Chilli Chicken (Dry)" data-price="220">
+                    <div class="variant-info"><span class="variant-name">Dry</span><span class="variant-price">₹220</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Chilli Chicken (Dry)', 220)">+ Add</button></div>
+                  </div>
+                  <div class="variant-row" data-name="Chilli Chicken (Gravy)" data-price="220">
+                    <div class="variant-info"><span class="variant-name">Gravy</span><span class="variant-price">₹220</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Chilli Chicken (Gravy)', 220)">+ Add</button></div>
+                  </div>
                 </div>
               </div>
             </article>
@@ -1125,18 +1142,18 @@
                   <div class="menu-card-description">Select option below</div>
                 </div>
                 <div class="variant-stack">
-                  <button class="variant-row-btn" data-item-name="Noodles (Veg)" onclick="addToCart('Noodles (Veg)', 70)">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Veg</span></span>
-                    <span class="variant-price">₹70</span>
-                  </button>
-                  <button class="variant-row-btn" data-item-name="Noodles (Egg)" onclick="addToCart('Noodles (Egg)', 90)">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Egg</span></span>
-                    <span class="variant-price">₹90</span>
-                  </button>
-                  <button class="variant-row-btn" data-item-name="Noodles (Chicken)" onclick="addToCart('Noodles (Chicken)', 120)">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Chicken</span></span>
-                    <span class="variant-price">₹120</span>
-                  </button>
+                  <div class="variant-row" data-name="Noodles (Veg)" data-price="70">
+                    <div class="variant-info"><span class="variant-name">Veg</span><span class="variant-price">₹70</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Noodles (Veg)', 70)">+ Add</button></div>
+                  </div>
+                  <div class="variant-row" data-name="Noodles (Egg)" data-price="90">
+                    <div class="variant-info"><span class="variant-name">Egg</span><span class="variant-price">₹90</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Noodles (Egg)', 90)">+ Add</button></div>
+                  </div>
+                  <div class="variant-row" data-name="Noodles (Chicken)" data-price="120">
+                    <div class="variant-info"><span class="variant-name">Chicken</span><span class="variant-price">₹120</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Noodles (Chicken)', 120)">+ Add</button></div>
+                  </div>
                 </div>
               </div>
             </article>
@@ -1153,18 +1170,18 @@
                   <div class="menu-card-description">Select option below</div>
                 </div>
                 <div class="variant-stack">
-                  <button class="variant-row-btn" data-item-name="Fried Rice (Veg)" onclick="addToCart('Fried Rice (Veg)', 80)">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Veg</span></span>
-                    <span class="variant-price">₹80</span>
-                  </button>
-                  <button class="variant-row-btn" data-item-name="Fried Rice (Egg)" onclick="addToCart('Fried Rice (Egg)', 100)">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Egg</span></span>
-                    <span class="variant-price">₹100</span>
-                  </button>
-                  <button class="variant-row-btn" data-item-name="Fried Rice (Chicken)" onclick="addToCart('Fried Rice (Chicken)', 130)">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Chicken</span></span>
-                    <span class="variant-price">₹130</span>
-                  </button>
+                  <div class="variant-row" data-name="Fried Rice (Veg)" data-price="80">
+                    <div class="variant-info"><span class="variant-name">Veg</span><span class="variant-price">₹80</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Fried Rice (Veg)', 80)">+ Add</button></div>
+                  </div>
+                  <div class="variant-row" data-name="Fried Rice (Egg)" data-price="100">
+                    <div class="variant-info"><span class="variant-name">Egg</span><span class="variant-price">₹100</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Fried Rice (Egg)', 100)">+ Add</button></div>
+                  </div>
+                  <div class="variant-row" data-name="Fried Rice (Chicken)" data-price="130">
+                    <div class="variant-info"><span class="variant-name">Chicken</span><span class="variant-price">₹130</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Fried Rice (Chicken)', 130)">+ Add</button></div>
+                  </div>
                 </div>
               </div>
             </article>
@@ -1194,10 +1211,10 @@
                   <div class="menu-card-description">Select option below</div>
                 </div>
                 <div class="variant-stack">
-                  <button class="variant-row-btn" data-item-name="Samosa (2 pcs)" onclick="addToCart('Samosa (2 pcs)', 40)">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ 2 pcs portion</span></span>
-                    <span class="variant-price">₹40</span>
-                  </button>
+                  <div class="variant-row" data-name="Samosa (2 pcs)" data-price="40">
+                    <div class="variant-info"><span class="variant-name">2 pcs portion</span><span class="variant-price">₹40</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Samosa (2 pcs)', 40)">+ Add</button></div>
+                  </div>
                 </div>
               </div>
             </article>
@@ -1214,10 +1231,10 @@
                   <div class="menu-card-description">Select option below</div>
                 </div>
                 <div class="variant-stack">
-                  <button class="variant-row-btn" data-item-name="Spring Roll" onclick="addToCart('Spring Roll', 80)">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Standard Portion</span></span>
-                    <span class="variant-price">₹80</span>
-                  </button>
+                  <div class="variant-row" data-name="Spring Roll" data-price="80">
+                    <div class="variant-info"><span class="variant-name">Standard Portion</span><span class="variant-price">₹80</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Spring Roll', 80)">+ Add</button></div>
+                  </div>
                 </div>
               </div>
             </article>
@@ -1234,10 +1251,10 @@
                   <div class="menu-card-description">Select option below</div>
                 </div>
                 <div class="variant-stack">
-                  <button class="variant-row-btn" data-item-name="Dahi Ke Sholey" onclick="addToCart('Dahi Ke Sholey', 120)">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Portion</span></span>
-                    <span class="variant-price">₹120</span>
-                  </button>
+                  <div class="variant-row" data-name="Dahi Ke Sholey" data-price="120">
+                    <div class="variant-info"><span class="variant-name">Portion</span><span class="variant-price">₹120</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Dahi Ke Sholey', 120)">+ Add</button></div>
+                  </div>
                 </div>
               </div>
             </article>
@@ -1254,14 +1271,14 @@
                   <div class="menu-card-description">Select option below</div>
                 </div>
                 <div class="variant-stack">
-                  <button class="variant-row-btn" data-item-name="French Fries (Salted)" onclick="addToCart('French Fries (Salted)', 80)">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Salted</span></span>
-                    <span class="variant-price">₹80</span>
-                  </button>
-                  <button class="variant-row-btn" data-item-name="French Fries (Peri Peri)" onclick="addToCart('French Fries (Peri Peri)', 100)">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Peri Peri</span></span>
-                    <span class="variant-price">₹100</span>
-                  </button>
+                  <div class="variant-row" data-name="French Fries (Salted)" data-price="80">
+                    <div class="variant-info"><span class="variant-name">Salted</span><span class="variant-price">₹80</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('French Fries (Salted)', 80)">+ Add</button></div>
+                  </div>
+                  <div class="variant-row" data-name="French Fries (Peri Peri)" data-price="100">
+                    <div class="variant-info"><span class="variant-name">Peri Peri</span><span class="variant-price">₹100</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('French Fries (Peri Peri)', 100)">+ Add</button></div>
+                  </div>
                 </div>
               </div>
             </article>
@@ -1278,18 +1295,18 @@
                   <div class="menu-card-description">Select option below</div>
                 </div>
                 <div class="variant-stack">
-                  <button class="variant-row-btn" data-item-name="Momos (Veg)" onclick="addToCart('Momos (Veg)', 80)">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Veg</span></span>
-                    <span class="variant-price">₹80</span>
-                  </button>
-                  <button class="variant-row-btn" data-item-name="Momos (Paneer)" onclick="addToCart('Momos (Paneer)', 100)">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Paneer</span></span>
-                    <span class="variant-price">₹100</span>
-                  </button>
-                  <button class="variant-row-btn" data-item-name="Momos (Chicken)" onclick="addToCart('Momos (Chicken)', 120)">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Chicken</span></span>
-                    <span class="variant-price">₹120</span>
-                  </button>
+                  <div class="variant-row" data-name="Momos (Veg)" data-price="80">
+                    <div class="variant-info"><span class="variant-name">Veg</span><span class="variant-price">₹80</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Momos (Veg)', 80)">+ Add</button></div>
+                  </div>
+                  <div class="variant-row" data-name="Momos (Paneer)" data-price="100">
+                    <div class="variant-info"><span class="variant-name">Paneer</span><span class="variant-price">₹100</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Momos (Paneer)', 100)">+ Add</button></div>
+                  </div>
+                  <div class="variant-row" data-name="Momos (Chicken)" data-price="120">
+                    <div class="variant-info"><span class="variant-name">Chicken</span><span class="variant-price">₹120</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Momos (Chicken)', 120)">+ Add</button></div>
+                  </div>
                 </div>
               </div>
             </article>
@@ -1306,18 +1323,18 @@
                   <div class="menu-card-description">Select option below</div>
                 </div>
                 <div class="variant-stack">
-                  <button class="variant-row-btn" data-item-name="Maggie (Plain)" onclick="addToCart('Maggie (Plain)', 40)">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Plain</span></span>
-                    <span class="variant-price">₹40</span>
-                  </button>
-                  <button class="variant-row-btn" data-item-name="Maggie (Veg)" onclick="addToCart('Maggie (Veg)', 60)">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Veg</span></span>
-                    <span class="variant-price">₹60</span>
-                  </button>
-                  <button class="variant-row-btn" data-item-name="Maggie (Egg)" onclick="addToCart('Maggie (Egg)', 80)">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Egg</span></span>
-                    <span class="variant-price">₹80</span>
-                  </button>
+                  <div class="variant-row" data-name="Maggie (Plain)" data-price="40">
+                    <div class="variant-info"><span class="variant-name">Plain</span><span class="variant-price">₹40</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Maggie (Plain)', 40)">+ Add</button></div>
+                  </div>
+                  <div class="variant-row" data-name="Maggie (Veg)" data-price="60">
+                    <div class="variant-info"><span class="variant-name">Veg</span><span class="variant-price">₹60</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Maggie (Veg)', 60)">+ Add</button></div>
+                  </div>
+                  <div class="variant-row" data-name="Maggie (Egg)" data-price="80">
+                    <div class="variant-info"><span class="variant-name">Egg</span><span class="variant-price">₹80</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Maggie (Egg)', 80)">+ Add</button></div>
+                  </div>
                 </div>
               </div>
             </article>
@@ -1334,14 +1351,14 @@
                   <div class="menu-card-description">Select option below</div>
                 </div>
                 <div class="variant-stack">
-                  <button class="variant-row-btn" data-item-name="Egg Boiled (2 pcs)" onclick="addToCart('Egg Boiled (2 pcs)', 40)">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Boiled</span></span>
-                    <span class="variant-price">₹40</span>
-                  </button>
-                  <button class="variant-row-btn" data-item-name="Egg Omelette (2 pcs)" onclick="addToCart('Egg Omelette (2 pcs)', 50)">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Omelette</span></span>
-                    <span class="variant-price">₹50</span>
-                  </button>
+                  <div class="variant-row" data-name="Egg Boiled (2 pcs)" data-price="40">
+                    <div class="variant-info"><span class="variant-name">Boiled</span><span class="variant-price">₹40</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Egg Boiled (2 pcs)', 40)">+ Add</button></div>
+                  </div>
+                  <div class="variant-row" data-name="Egg Omelette (2 pcs)" data-price="50">
+                    <div class="variant-info"><span class="variant-name">Omelette</span><span class="variant-price">₹50</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Egg Omelette (2 pcs)', 50)">+ Add</button></div>
+                  </div>
                 </div>
               </div>
             </article>
@@ -1358,14 +1375,14 @@
                   <div class="menu-card-description">Select option below</div>
                 </div>
                 <div class="variant-stack">
-                  <button class="variant-row-btn" data-item-name="Bread Plain (4 pcs)" onclick="addToCart('Bread Plain (4 pcs)', 20)">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Plain</span></span>
-                    <span class="variant-price">₹20</span>
-                  </button>
-                  <button class="variant-row-btn" data-item-name="Bread Butter Toasted (4 pcs)" onclick="addToCart('Bread Butter Toasted (4 pcs)', 40)">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Butter Toasted</span></span>
-                    <span class="variant-price">₹40</span>
-                  </button>
+                  <div class="variant-row" data-name="Bread Plain (4 pcs)" data-price="20">
+                    <div class="variant-info"><span class="variant-name">Plain</span><span class="variant-price">₹20</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Bread Plain (4 pcs)', 20)">+ Add</button></div>
+                  </div>
+                  <div class="variant-row" data-name="Bread Butter Toasted (4 pcs)" data-price="40">
+                    <div class="variant-info"><span class="variant-name">Butter Toasted</span><span class="variant-price">₹40</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Bread Butter Toasted (4 pcs)', 40)">+ Add</button></div>
+                  </div>
                 </div>
               </div>
             </article>
@@ -1395,10 +1412,10 @@
                   <div class="menu-card-description">Select option below</div>
                 </div>
                 <div class="variant-stack">
-                  <button class="variant-row-btn" data-item-name="Chai (Medium Cup)" onclick="openCustomization('Chai (Medium Cup)', 50, 'chai')">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Medium Cup (Elaichi/Ginger/Masala)</span></span>
-                    <span class="variant-price">₹50</span>
-                  </button>
+                  <div class="variant-row" data-name="Chai (Medium Cup)" data-price="50" data-type="chai">
+                    <div class="variant-info"><span class="variant-name">Medium Cup</span><span class="variant-price">₹50</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Chai (Medium Cup)', 50, 'chai')">+ Add</button></div>
+                  </div>
                 </div>
               </div>
             </article>
@@ -1415,14 +1432,14 @@
                   <div class="menu-card-description">Select option below</div>
                 </div>
                 <div class="variant-stack">
-                  <button class="variant-row-btn" data-item-name="Coffee (Hot)" onclick="addToCart('Coffee (Hot)', 80)">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Hot</span></span>
-                    <span class="variant-price">₹80</span>
-                  </button>
-                  <button class="variant-row-btn" data-item-name="Coffee (Cold)" onclick="addToCart('Coffee (Cold)', 100)">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Cold</span></span>
-                    <span class="variant-price">₹100</span>
-                  </button>
+                  <div class="variant-row" data-name="Coffee (Hot)" data-price="80">
+                    <div class="variant-info"><span class="variant-name">Hot</span><span class="variant-price">₹80</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Coffee (Hot)', 80)">+ Add</button></div>
+                  </div>
+                  <div class="variant-row" data-name="Coffee (Cold)" data-price="100">
+                    <div class="variant-info"><span class="variant-name">Cold</span><span class="variant-price">₹100</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Coffee (Cold)', 100)">+ Add</button></div>
+                  </div>
                 </div>
               </div>
             </article>
@@ -1439,10 +1456,10 @@
                   <div class="menu-card-description">Select option below</div>
                 </div>
                 <div class="variant-stack">
-                  <button class="variant-row-btn" data-item-name="Oreo Shake" onclick="addToCart('Oreo Shake', 100)">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Regular</span></span>
-                    <span class="variant-price">₹100</span>
-                  </button>
+                  <div class="variant-row" data-name="Oreo Shake" data-price="100">
+                    <div class="variant-info"><span class="variant-name">Regular</span><span class="variant-price">₹100</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Oreo Shake', 100)">+ Add</button></div>
+                  </div>
                 </div>
               </div>
             </article>
@@ -1472,22 +1489,22 @@
                   <div class="menu-card-description">Select option below</div>
                 </div>
                 <div class="variant-stack">
-                  <button class="variant-row-btn" data-item-name="Pancake (Plain)" onclick="addToCart('Pancake (Plain)', 50)">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Plain</span></span>
-                    <span class="variant-price">₹50</span>
-                  </button>
-                  <button class="variant-row-btn" data-item-name="Pancake (+ Choco Sauce)" onclick="addToCart('Pancake (+ Choco Sauce)', 60)">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Choco Sauce</span></span>
-                    <span class="variant-price">₹60</span>
-                  </button>
-                  <button class="variant-row-btn" data-item-name="Pancake (+ Ice Cream)" onclick="addToCart('Pancake (+ Ice Cream)', 70)">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Ice Cream</span></span>
-                    <span class="variant-price">₹70</span>
-                  </button>
-                  <button class="variant-row-btn" data-item-name="Pancake (+ Combo)" onclick="addToCart('Pancake (+ Combo)', 80)">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Combo (Ice Cream & Choco)</span></span>
-                    <span class="variant-price">₹80</span>
-                  </button>
+                  <div class="variant-row" data-name="Pancake (Plain)" data-price="50">
+                    <div class="variant-info"><span class="variant-name">Plain</span><span class="variant-price">₹50</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Pancake (Plain)', 50)">+ Add</button></div>
+                  </div>
+                  <div class="variant-row" data-name="Pancake (+ Choco Sauce)" data-price="60">
+                    <div class="variant-info"><span class="variant-name">+ Choco Sauce</span><span class="variant-price">₹60</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Pancake (+ Choco Sauce)', 60)">+ Add</button></div>
+                  </div>
+                  <div class="variant-row" data-name="Pancake (+ Ice Cream)" data-price="70">
+                    <div class="variant-info"><span class="variant-name">+ Ice Cream</span><span class="variant-price">₹70</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Pancake (+ Ice Cream)', 70)">+ Add</button></div>
+                  </div>
+                  <div class="variant-row" data-name="Pancake (+ Combo)" data-price="80">
+                    <div class="variant-info"><span class="variant-name">+ Combo</span><span class="variant-price">₹80</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Pancake (+ Combo)', 80)">+ Add</button></div>
+                  </div>
                 </div>
               </div>
             </article>
@@ -1504,10 +1521,10 @@
                   <div class="menu-card-description">Select option below</div>
                 </div>
                 <div class="variant-stack">
-                  <button class="variant-row-btn" data-item-name="Fruit Custard" onclick="addToCart('Fruit Custard', 70)">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Portion</span></span>
-                    <span class="variant-price">₹70</span>
-                  </button>
+                  <div class="variant-row" data-name="Fruit Custard" data-price="70">
+                    <div class="variant-info"><span class="variant-name">Portion</span><span class="variant-price">₹70</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Fruit Custard', 70)">+ Add</button></div>
+                  </div>
                 </div>
               </div>
             </article>
@@ -1524,10 +1541,10 @@
                   <div class="menu-card-description">Select option below</div>
                 </div>
                 <div class="variant-stack">
-                  <button class="variant-row-btn" data-item-name="Halwa" onclick="addToCart('Halwa', 60)">
-                    <span class="variant-label-wrap"><span class="qty-badge">0</span><span>+ Desi Ghee Portion</span></span>
-                    <span class="variant-price">₹60</span>
-                  </button>
+                  <div class="variant-row" data-name="Halwa" data-price="60">
+                    <div class="variant-info"><span class="variant-name">Desi Ghee Portion</span><span class="variant-price">₹60</span></div>
+                    <div class="action-slot"><button class="btn-add-action" onclick="handleItemAdd('Halwa', 60)">+ Add</button></div>
+                  </div>
                 </div>
               </div>
             </article>
@@ -1586,7 +1603,7 @@
       <!-- Add Note to Chef Box -->
       <div class="note-box">
         <label for="chefNote">👨‍🍳 Add a Note to Chef</label>
-        <textarea id="chefNote" placeholder="e.g., Less spicy, no onions, extra green chutney, warm tea..."></textarea>
+        <textarea id="chefNote" placeholder="e.g., Less spicy, no onions, extra green chutney, serve warm..."></textarea>
       </div>
 
       <div id="cartBillBox" class="bill-box">
@@ -1718,7 +1735,15 @@
 
     sections.forEach(section => observer.observe(section));
 
-    // Cart operations
+    // Handles item entry
+    function handleItemAdd(name, price, type = '') {
+      if (type) {
+        openCustomization(name, price, type);
+      } else {
+        addToCart(name, price);
+      }
+    }
+
     function addToCart(name, price) {
       if (!cart[name]) {
         cart[name] = { price: price, qty: 0 };
@@ -1766,30 +1791,37 @@
       document.getElementById("floatingCartTotal").textContent = `₹${totals.total}`;
       document.getElementById("floatingCartItems").textContent = `${count} item${count === 1 ? '' : 's'} in tray`;
 
-      // Update in-button live quantity indicators across menu cards
-      document.querySelectorAll(".variant-row-btn").forEach(btn => {
-        const baseName = btn.getAttribute("data-item-name");
-        if (!baseName) return;
+      // Update interactive inline steppers on all menu cards
+      document.querySelectorAll(".variant-row").forEach(row => {
+        const baseName = row.getAttribute("data-name");
+        const price = parseInt(row.getAttribute("data-price"), 10);
+        const type = row.getAttribute("data-type") || '';
+        const actionSlot = row.querySelector(".action-slot");
 
         // Sum quantities for the base item and any of its customized variants
-        let totalQty = 0;
+        let itemQty = 0;
+        let matchedKey = baseName;
         Object.keys(cart).forEach(cartKey => {
           if (cartKey === baseName || cartKey.startsWith(`${baseName} (`)) {
-            totalQty += cart[cartKey].qty;
+            itemQty += cart[cartKey].qty;
+            matchedKey = cartKey;
           }
         });
 
-        const badge = btn.querySelector(".qty-badge");
-        if (badge) {
-          if (totalQty > 0) {
-            badge.textContent = totalQty;
-            badge.classList.add("visible");
-            btn.classList.add("has-items");
-          } else {
-            badge.textContent = "0";
-            badge.classList.remove("visible");
-            btn.classList.remove("has-items");
-          }
+        if (itemQty > 0) {
+          row.classList.add("active-row");
+          actionSlot.innerHTML = `
+            <div class="stepper-control">
+              <button class="stepper-btn" onclick="event.stopPropagation(); changeQty('${matchedKey}', -1)">−</button>
+              <span class="stepper-val">${itemQty}</span>
+              <button class="stepper-btn" onclick="event.stopPropagation(); changeQty('${matchedKey}', 1)">+</button>
+            </div>
+          `;
+        } else {
+          row.classList.remove("active-row");
+          actionSlot.innerHTML = `
+            <button class="btn-add-action" onclick="handleItemAdd('${baseName}', ${price}, '${type}')">+ Add</button>
+          `;
         }
       });
 
@@ -1814,9 +1846,9 @@
               <div class="cart-item-price">₹${item.price} each</div>
             </div>
             <div class="quantity-control">
-              <button class="quantity-button" onclick="changeQty('${name}', -1)">−</button>
-              <span class="quantity-value">${item.qty}</span>
-              <button class="quantity-button" onclick="changeQty('${name}', 1)">+</button>
+              <button class="stepper-btn" style="border:1px solid #dcdad0; border-radius:6px;" onclick="changeQty('${name}', -1)">−</button>
+              <span class="stepper-val">${item.qty}</span>
+              <button class="stepper-btn" style="border:1px solid #dcdad0; border-radius:6px;" onclick="changeQty('${name}', 1)">+</button>
             </div>
           </div>
         `;
