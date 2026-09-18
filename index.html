@@ -214,6 +214,18 @@
       box-shadow: 0 0 0 3px rgba(109,118,88,0.12);
     }
 
+    .input-error {
+      border-color: #dc2626 !important;
+      background-color: #fef2f2 !important;
+      animation: shake 0.35s ease;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-4px); }
+      40%, 80% { transform: translateX(4px); }
+    }
+
     .category-bar-wrap {
       position: sticky;
       top: 0;
@@ -379,7 +391,6 @@
       width: 100%;
     }
 
-    /* Interactive Row Stepper Button */
     .variant-row {
       width: 100%;
       display: flex;
@@ -395,10 +406,7 @@
       transition: all 0.15s ease;
     }
 
-    .variant-row:hover {
-      border-color: #b5b3a6;
-    }
-
+    .variant-row:hover { border-color: #b5b3a6; }
     .variant-row.active-row {
       border-color: var(--olive);
       background: #f6f7f2;
@@ -427,7 +435,6 @@
       margin-top: 1px;
     }
 
-    /* Clean Stepper / Add button */
     .btn-add-action {
       padding: 6px 12px;
       border-radius: 8px;
@@ -447,18 +454,20 @@
     }
 
     .stepper-control {
-      display: flex;
-      align-items: center;
+      display: inline-flex;
+      flex-direction: row !important;
+      align-items: center !important;
       background: white;
       border: 1px solid var(--olive);
       border-radius: 8px;
       overflow: hidden;
+      flex-shrink: 0;
     }
 
     .stepper-btn {
       width: 28px;
       height: 28px;
-      display: grid;
+      display: inline-grid;
       place-items: center;
       background: transparent;
       border: 0;
@@ -468,9 +477,7 @@
       transition: background 0.15s;
     }
 
-    .stepper-btn:hover {
-      background: #eceee6;
-    }
+    .stepper-btn:hover { background: #eceee6; }
 
     .stepper-val {
       min-width: 22px;
@@ -478,6 +485,7 @@
       font-size: 12px;
       font-weight: 700;
       color: var(--ink);
+      display: inline-block;
     }
 
     .floating-cart {
@@ -601,10 +609,16 @@
       border-radius: 14px;
       padding: 12px 14px;
       display: flex;
+      flex-direction: row;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
       margin-bottom: 8px;
+    }
+
+    .cart-item-info {
+      flex: 1;
+      min-width: 0;
     }
 
     .cart-item-name { font-size: 13px; font-weight: 700; line-height: 1.35; }
@@ -1566,7 +1580,7 @@
       <div id="floatingCartTotal" class="cart-summary-value">₹0</div>
       <div id="floatingCartItems" class="cart-summary-items">No items added</div>
     </div>
-    <button onclick="openCartModal()" class="view-cart-button">Review & Pay →</button>
+    <button onclick="attemptOpenCart()" class="view-cart-button">Review & Pay →</button>
   </div>
 
   <!-- Customization Modal -->
@@ -1735,6 +1749,14 @@
 
     sections.forEach(section => observer.observe(section));
 
+    // Clear error highlights on input
+    ['residentName', 'roomNumber'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.addEventListener('input', () => el.classList.remove('input-error'));
+      }
+    });
+
     // Handles item entry
     function handleItemAdd(name, price, type = '') {
       if (type) {
@@ -1791,32 +1813,37 @@
       document.getElementById("floatingCartTotal").textContent = `₹${totals.total}`;
       document.getElementById("floatingCartItems").textContent = `${count} item${count === 1 ? '' : 's'} in tray`;
 
-      // Update interactive inline steppers on all menu cards
+      // Update interactive rows on menu cards
       document.querySelectorAll(".variant-row").forEach(row => {
         const baseName = row.getAttribute("data-name");
         const price = parseInt(row.getAttribute("data-price"), 10);
         const type = row.getAttribute("data-type") || '';
         const actionSlot = row.querySelector(".action-slot");
 
-        // Sum quantities for the base item and any of its customized variants
-        let itemQty = 0;
-        let matchedKey = baseName;
-        Object.keys(cart).forEach(cartKey => {
-          if (cartKey === baseName || cartKey.startsWith(`${baseName} (`)) {
-            itemQty += cart[cartKey].qty;
-            matchedKey = cartKey;
-          }
-        });
+        // Sum matching variants for this item
+        let matchingKeys = Object.keys(cart).filter(k => k === baseName || k.startsWith(`${baseName} (`));
+        let totalItemQty = matchingKeys.reduce((sum, k) => sum + cart[k].qty, 0);
 
-        if (itemQty > 0) {
+        if (totalItemQty > 0) {
           row.classList.add("active-row");
-          actionSlot.innerHTML = `
-            <div class="stepper-control">
-              <button class="stepper-btn" onclick="event.stopPropagation(); changeQty('${matchedKey}', -1)">−</button>
-              <span class="stepper-val">${itemQty}</span>
-              <button class="stepper-btn" onclick="event.stopPropagation(); changeQty('${matchedKey}', 1)">+</button>
-            </div>
-          `;
+
+          if (type) {
+            // For customizable items (pizza, pasta, etc.), let them re-customize or add more
+            actionSlot.innerHTML = `
+              <button class="btn-add-action" style="background:#eef0e7; border-color:var(--olive); color:var(--oliveDark);" onclick="openCustomization('${baseName}', ${price}, '${type}')">
+                (${totalItemQty}) + More
+              </button>
+            `;
+          } else {
+            // Standard direct items get the direct inline horizontal stepper
+            actionSlot.innerHTML = `
+              <div class="stepper-control">
+                <button class="stepper-btn" onclick="event.stopPropagation(); changeQty('${baseName}', -1)">−</button>
+                <span class="stepper-val">${totalItemQty}</span>
+                <button class="stepper-btn" onclick="event.stopPropagation(); changeQty('${baseName}', 1)">+</button>
+              </div>
+            `;
+          }
         } else {
           row.classList.remove("active-row");
           actionSlot.innerHTML = `
@@ -1841,14 +1868,14 @@
         const item = cart[name];
         return `
           <div class="cart-item">
-            <div class="flex-1 min-w-0">
+            <div class="cart-item-info">
               <div class="cart-item-name">${name}</div>
               <div class="cart-item-price">₹${item.price} each</div>
             </div>
-            <div class="quantity-control">
-              <button class="stepper-btn" style="border:1px solid #dcdad0; border-radius:6px;" onclick="changeQty('${name}', -1)">−</button>
+            <div class="stepper-control">
+              <button class="stepper-btn" onclick="changeQty('${name}', -1)">−</button>
               <span class="stepper-val">${item.qty}</span>
-              <button class="stepper-btn" style="border:1px solid #dcdad0; border-radius:6px;" onclick="changeQty('${name}', 1)">+</button>
+              <button class="stepper-btn" onclick="changeQty('${name}', 1)">+</button>
             </div>
           </div>
         `;
@@ -1925,7 +1952,31 @@
       closeCustomModal();
     }
 
-    // Modal navigation
+    // Strict validation before opening tray
+    function attemptOpenCart() {
+      const nameInput = document.getElementById("residentName");
+      const roomInput = document.getElementById("roomNumber");
+      const name = nameInput.value.trim();
+      const room = roomInput.value.trim();
+
+      if (!name || !room) {
+        if (!name) nameInput.classList.add("input-error");
+        if (!room) roomInput.classList.add("input-error");
+
+        showToast("⚠️ Enter your Resident Name and Room Number first");
+        window.scrollTo({ top: 120, behavior: "smooth" });
+
+        if (!name) {
+          nameInput.focus();
+        } else {
+          roomInput.focus();
+        }
+        return;
+      }
+
+      openCartModal();
+    }
+
     function openCartModal() {
       renderCartList();
       document.getElementById("cartModal").classList.add("open");
@@ -1938,16 +1989,6 @@
     }
 
     function openPaymentModal() {
-      const name = document.getElementById("residentName").value.trim();
-      const room = document.getElementById("roomNumber").value.trim();
-
-      if (!name || !room) {
-        showToast("Please enter your name and room number");
-        closeCartModal();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        return;
-      }
-
       const totals = calculateTotals();
       document.getElementById("paymentAmountText").textContent = `₹${totals.total}`;
       document.getElementById("checkAmount").textContent = `₹${totals.total}`;
@@ -1988,7 +2029,7 @@
                  `📋 *ORDER TRAY:*\n${itemsList}\n\n`;
 
       if (chefNote) {
-        text += `📝 *Note to Chef:* ${chefNote}\n\n`;
+        text += `👨‍🍳 *Note to Chef:* ${chefNote}\n\n`;
       }
 
       text += `💰 *Total Transferred:* ₹${totals.total}\n\n` +
@@ -2004,7 +2045,7 @@
       const toast = document.getElementById("toast");
       toast.textContent = msg;
       toast.classList.add("show");
-      setTimeout(() => toast.classList.remove("show"), 2200);
+      setTimeout(() => toast.classList.remove("show"), 2400);
     }
   </script>
 </body>
