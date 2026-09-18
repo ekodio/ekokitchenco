@@ -3,22 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#191c18" />
+  <meta name="theme-color" content="#20231f" />
   <meta name="description" content="Eko Kitchen Co. in-room dining at Ekodio Homes." />
 
   <title>Eko Kitchen Co. | In-Room Dining</title>
 
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Tailwind Custom Configuration -->
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            ink: "#191c18",
-            charcoal: "#232620",
+            ink: "#20231f",
+            charcoal: "#292c27",
             ivory: "#f8f6f0",
             cream: "#efede4",
             olive: "#6d7658",
@@ -28,24 +26,25 @@
             line: "#deddd4"
           },
           fontFamily: {
-            sans: ["DM Sans", "Plus Jakarta Sans", "sans-serif"],
-            serif: ["Playfair Display", "Georgia", "serif"]
+            sans: ["Inter", "Arial", "sans-serif"],
+            serif: ["Georgia", "Times New Roman", "serif"]
           }
         }
       }
     };
   </script>
 
-  <!-- Google Fonts: DM Sans & Playfair Display -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600&display=swap"
+    rel="stylesheet"
+  />
 
-  <!-- Embedded Custom Styles -->
   <style>
     :root {
-      --ink: #191c18;
-      --charcoal: #232620;
+      --ink: #20231f;
+      --charcoal: #292c27;
       --ivory: #f8f6f0;
       --cream: #efede4;
       --olive: #6d7658;
@@ -62,65 +61,54 @@
       margin: 0;
       background: var(--ivory);
       color: var(--ink);
-      font-family: "DM Sans", sans-serif;
+      font-family: "DM Sans", Arial, sans-serif;
       -webkit-font-smoothing: antialiased;
     }
 
     button, input { font: inherit; }
     button { cursor: pointer; }
-
     .serif { font-family: "Playfair Display", Georgia, serif; }
 
-    .page-shell {
-      min-height: 100vh;
-      padding-bottom: 120px;
-    }
-
-    .top-header {
-      background: #191c18;
-      color: #f7f6f2;
-      border-bottom: 1px solid #292c27;
-    }
+    .page-shell { min-height: 100vh; padding-bottom: 120px; }
+    .top-header { background: var(--charcoal); color: #fff; }
 
     .header-inner {
       max-width: 1180px;
       margin: 0 auto;
-      padding: 24px 20px 28px;
+      padding: 22px 20px 26px;
     }
 
-    .brand-mark {
-      letter-spacing: 0.22em;
-      font-size: 11px;
-      font-weight: 700;
-      color: #a8a29e;
-      text-transform: uppercase;
-    }
-
+    .brand-mark { letter-spacing: 0.18em; font-size: 12px; font-weight: 700; }
     .brand-title {
       font-family: "Playfair Display", Georgia, serif;
-      font-size: clamp(30px, 5vw, 46px);
-      line-height: 1.05;
+      font-size: clamp(28px, 6vw, 48px);
+      line-height: 1;
       font-weight: 600;
-      letter-spacing: -0.02em;
-      color: #fdfcf9;
+      letter-spacing: -0.03em;
     }
 
     .header-rule {
-      width: 44px;
+      width: 42px;
       height: 2px;
       background: var(--champagne);
-      margin: 14px 0 16px;
+      margin: 16px 0;
+    }
+
+    .header-subtitle {
+      color: #d5d7cd;
+      font-size: 13px;
+      line-height: 1.7;
+      max-width: 390px;
     }
 
     .header-pill {
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.06);
-      color: #e4e4e7;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.05);
+      color: #e8e8df;
       border-radius: 999px;
-      padding: 6px 13px;
+      padding: 8px 12px;
       font-size: 11px;
       white-space: nowrap;
-      font-weight: 500;
     }
 
     .content-container {
@@ -131,63 +119,110 @@
 
     .offer-banner {
       margin-top: 22px;
-      border: 1px solid #dfd8cc;
-      background: #ece7de;
+      border: 1px solid #d6d4c7;
+      background: #e8e5d8;
       border-radius: 18px;
-      padding: 16px 20px;
+      padding: 17px 18px;
       display: flex;
       gap: 14px;
       align-items: center;
+      justify-content: space-between;
     }
 
+    .offer-label {
+      color: var(--olive-dark);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .offer-copy { color: #45493e; font-size: 13px; line-height: 1.5; }
+    .offer-copy strong { color: var(--ink); }
+
     .offer-icon {
-      width: 38px;
-      height: 38px;
-      min-width: 38px;
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
       border-radius: 50%;
-      background: #78716c;
-      color: #f5f5f4;
+      background: var(--olive);
+      color: white;
       display: grid;
       place-items: center;
-      font-size: 16px;
-      font-weight: 700;
+      font-size: 18px;
     }
 
     .resident-card {
       background: white;
       border: 1px solid var(--line);
       border-radius: 20px;
-      padding: 24px;
+      padding: 22px;
       margin-top: 18px;
-      box-shadow: 0 4px 20px -2px rgba(25, 28, 24, 0.04);
+      box-shadow: 0 10px 35px rgba(32,35,31,0.06);
+    }
+
+    .section-eyebrow {
+      color: var(--olive-dark);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .section-heading {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 25px;
+      line-height: 1.2;
+      font-weight: 600;
+      margin-top: 6px;
+      color: var(--ink);
+    }
+
+    .section-description {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+      margin-top: 7px;
+    }
+
+    .field-label {
+      display: block;
+      color: #5d6057;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-bottom: 7px;
+      text-transform: uppercase;
     }
 
     .field-input {
       width: 100%;
       height: 46px;
       border: 1px solid #d8d8cf;
-      border-radius: 12px;
-      padding: 0 14px;
+      border-radius: 11px;
+      padding: 0 13px;
       color: var(--ink);
       background: #fbfbf8;
       outline: none;
       transition: border-color 0.2s, box-shadow 0.2s;
       font-size: 13px;
     }
+
     .field-input:focus {
-      border-color: var(--ink);
-      box-shadow: 0 0 0 3px rgba(25, 28, 24, 0.08);
+      border-color: var(--olive);
+      box-shadow: 0 0 0 3px rgba(109,118,88,0.12);
     }
 
     .category-bar-wrap {
       position: sticky;
       top: 0;
       z-index: 30;
-      background: rgba(248,246,240,0.96);
+      margin-top: 28px;
+      background: rgba(248,246,240,0.95);
       backdrop-filter: blur(12px);
       border-top: 1px solid rgba(222,221,212,0.8);
       border-bottom: 1px solid rgba(222,221,212,0.8);
-      transition: all 0.2s ease;
     }
 
     .category-bar {
@@ -195,38 +230,61 @@
       margin: 0 auto;
       padding: 12px 20px;
       display: flex;
-      gap: 10px;
+      gap: 8px;
       overflow-x: auto;
       scrollbar-width: none;
     }
+
     .category-bar::-webkit-scrollbar { display: none; }
 
     .category-button {
       flex: 0 0 auto;
-      border: 1px solid #d4d2c7;
-      color: #61645a;
-      background: white;
+      border: 1px solid #d8d8cf;
+      color: #696b62;
+      background: transparent;
       border-radius: 999px;
-      padding: 8px 18px;
-      font-size: 13px;
+      padding: 9px 18px;
+      font-size: 12px;
       font-weight: 600;
-      cursor: pointer;
       transition: all 0.2s ease;
     }
+
     .category-button:hover {
-      border-color: #191c18;
-      color: #191c18;
+      border-color: var(--olive);
+      color: var(--olive-dark);
     }
+
     .category-button.active {
-      background: #191c18 !important;
-      color: #f7f6f2 !important;
-      border-color: #191c18 !important;
-      box-shadow: 0 3px 10px rgba(25,28,24,0.18);
+      background: var(--ink) !important;
+      color: white !important;
+      border-color: var(--ink) !important;
+      box-shadow: 0 2px 8px rgba(32,35,31,0.2);
     }
 
     .menu-section {
-      padding-top: 36px;
-      scroll-margin-top: 80px;
+      padding-top: 34px;
+      scroll-margin-top: 78px;
+    }
+
+    .menu-section-header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 15px;
+    }
+
+    .menu-section-title {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.1;
+    }
+
+    .menu-section-count {
+      color: var(--muted);
+      font-size: 11px;
+      white-space: nowrap;
     }
 
     .menu-grid {
@@ -234,47 +292,48 @@
       grid-template-columns: repeat(1, minmax(0, 1fr));
       gap: 16px;
     }
+
     @media (min-width: 640px) {
-      .menu-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+      .menu-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
+
     @media (min-width: 1024px) {
-      .menu-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+      .menu-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     }
 
     .menu-card {
       overflow: hidden;
       background: white;
-      border: 1px solid #e2e1d7;
+      border: 1px solid #e1e0d8;
       border-radius: 18px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.025);
+      box-shadow: 0 4px 18px rgba(32,35,31,0.03);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
+
     .menu-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 28px rgba(25, 28, 24, 0.08);
-      border-color: #cfcebe;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(32,35,31,0.08);
     }
 
     .menu-image-wrap {
       position: relative;
       width: 100%;
-      height: 180px;
+      height: 175px;
       background: #e8e7df;
       overflow: hidden;
     }
+
     .menu-image {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform 0.4s ease;
+      transition: transform 0.35s ease;
     }
-    .menu-card:hover .menu-image {
-      transform: scale(1.04);
-    }
+
+    .menu-card:hover .menu-image { transform: scale(1.03); }
 
     .menu-tag {
       position: absolute;
@@ -282,118 +341,429 @@
       top: 10px;
       border-radius: 999px;
       padding: 4px 9px;
-      background: rgba(25,28,24,0.85);
-      backdrop-filter: blur(4px);
+      background: rgba(32,35,31,0.85);
       color: white;
       font-size: 9px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       font-weight: 700;
+      backdrop-filter: blur(4px);
     }
 
-    /* Redesigned Variant Button Row: Guarantees zero clipping and prominent bold price */
+    .menu-card-body {
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      justify-content: space-between;
+    }
+
+    .menu-card-title {
+      color: var(--ink);
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .menu-card-description {
+      color: var(--muted);
+      font-size: 11px;
+      margin-top: 3px;
+      margin-bottom: 12px;
+    }
+
+    .variant-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      width: 100%;
+    }
+
     .variant-row-btn {
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 8px;
-      border: 1px solid #dedcd1;
-      background: #fafaf7;
-      color: #2c2f27;
+      padding: 8px 12px;
+      border: 1px solid #dcdad0;
+      background: #fafaf8;
       border-radius: 10px;
-      padding: 7px 11px;
-      font-size: 12px;
+      color: var(--ink);
+      font-size: 11px;
       font-weight: 500;
       transition: all 0.18s ease;
-      cursor: pointer;
     }
+
     .variant-row-btn:hover {
-      background: #191c18;
+      background: var(--ink);
       color: white;
-      border-color: #191c18;
+      border-color: var(--ink);
     }
-    .variant-row-btn:hover .variant-price-tag {
-      color: #f7f6f2;
+
+    .variant-row-btn:hover .variant-price {
+      color: #f8f6f0;
     }
-    .variant-price-tag {
-      font-weight: 700;
-      color: #191c18;
+
+    .variant-label {
+      text-align: left;
       white-space: nowrap;
-      font-feature-settings: "tnum";
-      letter-spacing: -0.01em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .variant-price {
+      font-weight: 700;
+      color: #292c27;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .floating-cart {
       position: fixed;
-      z-index: 40;
+      z-index: 50;
       left: 50%;
-      bottom: 18px;
+      bottom: 20px;
       transform: translateX(-50%);
-      width: min(calc(100% - 32px), 520px);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 20px;
-      background: #191c18;
+      width: min(calc(100% - 32px), 480px);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 18px;
+      background: var(--charcoal);
       color: white;
       box-shadow: 0 18px 45px rgba(0,0,0,0.3);
-      padding: 13px 18px;
+      padding: 12px 16px;
       display: none;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
     }
+
     .floating-cart.visible { display: flex; }
+
+    .cart-summary-label {
+      color: #c8c9c0;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+    }
+
+    .cart-summary-value {
+      font-size: 15px;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    .cart-summary-items {
+      color: #c8c9c0;
+      font-size: 11px;
+    }
+
+    .view-cart-button {
+      background: var(--champagne);
+      color: var(--ink);
+      border: 0;
+      border-radius: 999px;
+      padding: 10px 18px;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+
+    .view-cart-button:hover { background: #d4bf91; }
 
     .modal-backdrop {
       position: fixed;
       inset: 0;
       z-index: 100;
-      background: rgba(20,22,19,0.72);
+      background: rgba(20,22,19,0.65);
       backdrop-filter: blur(4px);
       display: none;
-      align-items: center;
+      align-items: flex-end;
       justify-content: center;
-      padding: 16px;
+      padding: 0;
     }
+
     .modal-backdrop.open { display: flex; }
 
     .modal-panel {
       width: 100%;
-      max-width: 500px;
-      max-height: 90vh;
+      max-width: 540px;
+      max-height: 92vh;
       overflow-y: auto;
-      background: #fdfcf9;
-      border-radius: 24px;
-      padding: 24px;
-      border: 1px solid #e7e5e4;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.25);
-      animation: modalPop 0.2s ease-out;
+      background: var(--ivory);
+      border-radius: 24px 24px 0 0;
+      padding: 24px 20px 30px;
+      animation: slideUp 0.22s ease;
     }
 
-    @keyframes modalPop {
-      from { transform: scale(0.96); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
+    @keyframes slideUp {
+      from { transform: translateY(25px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @media (min-width: 640px) {
+      .modal-backdrop { align-items: center; padding: 20px; }
+      .modal-panel { border-radius: 24px; max-height: 88vh; }
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      margin-bottom: 18px;
+    }
+
+    .modal-title {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    .close-button {
+      width: 32px;
+      height: 32px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: white;
+      color: var(--ink);
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+    }
+
+    .cart-item {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .cart-item-name { font-size: 13px; font-weight: 700; line-height: 1.35; }
+    .cart-item-price { font-size: 12px; font-weight: 700; margin-top: 3px; color: #575b50; }
+
+    .quantity-control {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .quantity-button {
+      width: 26px;
+      height: 26px;
+      border: 1px solid var(--line);
+      background: var(--ivory);
+      border-radius: 50%;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .quantity-value {
+      min-width: 16px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .bill-box {
+      margin-top: 18px;
+      background: #ebe9df;
+      border: 1px solid #dad8cb;
+      border-radius: 16px;
+      padding: 16px;
+    }
+
+    .bill-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: #5f6258;
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+
+    .bill-row:last-child { margin-bottom: 0; }
+    .bill-row.total {
+      border-top: 1px solid #d1cfc2;
+      padding-top: 12px;
+      margin-top: 12px;
+      color: var(--ink);
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .discount-text { color: var(--olive-dark); font-weight: 700; }
+
+    .primary-button {
+      width: 100%;
+      min-height: 48px;
+      border: 0;
+      border-radius: 12px;
+      background: var(--ink);
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: background 0.2s ease;
+    }
+
+    .primary-button:hover { background: var(--olive-dark); }
+
+    .primary-button:disabled {
+      background: #c8c7c0;
+      color: #7d7e75;
+      cursor: not-allowed;
+    }
+
+    .payment-box {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      margin-top: 14px;
+    }
+
+    .qr-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 12px 0 6px;
+    }
+
+    #upiQr {
+      width: 185px;
+      height: 185px;
+      object-fit: contain;
+      border-radius: 12px;
+      border: 6px solid #fafaf8;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+
+    .upi-id-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .upi-id-text {
+      flex: 1;
+      background: #f5f4ee;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      padding: 9px 12px;
+      color: #575b50;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .copy-button {
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: white;
+      padding: 9px 14px;
+      color: var(--ink);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .payment-warning {
+      background: #fdf2f2;
+      border: 1px solid #fecaca;
+      color: #991b1b;
+      padding: 11px 13px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 600;
+      line-height: 1.5;
+      margin-top: 12px;
+    }
+
+    .payment-check {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      margin-top: 14px;
+      color: #565a50;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .payment-check input {
+      margin-top: 2px;
+      accent-color: var(--olive);
+    }
+
+    .custom-radio-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 11px 14px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 500;
+      transition: all 0.15s ease;
+    }
+
+    .custom-radio-card:hover {
+      border-color: var(--olive);
+      background: #fbfbf9;
+    }
+
+    .custom-radio-card input { accent-color: var(--olive); }
+
+    .toast {
+      position: fixed;
+      z-index: 200;
+      left: 50%;
+      bottom: 90px;
+      transform: translateX(-50%) translateY(10px);
+      background: var(--charcoal);
+      color: white;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 500;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
     }
   </style>
 </head>
 
 <body>
   <div class="page-shell">
-
-    <!-- Header Section -->
+    <!-- Header -->
     <header class="top-header">
-      <div class="header-inner flex flex-col md:flex-row md:items-end justify-between gap-6">
+      <div class="header-inner">
         <div>
           <div class="brand-mark">EKODIO HOMES PRESENTS</div>
           <div class="header-rule"></div>
           <div class="brand-title">Eko Kitchen Co.</div>
         </div>
 
-        <div class="space-y-3">
-          <p class="text-xs text-[#d5d7cd] leading-relaxed max-w-md font-normal">
-            Thoughtfully prepared meals, snacks and beverages, delivered to your room at Ekodio Homes.
-          </p>
-          <div class="flex flex-wrap gap-2 pt-1">
+        <div class="header-subtitle">
+          Thoughtfully prepared meals, snacks and beverages, delivered to your room at Ekodio Homes.
+          <div class="flex flex-wrap gap-2 mt-4">
             <span class="header-pill">In-room dining</span>
             <span class="header-pill">Prepaid orders</span>
             <span class="header-pill">8:00 AM – 10:00 PM</span>
@@ -404,966 +774,1107 @@
 
     <main>
       <div class="content-container">
-
-        <!-- Resident Privileges Offer Banner -->
+        <!-- Offer Banner -->
         <section class="offer-banner">
           <div class="offer-icon">%</div>
           <div class="flex-1">
-            <div class="text-[10px] font-bold tracking-[0.16em] uppercase text-stone-600 mb-0.5">Resident privileges</div>
-            <div class="text-xs md:text-sm text-stone-800 leading-snug">
-              Enjoy <strong>10% off orders above ₹299</strong> and <strong>30% off orders above ₹999</strong>.
+            <div class="offer-label">Resident privileges</div>
+            <div class="offer-copy">
+              Enjoy <strong>10% off orders above ₹299</strong> and
+              <strong>30% off orders above ₹999</strong>.
             </div>
           </div>
         </section>
 
-        <!-- Resident Delivery Card -->
+        <!-- Resident Details -->
         <section class="resident-card">
-          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-end">
-            <div class="md:col-span-6 space-y-1">
-              <div class="text-[10px] font-bold uppercase tracking-widest text-stone-400">Before you order</div>
-              <h2 class="serif text-2xl font-bold text-ink">Where should we deliver?</h2>
-              <p class="text-xs text-stone-500 leading-relaxed">
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+            <div class="md:col-span-6">
+              <div class="section-eyebrow">Before you order</div>
+              <div class="section-heading">Where should we deliver?</div>
+              <div class="section-description">
                 Enter your details once. Your order will be confirmed through WhatsApp after payment.
-              </p>
+              </div>
             </div>
+
             <div class="md:col-span-3">
-              <label class="block text-[11px] font-bold uppercase tracking-wider text-stone-600 mb-1.5" for="residentName">Resident name *</label>
+              <label class="field-label" for="residentName">Resident name *</label>
               <input id="residentName" class="field-input" type="text" placeholder="Your full name" autocomplete="name" />
             </div>
+
             <div class="md:col-span-3">
-              <label class="block text-[11px] font-bold uppercase tracking-wider text-stone-600 mb-1.5" for="roomNumber">Room number *</label>
+              <label class="field-label" for="roomNumber">Room number *</label>
               <input id="roomNumber" class="field-input" type="text" placeholder="e.g. 204" autocomplete="off" />
             </div>
           </div>
         </section>
       </div>
 
-      <!-- Sticky Category Navigation -->
+      <!-- Sticky Category Bar -->
       <div class="category-bar-wrap">
         <nav class="category-bar" aria-label="Menu categories">
-          <button class="category-button active" data-target="mains" onclick="scrollToCategory('mains')">Mains</button>
-          <button class="category-button" data-target="snacks" onclick="scrollToCategory('snacks')">Snacks</button>
-          <button class="category-button" data-target="beverages" onclick="scrollToCategory('beverages')">Beverages</button>
-          <button class="category-button" data-target="desserts" onclick="scrollToCategory('desserts')">Desserts</button>
+          <button class="category-button active" data-target="mains">Mains</button>
+          <button class="category-button" data-target="snacks">Snacks</button>
+          <button class="category-button" data-target="beverages">Beverages</button>
+          <button class="category-button" data-target="desserts">Desserts</button>
         </nav>
       </div>
 
       <div class="content-container">
 
-        <!-- 1. MAINS -->
+        <!-- SECTION 1: MAINS -->
         <section id="mains" class="menu-section">
-          <div class="flex items-baseline justify-between mb-4 border-b border-stone-200 pb-2">
+          <div class="menu-section-header">
             <div>
-              <div class="text-[10px] font-bold uppercase tracking-widest text-stone-400">From the kitchen</div>
-              <h2 class="serif text-2xl font-bold text-ink">Mains</h2>
+              <div class="section-eyebrow">From the kitchen</div>
+              <h2 class="menu-section-title">Mains</h2>
             </div>
-            <div class="text-xs text-stone-500">Freshly prepared</div>
+            <div class="menu-section-count">Freshly prepared</div>
           </div>
-          <div id="mainsGrid" class="menu-grid"></div>
+
+          <div class="menu-grid">
+            <!-- Pizza -->
+            <article class="menu-card">
+              <div class="menu-image-wrap">
+                <img class="menu-image" src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=450&q=80" alt="Pizza" loading="lazy" />
+                <span class="menu-tag">4 Slices</span>
+              </div>
+              <div class="menu-card-body">
+                <div>
+                  <div class="menu-card-title">Pizza</div>
+                  <div class="menu-card-description">Select option below</div>
+                </div>
+                <div class="variant-stack">
+                  <button class="variant-row-btn" onclick="openCustomization('Pizza (Veg)', 130, 'pizza')">
+                    <span class="variant-label">+ Veg</span>
+                    <span class="variant-price">₹130</span>
+                  </button>
+                  <button class="variant-row-btn" onclick="openCustomization('Pizza (Margherita)', 150, 'pizza')">
+                    <span class="variant-label">+ Margherita</span>
+                    <span class="variant-price">₹150</span>
+                  </button>
+                  <button class="variant-row-btn" onclick="openCustomization('Pizza (Paneer)', 160, 'pizza')">
+                    <span class="variant-label">+ Paneer</span>
+                    <span class="variant-price">₹160</span>
+                  </button>
+                  <button class="variant-row-btn" onclick="openCustomization('Pizza (Chicken)', 180, 'pizza')">
+                    <span class="variant-label">+ Chicken</span>
+                    <span class="variant-price">₹180</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Grilled Sandwich -->
+            <article class="menu-card">
+              <div class="menu-image-wrap">
+                <img class="menu-image" src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=450&q=80" alt="Grilled Sandwich" loading="lazy" />
+                <span class="menu-tag">Freshly Grilled</span>
+              </div>
+              <div class="menu-card-body">
+                <div>
+                  <div class="menu-card-title">Grilled Sandwich</div>
+                  <div class="menu-card-description">Select option below</div>
+                </div>
+                <div class="variant-stack">
+                  <button class="variant-row-btn" onclick="openCustomization('Grilled Sandwich (Veg)', 60, 'sandwich')">
+                    <span class="variant-label">+ Veg</span>
+                    <span class="variant-price">₹60</span>
+                  </button>
+                  <button class="variant-row-btn" onclick="openCustomization('Grilled Sandwich (Paneer)', 80, 'sandwich')">
+                    <span class="variant-label">+ Paneer</span>
+                    <span class="variant-price">₹80</span>
+                  </button>
+                  <button class="variant-row-btn" onclick="openCustomization('Grilled Sandwich (Chicken)', 100, 'sandwich')">
+                    <span class="variant-label">+ Chicken</span>
+                    <span class="variant-price">₹100</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Kathi Roll (Local asset) -->
+            <article class="menu-card">
+              <div class="menu-image-wrap">
+                <img class="menu-image" src="kathi-roll.jpg" alt="Kathi Roll" loading="lazy" />
+                <span class="menu-tag">Gourmet Roll</span>
+              </div>
+              <div class="menu-card-body">
+                <div>
+                  <div class="menu-card-title">Kathi Roll</div>
+                  <div class="menu-card-description">Select option below</div>
+                </div>
+                <div class="variant-stack">
+                  <button class="variant-row-btn" onclick="openCustomization('Kathi Roll (Paneer)', 80, 'kathi')">
+                    <span class="variant-label">+ Paneer</span>
+                    <span class="variant-price">₹80</span>
+                  </button>
+                  <button class="variant-row-btn" onclick="openCustomization('Kathi Roll (Egg)', 100, 'kathi')">
+                    <span class="variant-label">+ Egg</span>
+                    <span class="variant-price">₹100</span>
+                  </button>
+                  <button class="variant-row-btn" onclick="openCustomization('Kathi Roll (Chicken)', 130, 'kathi')">
+                    <span class="variant-label">+ Chicken</span>
+                    <span class="variant-price">₹130</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Pasta -->
+            <article class="menu-card">
+              <div class="menu-image-wrap">
+                <img class="menu-image" src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=450&q=80" alt="Pasta" loading="lazy" />
+                <span class="menu-tag">Italian Style</span>
+              </div>
+              <div class="menu-card-body">
+                <div>
+                  <div class="menu-card-title">Pasta</div>
+                  <div class="menu-card-description">Select option below</div>
+                </div>
+                <div class="variant-stack">
+                  <button class="variant-row-btn" onclick="openCustomization('Veg Alfredo Pasta', 100, 'pasta')">
+                    <span class="variant-label">+ Veg Alfredo</span>
+                    <span class="variant-price">₹100</span>
+                  </button>
+                  <button class="variant-row-btn" onclick="openCustomization('Veg Arrabiata Pasta', 120, 'pasta')">
+                    <span class="variant-label">+ Veg Arrabiata</span>
+                    <span class="variant-price">₹120</span>
+                  </button>
+                  <button class="variant-row-btn" onclick="openCustomization('Chicken Alfredo Pasta', 130, 'pasta')">
+                    <span class="variant-label">+ Chicken Alfredo</span>
+                    <span class="variant-price">₹130</span>
+                  </button>
+                  <button class="variant-row-btn" onclick="openCustomization('Chicken Arrabiata Pasta', 150, 'pasta')">
+                    <span class="variant-label">+ Chicken Arrabiata</span>
+                    <span class="variant-price">₹150</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Biryani -->
+            <article class="menu-card">
+              <div class="menu-image-wrap">
+                <img class="menu-image" src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=450&q=80" alt="Biryani" loading="lazy" />
+                <span class="menu-tag">Dum Biryani</span>
+              </div>
+              <div class="menu-card-body">
+                <div>
+                  <div class="menu-card-title">Biryani</div>
+                  <div class="menu-card-description">Select option below</div>
+                </div>
+                <div class="variant-stack">
+                  <button class="variant-row-btn" onclick="addToCart('Biryani (Veg)', 100)">
+                    <span class="variant-label">+ Veg</span>
+                    <span class="variant-price">₹100</span>
+                  </button>
+                  <button class="variant-row-btn" onclick="addToCart('Biryani (Egg)', 130)">
+                    <span class="variant-label">+ Egg</span>
+                    <span class="variant-price">₹130</span>
+                  </button>
+                  <button class="variant-row-btn" onclick="addToCart('Biryani (Chicken)', 150)">
+                    <span class="variant-label">+ Chicken</span>
+                    <span class="variant-price">₹150</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Chilli Paneer (Local asset: chilli-specials.jpg) -->
+            <article class="menu-card">
+              <div class="menu-image-wrap">
+                <img class="menu-image" src="chilli-specials.jpg" alt="Chilli Paneer" loading="lazy" />
+                <span class="menu-tag">Indo-Chinese</span>
+              </div>
+              <div class="menu-card-body">
+                <div>
+                  <div class="menu-card-title">Chilli Paneer</div>
+                  <div class="menu-card-description">Select option below</div>
+                </div>
+                <div class="variant-stack">
+                  <button class="variant-row-btn" onclick="addToCart('Chilli Paneer (Dry)', 180)">
+                    <span class="variant-label">+ Dry</span>
+                    <span class="variant-price">₹180</span>
+                  </button>
+                  <button class="variant-row-btn" onclick="addToCart('Chilli Paneer (Gravy)', 180)">
+                    <span class="variant-label">+ Gravy</span>
+                    <span class="variant-price">₹180</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Chilli Mushroom (Local asset: chilli-specials.jpg) -->
+            <article class="menu-card">
+              <div class="menu-image-wrap">
+                <img class="menu-image" src="chilli-specials.jpg" alt="Chilli Mushroom" loading="lazy" />
+                <span class="menu-tag">Wok Tossed</span>
+              </div>
+              <div class="menu-card-body">
+                <div>
+                  <div class="menu-card-title">Chilli Mushroom</div>
+                  <div class="menu-card-description">Select option below</div>
+                </div>
+                <div class="variant-stack">
+                  <button class="variant-row-btn" onclick="addToCart('Chilli Mushroom (Dry)', 200)">
+                    <span class="variant-label">+ Dry</span>
+                    <span class="variant-price">₹200</span>
+                  </button>
+                  <button class="variant-row-btn" onclick="addToCart('Chilli Mushroom (Gravy)', 200)">
+                    <span class="variant-label">+ Gravy</span>
+                    <span class="variant-price">₹200</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Chilli Chicken (Local asset: chilli-specials.jpg) -->
+            <article class="menu-card">
+              <div class="menu-image-wrap">
+                <img class="menu-image" src="chilli-specials.jpg" alt="Chilli Chicken" loading="lazy" />
+                <span class="menu-tag">Chef's Special</span>
+              </div>
+              <div class="menu-card-body">
+                <div>
+                  <div class="menu-card-title">Chilli Chicken</div>
+                  <div class="menu-card-description">Select option below</div>
+                </div>
+                <div class="variant-stack">
+                  <button class="variant-row-btn" onclick="addToCart('Chilli Chicken (Dry)', 220)">
+                    <span class="variant-label">+ Dry</span>
+                    <span class="variant-price">₹220</span>
+                  </button>
+                  <button class="variant-row-btn" onclick="addToCart('Chilli Chicken (Gravy)', 220)">
+                    <span class="variant-label">+ Gravy</span>
+                    <span class="variant-price">₹220</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Noodles -->
+            <article class="menu-card">
+              <div class="menu-image-wrap">
+                <img class="menu-image" src="https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=450&q=80" alt="Noodles" loading="lazy" />
+                <span class="menu-tag">Wok Tossed</span>
+              </div>
+              <div class="menu-card-body">
+                <div>
+                  <div class="menu-card-title">Noodles</div>
+                  <div class="menu-card-description">Select option below</div>
+                </div>
+                <div class="variant-stack">
+                  <button class="variant-row-btn" onclick="addToCart('Noodles (Veg)', 70)">
+                    <span class="variant-label">+ Veg</span>
+                    <span class="variant-price">₹70</span>
+                  </button>
+                  <button class="variant-row-btn" onclick="addToCart('Noodles (Egg)', 90)">
+                    <span class="variant-label">+ Egg</span>
+                    <span class="variant-price">₹90</span>
+                  </button>
+                  <button class="variant-row-btn" onclick="addToCart('Noodles (Chicken)', 120)">
+                    <span class="variant-label">+ Chicken</span>
+                    <span class="variant-price">₹120</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Fried Rice -->
+            <article class="menu-card">
+              <div class="menu-image-wrap">
+                <img class="menu-image" src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=450&q=80" alt="Fried Rice" loading="lazy" />
+                <span class="menu-tag">Classic Wok</span>
+              </div>
+              <div class="menu-card-body">
+                <div>
+                  <div class="menu-card-title">Fried Rice</div>
+                  <div class="menu-card-description">Select option below</div>
+                </div>
+                <div class="variant-stack">
+                  <button class="variant-row-btn" onclick="addToCart('Fried Rice (Veg)', 80)">
+                    <span class="variant-label">+ Veg</span>
+                    <span class="variant-price">₹80</span>
+                  </button>
+                  <button class="variant-row-btn" onclick="addToCart('Fried Rice (Egg)', 100)">
+                    <span class="variant-label">+ Egg</span>
+                    <span class="variant-price">₹100</span>
+                  </button>
+                  <button class="variant-row-btn" onclick="addToCart('Fried Rice (Chicken)', 130)">
+                    <span class="variant-label">+ Chicken</span>
+                    <span class="variant-price">₹130</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
         </section>
 
-        <!-- 2. SNACKS -->
+        <!-- SECTION 2: SNACKS -->
         <section id="snacks" class="menu-section">
-          <div class="flex items-baseline justify-between mb-4 border-b border-stone-200 pb-2">
+          <div class="menu-section-header">
             <div>
-              <div class="text-[10px] font-bold uppercase tracking-widest text-stone-400">Light bites</div>
-              <h2 class="serif text-2xl font-bold text-ink">Snacks</h2>
+              <div class="section-eyebrow">Light bites</div>
+              <h2 class="menu-section-title">Snacks</h2>
             </div>
-            <div class="text-xs text-stone-500">For every craving</div>
+            <div class="menu-section-count">For every craving</div>
           </div>
-          <div id="snacksGrid" class="menu-grid"></div>
+
+          <div class="menu-grid">
+            <!-- Samosa -->
+            <article class="menu-card">
+              <div class="menu-image-wrap">
+                <img class="menu-image" src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=450&q=80" alt="Samosa" loading="lazy" />
+                <span class="menu-tag">Crispy</span>
+              </div>
+              <div class="menu-card-body">
+                <div>
+                  <div class="menu-card-title">Samosa (2 pcs)</div>
+                  <div class="menu-card-description">Select option below</div>
+                </div>
+                <div class="variant-stack">
+                  <button class="variant-row-btn" onclick="addToCart('Samosa (2 pcs)', 40)">
+                    <span class="variant-label">+ 2 pcs portion</span>
+                    <span class="variant-price">₹40</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Spring Roll (Local asset: spring-roll.jpg) -->
+            <article class="menu-card">
+              <div class="menu-image-wrap">
+                <img class="menu-image" src="spring-roll.jpg" alt="Spring Roll" loading="lazy" />
+                <span class="menu-tag">Golden Crisp</span>
+              </div>
+              <div class="menu-card-body">
+                <div>
+                  <div class="menu-card-title">Spring Roll</div>
+                  <div class="menu-card-description">Select option below</div>
+                </div>
+                <div class="variant-stack">
+                  <button class="variant-row-btn" onclick="addToCart('Spring Roll', 80)">
+                    <span class="variant-label">+ Standard Portion</span>
+                    <span class="variant-price">₹80</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Dahi Ke Sholey (Local asset: dahi-sholey.jpg) -->
+            <article class="menu-card">
+              <div class="menu-image-wrap">
+                <img class="menu-image" src="dahi-sholey.jpg" alt="Dahi Ke Sholey" loading="lazy" />
+                <span class="menu-tag">Chef's Pick</span>
+              </div>
+              <div class="menu-card-body">
+                <div>
+                  <div class="menu-card-title">Dahi Ke Sholey</div>
+                  <div class="menu-card-description">Select option below</div>
+                </div>
+                <div class="variant-stack">
+                  <button class="variant-row-btn" onclick="addToCart('Dahi Ke Sholey', 120)">
+                    <span class="variant-label">+ Portion</span>
+                    <span class="variant-price">₹120</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- French Fries -->
+            <article class="menu-card">
+              <div class="menu-image-wrap">
+                <img class="menu-image" src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?auto=format&fit=crop&w=450&q=80" alt="French Fries" loading="lazy" />
+                <span class="menu-tag">Crispy Potato</span>
+              </div>
+              <div class="menu-card-body">
+                <div>
+                  <div class="menu-card-title">French Fries</div>
+                  <div class="menu-card-description">Select option below</div>
+                </div>
+                <div class="variant-stack">
+                  <button class="variant-row-btn" onclick="addToCart('French Fries (Salted)', 80)">
+                    <span class="variant-label">+ Salted</span>
+                    <span class="variant-price">₹80</span>
+                  </button>
+                  <button class="variant-row-btn" onclick="addToCart('French Fries (Peri Peri)', 100)">
+                    <span class="variant-label">+ Peri Peri</span>
+                    <span class="variant-price">₹100</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Momos -->
+            <article class="menu-card">
+              <div class="menu-image-wrap">
+                <img class="menu-image" src="https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9?auto=format&fit=crop&w=450&q=80" alt="Momos" loading="lazy" />
+                <span class="menu-tag">Steamed</span>
+              </div>
+              <div class="menu-card-body">
+                <div>
+                  <div class="menu-card-title">Momos</div>
+                  <div class="menu-card-description">Select option below</div>
+                </div>
+                <div class="variant-stack">
+                  <button class="variant-row-btn" onclick="addToCart('Momos (Veg)', 80)">
+                    <span class="variant-label">+ Veg</span>
+                    <span class="variant-price">₹80</span>
+                  </button>
+                  <button class="variant-row-btn" onclick="addToCart('Momos (Paneer)', 100)">
+                    <span class="variant-label">+ Paneer</span>
+                    <span class="variant-price">₹100</span>
+                  </button>
+                  <button class="variant-row-btn" onclick="addToCart('Momos (Chicken)', 120)">
+                    <span class="variant-label">+ Chicken</span>
+                    <span class="variant-price">₹120</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Maggie (Local asset: maggie.jpg) -->
+            <article class="menu-card">
+              <div class="menu-image-wrap">
+                <img class="menu-image" src="maggie.jpg" alt="Maggie" loading="lazy" />
+                <span class="menu-tag">Comfort Food</span>
+              </div>
+              <div class="menu-card-body">
+                <div>
+                  <div class="menu-card-title">Maggie</div>
+                  <div class="menu-card-description">Select option below</div>
+                </div>
+                <div class="variant-stack">
+                  <button class="variant-row-btn" onclick="addToCart('Maggie (Plain)', 40)">
+                    <span class="variant-label">+ Plain</span>
+                    <span class="variant-price">₹40</span>
+                  </button>
+                  <button class="variant-row-btn" onclick="addToCart('Maggie (Veg)', 60)">
+                    <span class="variant-label">+ Veg</span>
+                    <span class="variant-price">₹60</span>
+                  </button>
+                  <button class="variant-row-btn" onclick="addToCart('Maggie (Egg)', 80)">
+                    <span class="variant-label">+ Egg</span>
+                    <span class="variant-price">₹80</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Egg (2 pcs) -->
+            <article class="menu-card">
+              <div class="menu-image-wrap">
+                <img class="menu-image" src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=450&q=80" alt="Omelette" loading="lazy" />
+                <span class="menu-tag">Freshly Made</span>
+              </div>
+              <div class="menu-card-body">
+                <div>
+                  <div class="menu-card-title">Egg (2 pcs)</div>
+                  <div class="menu-card-description">Select option below</div>
+                </div>
+                <div class="variant-stack">
+                  <button class="variant-row-btn" onclick="addToCart('Egg Boiled (2 pcs)', 40)">
+                    <span class="variant-label">+ Boiled</span>
+                    <span class="variant-price">₹40</span>
+                  </button>
+                  <button class="variant-row-btn" onclick="addToCart('Egg Omelette (2 pcs)', 50)">
+                    <span class="variant-label">+ Omelette</span>
+                    <span class="variant-price">₹50</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Bread (4 pcs) -->
+            <article class="menu-card">
+              <div class="menu-image-wrap">
+                <img class="menu-image" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=450&q=80" alt="Toast" loading="lazy" />
+                <span class="menu-tag">Golden Toasted</span>
+              </div>
+              <div class="menu-card-body">
+                <div>
+                  <div class="menu-card-title">Bread (4 pcs)</div>
+                  <div class="menu-card-description">Select option below</div>
+                </div>
+                <div class="variant-stack">
+                  <button class="variant-row-btn" onclick="addToCart('Bread Plain (4 pcs)', 20)">
+                    <span class="variant-label">+ Plain</span>
+                    <span class="variant-price">₹20</span>
+                  </button>
+                  <button class="variant-row-btn" onclick="addToCart('Bread Butter Toasted (4 pcs)', 40)">
+                    <span class="variant-label">+ Butter Toasted</span>
+                    <span class="variant-price">₹40</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
         </section>
 
-        <!-- 3. BEVERAGES -->
+        <!-- SECTION 3: BEVERAGES -->
         <section id="beverages" class="menu-section">
-          <div class="flex items-baseline justify-between mb-4 border-b border-stone-200 pb-2">
+          <div class="menu-section-header">
             <div>
-              <div class="text-[10px] font-bold uppercase tracking-widest text-stone-400">Warm & Cold</div>
-              <h2 class="serif text-2xl font-bold text-ink">Beverages</h2>
+              <div class="section-eyebrow">Warm & cold</div>
+              <h2 class="menu-section-title">Beverages</h2>
             </div>
-            <div class="text-xs text-stone-500">Brewed & Blended</div>
+            <div class="menu-section-count">Brewed & Blended</div>
           </div>
-          <div id="beveragesGrid" class="menu-grid"></div>
+
+          <div class="menu-grid">
+            <!-- Chai (Local asset: chai.jpg) -->
+            <article class="menu-card">
+              <div class="menu-image-wrap">
+                <img class="menu-image" src="chai.jpg" alt="Chai" loading="lazy" />
+                <span class="menu-tag">Fresh Brew</span>
+              </div>
+              <div class="menu-card-body">
+                <div>
+                  <div class="menu-card-title">Chai (Medium Cup)</div>
+                  <div class="menu-card-description">Select option below</div>
+                </div>
+                <div class="variant-stack">
+                  <button class="variant-row-btn" onclick="openCustomization('Chai (Medium Cup)', 50, 'chai')">
+                    <span class="variant-label">+ Medium Cup (Elaichi/Ginger/Masala)</span>
+                    <span class="variant-price">₹50</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Coffee -->
+            <article class="menu-card">
+              <div class="menu-image-wrap">
+                <img class="menu-image" src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=450&q=80" alt="Coffee" loading="lazy" />
+                <span class="menu-tag">Brewed</span>
+              </div>
+              <div class="menu-card-body">
+                <div>
+                  <div class="menu-card-title">Coffee</div>
+                  <div class="menu-card-description">Select option below</div>
+                </div>
+                <div class="variant-stack">
+                  <button class="variant-row-btn" onclick="addToCart('Coffee (Hot)', 80)">
+                    <span class="variant-label">+ Hot</span>
+                    <span class="variant-price">₹80</span>
+                  </button>
+                  <button class="variant-row-btn" onclick="addToCart('Coffee (Cold)', 100)">
+                    <span class="variant-label">+ Cold</span>
+                    <span class="variant-price">₹100</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Oreo Shake -->
+            <article class="menu-card">
+              <div class="menu-image-wrap">
+                <img class="menu-image" src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=450&q=80" alt="Oreo Shake" loading="lazy" />
+                <span class="menu-tag">Chilled</span>
+              </div>
+              <div class="menu-card-body">
+                <div>
+                  <div class="menu-card-title">Oreo Shake</div>
+                  <div class="menu-card-description">Select option below</div>
+                </div>
+                <div class="variant-stack">
+                  <button class="variant-row-btn" onclick="addToCart('Oreo Shake', 100)">
+                    <span class="variant-label">+ Regular</span>
+                    <span class="variant-price">₹100</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
         </section>
 
-        <!-- 4. DESSERTS -->
+        <!-- SECTION 4: DESSERTS -->
         <section id="desserts" class="menu-section">
-          <div class="flex items-baseline justify-between mb-4 border-b border-stone-200 pb-2">
+          <div class="menu-section-header">
             <div>
-              <div class="text-[10px] font-bold uppercase tracking-widest text-stone-400">A sweet finish</div>
-              <h2 class="serif text-2xl font-bold text-ink">Desserts</h2>
+              <div class="section-eyebrow">A sweet finish</div>
+              <h2 class="menu-section-title">Desserts</h2>
             </div>
-            <div class="text-xs text-stone-500">Made for indulgence</div>
+            <div class="menu-section-count">Made for indulgence</div>
           </div>
-          <div id="dessertsGrid" class="menu-grid"></div>
+
+          <div class="menu-grid">
+            <!-- Pancakes -->
+            <article class="menu-card">
+              <div class="menu-image-wrap">
+                <img class="menu-image" src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=450&q=80" alt="Pancakes" loading="lazy" />
+                <span class="menu-tag">Fluffy</span>
+              </div>
+              <div class="menu-card-body">
+                <div>
+                  <div class="menu-card-title">Pancakes</div>
+                  <div class="menu-card-description">Select option below</div>
+                </div>
+                <div class="variant-stack">
+                  <button class="variant-row-btn" onclick="addToCart('Pancake (Plain)', 50)">
+                    <span class="variant-label">+ Plain</span>
+                    <span class="variant-price">₹50</span>
+                  </button>
+                  <button class="variant-row-btn" onclick="addToCart('Pancake (+ Choco Sauce)', 60)">
+                    <span class="variant-label">+ Choco Sauce</span>
+                    <span class="variant-price">₹60</span>
+                  </button>
+                  <button class="variant-row-btn" onclick="addToCart('Pancake (+ Ice Cream)', 70)">
+                    <span class="variant-label">+ Ice Cream</span>
+                    <span class="variant-price">₹70</span>
+                  </button>
+                  <button class="variant-row-btn" onclick="addToCart('Pancake (+ Combo)', 80)">
+                    <span class="variant-label">+ Combo (Ice Cream & Choco)</span>
+                    <span class="variant-price">₹80</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Fruit Custard (Local asset: fruit-custard.jpg) -->
+            <article class="menu-card">
+              <div class="menu-image-wrap">
+                <img class="menu-image" src="fruit-custard.jpg" alt="Fruit Custard" loading="lazy" />
+                <span class="menu-tag">Chilled Sweet</span>
+              </div>
+              <div class="menu-card-body">
+                <div>
+                  <div class="menu-card-title">Fruit Custard</div>
+                  <div class="menu-card-description">Select option below</div>
+                </div>
+                <div class="variant-stack">
+                  <button class="variant-row-btn" onclick="addToCart('Fruit Custard', 70)">
+                    <span class="variant-label">+ Portion</span>
+                    <span class="variant-price">₹70</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Halwa (Local asset: halwa.jpg) -->
+            <article class="menu-card">
+              <div class="menu-image-wrap">
+                <img class="menu-image" src="halwa.jpg" alt="Halwa" loading="lazy" />
+                <span class="menu-tag">Desi Ghee</span>
+              </div>
+              <div class="menu-card-body">
+                <div>
+                  <div class="menu-card-title">Halwa</div>
+                  <div class="menu-card-description">Select option below</div>
+                </div>
+                <div class="variant-stack">
+                  <button class="variant-row-btn" onclick="addToCart('Halwa', 60)">
+                    <span class="variant-label">+ Desi Ghee Portion</span>
+                    <span class="variant-price">₹60</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
         </section>
 
-        <!-- Special Instructions for Chef -->
-        <section class="mt-8 bg-white rounded-2xl p-5 border border-line shadow-sm">
-          <label class="block text-xs font-bold uppercase tracking-wider text-stone-600 mb-1.5" for="specialInstructions">
-            Special Instructions for Chef
-          </label>
-          <input id="specialInstructions" class="field-input" type="text" placeholder="e.g., Less spicy, no onions, extra chutney" />
-        </section>
-
-        <div class="text-center text-xs text-stone-400 mt-10 max-w-md mx-auto leading-relaxed">
-          Eko Kitchen Co. operates from Ekodio Homes, Sector 45, Gurugram. Please ensure your room number and payment screenshot are confirmed via WhatsApp.
+        <!-- Footer note -->
+        <div class="text-center text-xs text-stone-500 mt-14 max-w-md mx-auto leading-relaxed">
+          Eko Kitchen Co. operates from Ekodio Homes. Please ensure your room number and payment details are verified before confirming on WhatsApp.
         </div>
       </div>
     </main>
   </div>
 
-  <!-- Floating Cart Drawer -->
+  <!-- Floating Sticky Cart -->
   <div id="floatingCart" class="floating-cart">
     <div>
-      <div class="text-[10px] font-bold uppercase tracking-widest text-stone-400">Your Tray</div>
-      <div id="floatingCartTotal" class="text-base font-bold text-white leading-tight">₹0</div>
-      <div id="floatingCartItems" class="text-[11px] text-stone-300">0 items added</div>
+      <div class="cart-summary-label">Your Order</div>
+      <div id="floatingCartTotal" class="cart-summary-value">₹0</div>
+      <div id="floatingCartItems" class="cart-summary-items">No items added</div>
     </div>
-    <button onclick="openCartModal()" class="bg-[#c5ad78] hover:bg-[#d4bf91] text-ink font-bold text-xs py-2.5 px-5 rounded-full uppercase tracking-wider transition">
-      View Order →
-    </button>
+    <button onclick="openCartModal()" class="view-cart-button">Review & Pay →</button>
   </div>
 
-  <!-- Customization Modal (with Classic / No Extras Default) -->
-  <div id="customizationModal" class="modal-backdrop" role="dialog" aria-modal="true">
+  <!-- Customization Modal -->
+  <div id="customModal" class="modal-backdrop" role="dialog" aria-modal="true">
     <div class="modal-panel">
-      <div class="flex justify-between items-start border-b border-stone-100 pb-3 mb-4">
+      <div class="modal-header">
         <div>
-          <div class="text-[10px] font-bold uppercase tracking-widest text-stone-400">Personalise Your Item</div>
-          <div id="customModalTitle" class="serif text-xl font-bold text-ink">Dish Name</div>
-          <p class="text-xs text-stone-500 mt-0.5">Base: <span id="customModalBasePrice" class="font-bold text-stone-800">₹0</span></p>
+          <div class="section-eyebrow">Personalise Your Order</div>
+          <div id="modalItemTitle" class="modal-title">Customize Item</div>
+          <div id="modalItemBasePrice" class="text-xs text-stone-500 font-bold mt-1">Base Price: ₹0</div>
         </div>
-        <button onclick="closeCustomizationModal()" class="text-stone-400 hover:text-ink text-2xl font-bold p-1">×</button>
+        <button class="close-button" onclick="closeCustomModal()">×</button>
       </div>
 
-      <div class="space-y-2">
-        <p class="text-[11px] font-bold uppercase tracking-wider text-stone-500 mb-2">Select Customization / Extra:</p>
-        <div id="customizationOptionsContainer" class="space-y-2 text-xs"></div>
-      </div>
+      <div class="space-y-2.5 my-4" id="customOptionsContainer"></div>
 
-      <div class="mt-6">
-        <button onclick="confirmCustomization()" class="w-full bg-[#191c18] hover:bg-[#2a2e28] text-white font-bold py-3 rounded-xl text-xs uppercase tracking-wider transition shadow-sm">
-          Add to Order
-        </button>
-      </div>
+      <button class="primary-button mt-4" onclick="confirmCustomization()">Add to Tray</button>
     </div>
   </div>
 
   <!-- Cart Modal -->
   <div id="cartModal" class="modal-backdrop" role="dialog" aria-modal="true">
     <div class="modal-panel">
-      <div class="flex justify-between items-center border-b border-stone-200 pb-3 mb-4">
+      <div class="modal-header">
         <div>
-          <div class="text-[10px] font-bold uppercase tracking-widest text-stone-400">Review your order</div>
-          <div class="serif text-2xl font-bold text-ink">Your Cart</div>
+          <div class="section-eyebrow">Review Your Tray</div>
+          <div class="modal-title">Your Order</div>
         </div>
-        <button onclick="closeCartModal()" class="text-stone-400 hover:text-ink text-2xl font-bold p-1">×</button>
+        <button class="close-button" onclick="closeCartModal()">×</button>
       </div>
 
-      <div id="cartItemsContainer" class="space-y-2 max-h-56 overflow-y-auto pr-1"></div>
+      <div id="cartItemsContainer"></div>
 
-      <div id="emptyCartMessage" class="hidden text-center py-8 text-xs text-stone-400 border border-dashed border-stone-200 rounded-xl">
-        Your tray is empty. Select delicious items from the menu to continue.
-      </div>
-
-      <div id="cartBillBox" class="bg-[#ebe9df] border border-[#dad8cb] rounded-xl p-3.5 mt-4 text-xs space-y-1.5">
-        <div class="flex justify-between text-stone-600">
+      <div id="cartBillBox" class="bill-box">
+        <div class="bill-row">
           <span>Subtotal</span>
-          <span id="billSubtotal" class="font-semibold text-stone-900">₹0</span>
+          <span id="billSubtotal">₹0</span>
         </div>
-        <div id="billDiscountRow" class="flex justify-between text-emerald-800 font-bold hidden">
-          <span id="billDiscountLabel">Resident Privilege:</span>
-          <span id="billDiscountVal">−₹0</span>
+        <div id="discountRow" class="bill-row hidden">
+          <span id="discountLabel">Privilege Discount</span>
+          <span id="billDiscount" class="discount-text">−₹0</span>
         </div>
-        <div class="flex justify-between text-sm font-bold text-ink border-t border-[#d1cfc2] pt-2 mt-2">
+        <div class="bill-row total">
           <span>Total Payable</span>
           <span id="billTotal">₹0</span>
         </div>
       </div>
 
-      <div class="mt-5">
-        <button onclick="openPaymentModal()" class="w-full bg-[#191c18] hover:bg-[#2a2e28] text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-wider transition shadow-sm">
-          Proceed to Payment →
-        </button>
-      </div>
+      <button class="primary-button mt-5" onclick="openPaymentModal()">Proceed to Payment →</button>
     </div>
   </div>
 
   <!-- Payment Modal -->
   <div id="paymentModal" class="modal-backdrop" role="dialog" aria-modal="true">
-    <div class="modal-panel text-center">
-      <div class="flex justify-between items-center border-b border-stone-200 pb-3 mb-3">
-        <div class="text-left">
-          <div class="text-[10px] font-bold uppercase tracking-widest text-stone-400">Secure Prepayment</div>
-          <div class="serif text-xl font-bold text-ink">UPI Payment</div>
+    <div class="modal-panel">
+      <div class="modal-header">
+        <div>
+          <div class="section-eyebrow">Direct UPI Transfer</div>
+          <div class="modal-title">Complete Payment</div>
         </div>
-        <button onclick="closePaymentModal()" class="text-stone-400 hover:text-ink text-2xl font-bold p-1">×</button>
+        <button class="close-button" onclick="closePaymentModal()">×</button>
       </div>
 
-      <p class="text-xs text-stone-600 mb-2">Total Payable: <span id="paymentTotal" class="text-base font-bold text-ink">₹0</span></p>
-
-      <!-- Dynamic QR Code -->
-      <div class="bg-white p-3 rounded-2xl border border-line inline-block shadow-sm mb-3">
-        <img id="upiQr" src="" alt="Scan UPI QR Code" class="w-44 h-44 mx-auto rounded-lg" />
-        <p class="text-[10px] text-stone-400 font-bold mt-2">Scan via GPay / PhonePe / Paytm / CRED</p>
+      <div class="bill-box">
+        <div class="bill-row">
+          <span>Pay Exact Amount</span>
+          <strong id="paymentAmountText" class="text-base text-ink">₹0</strong>
+        </div>
       </div>
 
-      <!-- UPI ID Display & Copy -->
-      <div class="flex items-center gap-2 bg-[#f5f4ee] border border-line rounded-xl p-2 text-xs mb-3 text-left">
-        <div class="flex-1 truncate text-stone-700 font-semibold text-[11px]" id="upiIdText">paytm.s1n4ilc@pty</div>
-        <button onclick="copyUpiId()" id="copyBtn" class="bg-white border border-line rounded-lg px-3 py-1 font-bold text-ink hover:bg-stone-50 transition text-[11px]">
-          Copy
-        </button>
+      <div class="payment-box">
+        <div class="qr-wrapper">
+          <img id="upiQr" src="upi-qr.jpg" alt="UPI QR Code" />
+          <span class="text-[10px] text-stone-400 mt-2 font-bold uppercase tracking-wider">Scan with GPay / PhonePe / Paytm</span>
+        </div>
+
+        <div class="upi-id-box">
+          <div class="upi-id-text">paytm.s1n4ilc@pty</div>
+          <button class="copy-button" onclick="copyUpi()">Copy</button>
+        </div>
+
+        <div class="payment-warning">
+          ⚠️ <strong>Mandatory:</strong> Order preparation will start only after you share the payment transaction screenshot in WhatsApp.
+        </div>
+
+        <label class="payment-check">
+          <input id="paymentDoneCheck" type="checkbox" onchange="toggleWhatsAppButton()" />
+          <span>I have completed the transfer of <strong id="checkAmount">₹0</strong> and will attach the screenshot now.</span>
+        </label>
       </div>
 
-      <!-- Intent App Launcher for Mobile -->
-      <div id="androidIntentBox" class="mb-3 hidden">
-        <a id="btnAndroidUpi" href="#" class="block w-full py-2.5 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-xs font-bold transition">
-          🚀 Open UPI App Directly
-        </a>
-      </div>
-
-      <!-- Mandatory Verification Notice -->
-      <div class="bg-amber-50 border border-amber-200 rounded-xl p-2.5 text-left text-amber-900 text-[11px] font-medium leading-relaxed mb-3">
-        ⚠️ <strong>Notice:</strong> The kitchen begins preparation only once the transaction receipt screenshot is verified in WhatsApp.
-      </div>
-
-      <!-- Confirmation Checkbox -->
-      <label class="flex items-start gap-2.5 text-left text-xs text-stone-700 cursor-pointer mb-4">
-        <input id="paymentConfirmed" type="checkbox" onchange="toggleOrderButton()" class="mt-0.5 accent-[#6d7658] w-4 h-4" />
-        <span>I have completed the payment of <strong id="checkboxPayAmount">₹0</strong> and will share the receipt screenshot now.</span>
-      </label>
-
-      <button id="confirmOrderButton" onclick="confirmOrderOnWhatsApp()" disabled class="w-full bg-stone-300 text-stone-500 font-bold py-3.5 rounded-xl text-xs uppercase tracking-wider transition shadow-sm cursor-not-allowed">
-        📸 Confirm & Share Screenshot on WhatsApp
+      <button id="whatsAppBtn" class="primary-button mt-5" disabled onclick="sendToWhatsApp()">
+        📸 Share Receipt & Confirm on WhatsApp
       </button>
     </div>
   </div>
 
-  <!-- Notification Toast -->
-  <div id="toast" class="fixed bottom-24 left-1/2 -translate-x-1/2 bg-[#191c18] text-white px-4 py-2.5 rounded-full text-xs font-medium shadow-xl opacity-0 pointer-events-none transition-all duration-300 z-50"></div>
+  <!-- Toast -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
   <script>
     const UPI_ID = "paytm.s1n4ilc@pty";
-    const UPI_PAYEE_NAME = "Eko Kitchen Co";
-    const WHATSAPP_NUMBER = "918448784783";
-
-    // Authentic Dish Data with Exact Prices
-    const menuData = {
-      mains: [
-        {
-          id: "pizza",
-          name: "Pizza",
-          tag: "4 Slices",
-          image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80",
-          customizable: true,
-          customType: "pizza",
-          variants: [
-            { label: "Veg", price: 130 },
-            { label: "Margherita", price: 150 },
-            { label: "Paneer", price: 160 },
-            { label: "Chicken", price: 180 }
-          ]
-        },
-        {
-          id: "sandwich",
-          name: "Grilled Sandwich",
-          tag: "Freshly Grilled",
-          image: "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=600&q=80",
-          customizable: true,
-          customType: "sandwich",
-          variants: [
-            { label: "Veg", price: 60 },
-            { label: "Paneer", price: 80 },
-            { label: "Chicken", price: 100 }
-          ]
-        },
-        {
-          id: "kathi-roll",
-          name: "Kathi Roll",
-          tag: "Gourmet Roll",
-          image: "kathi-roll.jpg",
-          fallbackImage: "https://placehold.co/600x400/232620/f8f6f0?text=Kathi+Roll",
-          customizable: true,
-          customType: "kathi",
-          variants: [
-            { label: "Paneer", price: 80 },
-            { label: "Egg", price: 100 },
-            { label: "Chicken", price: 130 }
-          ]
-        },
-        {
-          id: "pasta",
-          name: "Pasta",
-          tag: "Italian Style",
-          image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=600&q=80",
-          customizable: true,
-          customType: "pasta",
-          variants: [
-            { label: "Veg Alfredo", price: 100 },
-            { label: "Veg Arrabiata", price: 120 },
-            { label: "Chicken Alfredo", price: 130 },
-            { label: "Chicken Arrabiata", price: 150 }
-          ]
-        },
-        {
-          id: "biryani",
-          name: "Biryani",
-          tag: "Dum Biryani",
-          image: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=600&q=80",
-          customizable: false,
-          variants: [
-            { label: "Veg", price: 100 },
-            { label: "Egg", price: 130 },
-            { label: "Chicken", price: 150 }
-          ]
-        },
-        {
-          id: "chilli-paneer",
-          name: "Chilli Paneer",
-          tag: "Indo-Chinese",
-          image: "https://images.unsplash.com/photo-1567184109153-6101c5651478?auto=format&fit=crop&w=600&q=80",
-          fallbackImage: "https://placehold.co/600x400/232620/f8f6f0?text=Chilli+Paneer",
-          customizable: false,
-          variants: [
-            { label: "Dry", price: 180 },
-            { label: "Gravy", price: 180 }
-          ]
-        },
-        {
-          id: "chilli-mushroom",
-          name: "Chilli Mushroom",
-          tag: "Wok Tossed",
-          image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80",
-          fallbackImage: "https://placehold.co/600x400/232620/f8f6f0?text=Chilli+Mushroom",
-          customizable: false,
-          variants: [
-            { label: "Dry", price: 200 },
-            { label: "Gravy", price: 200 }
-          ]
-        },
-        {
-          id: "chilli-chicken",
-          name: "Chilli Chicken",
-          tag: "Chef's Special",
-          image: "https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=600&q=80",
-          fallbackImage: "https://placehold.co/600x400/232620/f8f6f0?text=Chilli+Chicken",
-          customizable: false,
-          variants: [
-            { label: "Dry", price: 220 },
-            { label: "Gravy", price: 220 }
-          ]
-        },
-        {
-          id: "noodles",
-          name: "Noodles",
-          tag: "Wok Tossed",
-          image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=600&q=80",
-          customizable: false,
-          variants: [
-            { label: "Veg", price: 70 },
-            { label: "Egg", price: 90 },
-            { label: "Chicken", price: 120 }
-          ]
-        },
-        {
-          id: "fried-rice",
-          name: "Fried Rice",
-          tag: "Classic Wok",
-          image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=600&q=80",
-          customizable: false,
-          variants: [
-            { label: "Veg", price: 80 },
-            { label: "Egg", price: 100 },
-            { label: "Chicken", price: 130 }
-          ]
-        }
-      ],
-
-      snacks: [
-        {
-          id: "samosa",
-          name: "Samosa (2 pcs)",
-          tag: "Crispy",
-          image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80",
-          customizable: false,
-          variants: [{ label: "2 pcs", price: 40 }]
-        },
-        {
-          id: "spring-roll",
-          name: "Spring Roll",
-          tag: "Golden Crisp",
-          image: "spring-roll.jpg",
-          fallbackImage: "https://placehold.co/600x400/232620/f8f6f0?text=Spring+Roll",
-          customizable: false,
-          variants: [{ label: "Standard", price: 80 }]
-        },
-        {
-          id: "dahi-sholey",
-          name: "Dahi Ke Sholey",
-          tag: "Chef's Pick",
-          image: "dahi-sholey.jpg",
-          fallbackImage: "https://placehold.co/600x400/232620/f8f6f0?text=Dahi+Sholey",
-          customizable: false,
-          variants: [{ label: "Portion", price: 120 }]
-        },
-        {
-          id: "fries",
-          name: "French Fries",
-          tag: "Crispy Potato",
-          image: "https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?auto=format&fit=crop&w=600&q=80",
-          customizable: false,
-          variants: [
-            { label: "Salted", price: 80 },
-            { label: "Peri Peri", price: 100 }
-          ]
-        },
-        {
-          id: "momos",
-          name: "Momos",
-          tag: "Steamed",
-          image: "https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9?auto=format&fit=crop&w=600&q=80",
-          customizable: false,
-          variants: [
-            { label: "Veg", price: 80 },
-            { label: "Paneer", price: 100 },
-            { label: "Chicken", price: 120 }
-          ]
-        },
-        {
-          id: "maggie",
-          name: "Maggie",
-          tag: "Comfort Food",
-          image: "maggie.jpg",
-          fallbackImage: "https://placehold.co/600x400/232620/f8f6f0?text=Maggie",
-          customizable: false,
-          variants: [
-            { label: "Plain", price: 40 },
-            { label: "Veg", price: 60 },
-            { label: "Egg", price: 80 }
-          ]
-        },
-        {
-          id: "eggs",
-          name: "Egg (2 pcs)",
-          tag: "Freshly Made",
-          image: "https://images.unsplash.com/photo-1510693206972-df098062cb71?auto=format&fit=crop&w=600&q=80",
-          customizable: false,
-          variants: [
-            { label: "Boiled", price: 40 },
-            { label: "Omelette", price: 50 }
-          ]
-        },
-        {
-          id: "bread",
-          name: "Bread (4 pcs)",
-          tag: "Golden Toasted",
-          image: "https://images.unsplash.com/photo-1584776296944-ab6fb57b0bdd?auto=format&fit=crop&w=600&q=80",
-          customizable: false,
-          variants: [
-            { label: "Plain", price: 20 },
-            { label: "Butter Toasted", price: 40 }
-          ]
-        }
-      ],
-
-      beverages: [
-        {
-          id: "chai",
-          name: "Chai (Medium Cup)",
-          tag: "Fresh Brew",
-          image: "https://images.unsplash.com/photo-1561336313-0bd5e0b27ec8?auto=format&fit=crop&w=600&q=80",
-          fallbackImage: "https://placehold.co/600x400/232620/f8f6f0?text=Chai",
-          customizable: true,
-          customType: "chai",
-          variants: [{ label: "Medium Cup", price: 50 }]
-        },
-        {
-          id: "coffee",
-          name: "Coffee",
-          tag: "Brewed",
-          image: "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=600&q=80",
-          customizable: false,
-          variants: [
-            { label: "Hot", price: 80 },
-            { label: "Cold", price: 100 }
-          ]
-        },
-        {
-          id: "oreo-shake",
-          name: "Oreo Shake",
-          tag: "Chilled",
-          image: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=600&q=80",
-          customizable: false,
-          variants: [{ label: "Regular", price: 100 }]
-        }
-      ],
-
-      desserts: [
-        {
-          id: "pancake",
-          name: "Pancakes",
-          tag: "Fluffy",
-          image: "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=600&q=80",
-          customizable: false,
-          variants: [
-            { label: "Plain", price: 50 },
-            { label: "+ Choco Sauce", price: 60 },
-            { label: "+ Ice Cream", price: 70 },
-            { label: "+ Combo (Ice Cream & Choco)", price: 80 }
-          ]
-        },
-        {
-          id: "custard",
-          name: "Fruit Custard",
-          tag: "Chilled Sweet",
-          image: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80",
-          fallbackImage: "https://placehold.co/600x400/232620/f8f6f0?text=Fruit+Custard",
-          customizable: false,
-          variants: [{ label: "Portion", price: 70 }]
-        },
-        {
-          id: "halwa",
-          name: "Halwa",
-          tag: "Desi Ghee",
-          image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80",
-          fallbackImage: "https://placehold.co/600x400/232620/f8f6f0?text=Halwa",
-          customizable: false,
-          variants: [{ label: "Desi Ghee Portion", price: 60 }]
-        }
-      ]
-    };
-
-    // Customization Add-on Options
-    const customConfig = {
-      pizza: [
-        { label: "Extra Veggies", price: 30 },
-        { label: "Extra Paneer", price: 30 },
-        { label: "Extra Cheese", price: 30 },
-        { label: "Extra Chicken", price: 30 }
-      ],
-      sandwich: [
-        { label: "Extra Cheese", price: 30 }
-      ],
-      kathi: [
-        { label: "Extra Egg (1)", price: 30 }
-      ],
-      pasta: [
-        { label: "Extra Veggies", price: 30 }
-      ],
-      chai: [
-        { label: "Elaichi Infusion", price: 10 },
-        { label: "Ginger (Adrak)", price: 10 },
-        { label: "Masala Brew", price: 10 }
-      ]
-    };
+    const WHATSAPP_PHONE = "918448784783";
 
     let cart = {};
-    let pendingCustomItem = null;
+    let activeCustom = { name: '', basePrice: 0, type: '' };
 
-    // Format currency
-    function formatINR(amount) {
-      return "₹" + Math.round(amount).toLocaleString("en-IN");
-    }
+    const customConfig = {
+      pizza: [
+        { label: 'Extra Veggies', price: 30 },
+        { label: 'Extra Paneer', price: 30 },
+        { label: 'Extra Cheese', price: 30 },
+        { label: 'Extra Chicken', price: 30 }
+      ],
+      sandwich: [
+        { label: 'Extra Cheese', price: 30 }
+      ],
+      kathi: [
+        { label: 'Extra Egg (1)', price: 30 }
+      ],
+      pasta: [
+        { label: 'Extra Veggies', price: 30 }
+      ],
+      chai: [
+        { label: 'Elaichi', price: 10 },
+        { label: 'Ginger', price: 10 },
+        { label: 'Masala', price: 10 }
+      ]
+    };
 
-    // Category smooth scroll and active tab updates
-    function updateActiveCategoryButton(targetId) {
-      document.querySelectorAll(".category-button").forEach(btn => {
-        if (btn.getAttribute("data-target") === targetId) {
-          btn.classList.add("active");
-          btn.scrollIntoView({ behavior: "smooth", inline: "nearest", block: "nearest" });
-        } else {
-          btn.classList.remove("active");
-        }
-      });
-    }
+    // Category highlight & smooth scroll
+    const categoryButtons = document.querySelectorAll(".category-button");
+    const sections = document.querySelectorAll(".menu-section");
 
-    function scrollToCategory(id) {
-      updateActiveCategoryButton(id);
-      const target = document.getElementById(id);
-      if (target) {
+    categoryButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const targetId = button.dataset.target;
+        const target = document.getElementById(targetId);
+
+        categoryButtons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+
         target.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    }
-
-    // IntersectionObserver to sync category highlighting as the user scrolls
-    function initCategoryObserver() {
-      const categories = ["mains", "snacks", "beverages", "desserts"];
-      const sections = categories.map(id => document.getElementById(id)).filter(Boolean);
-
-      const observerOptions = {
-        root: null,
-        rootMargin: "-20% 0px -65% 0px",
-        threshold: [0, 0.25, 0.5]
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            updateActiveCategoryButton(entry.target.id);
-          }
-        });
-      }, observerOptions);
-
-      sections.forEach(section => observer.observe(section));
-    }
-
-    // Render Menu Cards with fully visible, unclipped variant rows
-    function renderMenuCards() {
-      Object.entries(menuData).forEach(([cat, items]) => {
-        const grid = document.getElementById(`${cat}Grid`);
-        if (!grid) return;
-
-        grid.innerHTML = items.map(item => {
-          const fallback = item.fallbackImage ? `onerror="this.src='${item.fallbackImage}'"` : "";
-          
-          let variantHtml = "";
-          if (item.customizable) {
-            variantHtml = `
-              <div class="space-y-1.5 pt-1">
-                ${item.variants.map(v => `
-                  <button onclick="openCustomModal('${item.name} (${v.label})', ${v.price}, '${item.customType}')" class="variant-row-btn" title="Add ${v.label}">
-                    <span class="truncate pr-1.5 text-left">+ ${v.label}</span>
-                    <span class="variant-price-tag">₹${v.price}</span>
-                  </button>
-                `).join("")}
-              </div>
-            `;
-          } else {
-            variantHtml = `
-              <div class="space-y-1.5 pt-1">
-                ${item.variants.map(v => `
-                  <button onclick="addToCartDirect('${item.name} (${v.label})', ${v.price})" class="variant-row-btn" title="Add ${v.label}">
-                    <span class="truncate pr-1.5 text-left">+ ${v.label}</span>
-                    <span class="variant-price-tag">₹${v.price}</span>
-                  </button>
-                `).join("")}
-              </div>
-            `;
-          }
-
-          return `
-            <article class="menu-card">
-              <div class="menu-image-wrap">
-                <img src="${item.image}" alt="${item.name}" ${fallback} class="menu-image" loading="lazy" />
-                <span class="menu-tag">${item.tag}</span>
-              </div>
-              <div class="p-4 flex flex-col justify-between flex-1 gap-3">
-                <div>
-                  <h3 class="serif font-bold text-base text-ink tracking-tight leading-snug">${item.name}</h3>
-                  <p class="text-[11px] text-stone-500 font-medium mt-0.5">Select option below</p>
-                </div>
-                ${variantHtml}
-              </div>
-            </article>
-          `;
-        }).join("");
       });
-    }
+    });
 
-    // Modal Opening with 'Classic / No Extras (+₹0)' Radio Default
-    function openCustomModal(dishName, basePrice, customType) {
-      pendingCustomItem = { name: dishName, price: basePrice, type: customType };
-      document.getElementById("customModalTitle").innerText = dishName;
-      document.getElementById("customModalBasePrice").innerText = formatINR(basePrice);
-
-      const options = customConfig[customType] || [];
-      const container = document.getElementById("customizationOptionsContainer");
-
-      let html = `
-        <label class="flex items-center justify-between p-3 bg-stone-50 rounded-xl border border-line cursor-pointer hover:bg-stone-100 transition">
-          <span class="font-semibold text-ink flex items-center gap-2.5">
-            <input type="radio" name="modalAddon" data-label="" data-price="0" checked class="accent-[#191c18] w-4 h-4">
-            Classic / No Extras
-          </span>
-          <span class="font-bold text-stone-400">+₹0</span>
-        </label>
-      `;
-
-      html += options.map(opt => `
-        <label class="flex items-center justify-between p-3 bg-stone-50 rounded-xl border border-line cursor-pointer hover:bg-stone-100 transition">
-          <span class="font-semibold text-ink flex items-center gap-2.5">
-            <input type="radio" name="modalAddon" data-label="${opt.label}" data-price="${opt.price}" class="accent-[#191c18] w-4 h-4">
-            ${opt.label}
-          </span>
-          <span class="font-bold text-stone-800">+₹${opt.price}</span>
-        </label>
-      `).join("");
-
-      container.innerHTML = html;
-      document.getElementById("customizationModal").classList.add("open");
-    }
-
-    function closeCustomizationModal() {
-      document.getElementById("customizationModal").classList.remove("open");
-      pendingCustomItem = null;
-    }
-
-    function confirmCustomization() {
-      if (!pendingCustomItem) return;
-
-      let finalName = pendingCustomItem.name;
-      let finalPrice = pendingCustomItem.price;
-
-      const selected = document.querySelector('input[name="modalAddon"]:checked');
-      if (selected) {
-        const extraLabel = selected.getAttribute("data-label");
-        const extraPrice = parseInt(selected.getAttribute("data-price"), 10);
-
-        if (extraLabel && extraPrice > 0) {
-          finalName = `${pendingCustomItem.name} [+ ${extraLabel}]`;
-          finalPrice += extraPrice;
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          categoryButtons.forEach(btn => {
+            btn.classList.toggle("active", btn.dataset.target === id);
+          });
         }
-      }
+      });
+    }, {
+      rootMargin: "-20% 0px -70% 0px",
+      threshold: 0
+    });
 
-      addToCartDirect(finalName, finalPrice);
-      closeCustomizationModal();
-    }
+    sections.forEach(section => observer.observe(section));
 
-    // Direct Add Item
-    function addToCartDirect(name, price) {
+    // Cart operations
+    function addToCart(name, price) {
       if (!cart[name]) {
         cart[name] = { price: price, qty: 0 };
       }
       cart[name].qty += 1;
-      updateCartDisplay();
-      showToast(`${name} added to tray`);
+      updateCartUI();
+      showToast(`${name} added`);
     }
 
-    function modifyCartQty(name, delta) {
+    function changeQty(name, delta) {
       if (cart[name]) {
         cart[name].qty += delta;
-        if (cart[name].qty <= 0) {
-          delete cart[name];
-        }
+        if (cart[name].qty <= 0) delete cart[name];
       }
-      updateCartDisplay();
+      updateCartUI();
     }
 
-    function calculateOrderTotals() {
-      let subtotal = 0;
-      let count = 0;
-      Object.values(cart).forEach(item => {
-        subtotal += item.price * item.qty;
-        count += item.qty;
-      });
-
+    function calculateTotals() {
+      let subtotal = Object.values(cart).reduce((sum, item) => sum + (item.price * item.qty), 0);
       let discount = 0;
-      let discountLabel = "";
+      let label = "";
+
       if (subtotal > 999) {
         discount = subtotal * 0.30;
-        discountLabel = "30% Privilege Applied";
+        label = "30% Privilege Discount";
       } else if (subtotal > 299) {
         discount = subtotal * 0.10;
-        discountLabel = "10% Privilege Applied";
+        label = "10% Privilege Discount";
       }
 
-      const total = Math.max(0, subtotal - discount);
-      return { subtotal, discount, total, count, discountLabel };
+      return {
+        subtotal,
+        discount: Math.round(discount),
+        total: Math.max(0, Math.round(subtotal - discount)),
+        label
+      };
     }
 
-    function updateCartDisplay() {
-      const totals = calculateOrderTotals();
+    function updateCartUI() {
+      const count = Object.values(cart).reduce((sum, item) => sum + item.qty, 0);
+      const totals = calculateTotals();
+
       const floatingCart = document.getElementById("floatingCart");
+      floatingCart.classList.toggle("visible", count > 0);
+      document.getElementById("floatingCartTotal").textContent = `₹${totals.total}`;
+      document.getElementById("floatingCartItems").textContent = `${count} item${count === 1 ? '' : 's'} in tray`;
 
-      if (totals.count > 0) {
-        floatingCart.classList.add("visible");
-        document.getElementById("floatingCartTotal").innerText = `${formatINR(totals.total)} ${totals.discount > 0 ? `(Saved ${formatINR(totals.discount)})` : ""}`;
-        document.getElementById("floatingCartItems").innerText = `${totals.count} item${totals.count === 1 ? "" : "s"} in tray`;
-      } else {
-        floatingCart.classList.remove("visible");
+      renderCartList();
+    }
+
+    function renderCartList() {
+      const container = document.getElementById("cartItemsContainer");
+      const names = Object.keys(cart);
+
+      if (names.length === 0) {
+        container.innerHTML = `<div class="text-center py-6 text-stone-400 text-xs">Your tray is empty</div>`;
+        return;
       }
 
-      // Sync Cart Modal Items
-      const container = document.getElementById("cartItemsContainer");
-      const emptyMsg = document.getElementById("emptyCartMessage");
-      const billBox = document.getElementById("cartBillBox");
-
-      if (totals.count === 0) {
-        container.innerHTML = "";
-        emptyMsg.classList.remove("hidden");
-        billBox.classList.add("hidden");
-      } else {
-        emptyMsg.classList.add("hidden");
-        billBox.classList.remove("hidden");
-
-        container.innerHTML = Object.keys(cart).map(name => {
-          const it = cart[name];
-          return `
-            <div class="flex justify-between items-center bg-stone-50 border border-line p-2.5 rounded-xl text-xs">
-              <div class="pr-2 flex-1">
-                <div class="font-bold text-ink leading-tight">${name}</div>
-                <div class="text-[11px] text-stone-500">${formatINR(it.price)} each</div>
-              </div>
-              <div class="flex items-center gap-2">
-                <span class="font-bold text-ink">${formatINR(it.price * it.qty)}</span>
-                <div class="flex items-center border border-line rounded-lg overflow-hidden bg-white">
-                  <button onclick="modifyCartQty('${name}', -1)" class="px-2 py-0.5 bg-stone-100 hover:bg-stone-200 font-bold">-</button>
-                  <span class="px-2 font-bold text-stone-800">${it.qty}</span>
-                  <button onclick="modifyCartQty('${name}', 1)" class="px-2 py-0.5 bg-stone-100 hover:bg-stone-200 font-bold">+</button>
-                </div>
-              </div>
+      container.innerHTML = names.map(name => {
+        const item = cart[name];
+        return `
+          <div class="cart-item">
+            <div class="flex-1 min-w-0">
+              <div class="cart-item-name">${name}</div>
+              <div class="cart-item-price">₹${item.price} each</div>
             </div>
-          `;
-        }).join("");
+            <div class="quantity-control">
+              <button class="quantity-button" onclick="changeQty('${name}', -1)">−</button>
+              <span class="quantity-value">${item.qty}</span>
+              <button class="quantity-button" onclick="changeQty('${name}', 1)">+</button>
+            </div>
+          </div>
+        `;
+      }).join("");
 
-        document.getElementById("billSubtotal").innerText = formatINR(totals.subtotal);
-        const discRow = document.getElementById("billDiscountRow");
-        if (totals.discount > 0) {
-          discRow.classList.remove("hidden");
-          document.getElementById("billDiscountLabel").innerText = totals.discountLabel;
-          document.getElementById("billDiscountVal").innerText = `−${formatINR(totals.discount)}`;
-        } else {
-          discRow.classList.add("hidden");
-        }
-        document.getElementById("billTotal").innerText = formatINR(totals.total);
+      const totals = calculateTotals();
+      document.getElementById("billSubtotal").textContent = `₹${totals.subtotal}`;
+      document.getElementById("billTotal").textContent = `₹${totals.total}`;
+
+      const discountRow = document.getElementById("discountRow");
+      if (totals.discount > 0) {
+        discountRow.classList.remove("hidden");
+        document.getElementById("discountLabel").textContent = totals.label;
+        document.getElementById("billDiscount").textContent = `−₹${totals.discount}`;
+      } else {
+        discountRow.classList.add("hidden");
       }
     }
 
+    // Customization modal with preselected Classic (+₹0)
+    function openCustomization(name, basePrice, type) {
+      activeCustom = { name, basePrice, type };
+      document.getElementById("modalItemTitle").textContent = name;
+      document.getElementById("modalItemBasePrice").textContent = `Base Price: ₹${basePrice}`;
+
+      const options = customConfig[type] || [];
+      const container = document.getElementById("customOptionsContainer");
+
+      let html = `
+        <label class="custom-radio-card">
+          <span class="flex items-center gap-2 font-bold text-ink">
+            <input type="radio" name="addonOption" data-label="" data-price="0" checked />
+            Classic / No Extras
+          </span>
+          <span class="text-stone-400 font-bold">+₹0</span>
+        </label>
+      `;
+
+      html += options.map(opt => `
+        <label class="custom-radio-card">
+          <span class="flex items-center gap-2 text-ink">
+            <input type="radio" name="addonOption" data-label="${opt.label}" data-price="${opt.price}" />
+            ${opt.label}
+          </span>
+          <span class="font-bold text-stone-700">+₹${opt.price}</span>
+        </label>
+      `).join("");
+
+      container.innerHTML = html;
+      document.getElementById("customModal").classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeCustomModal() {
+      document.getElementById("customModal").classList.remove("open");
+      document.body.style.overflow = "";
+    }
+
+    function confirmCustomization() {
+      const selected = document.querySelector('input[name="addonOption"]:checked');
+      let finalName = activeCustom.name;
+      let finalPrice = activeCustom.basePrice;
+
+      if (selected) {
+        const label = selected.dataset.label;
+        const price = parseInt(selected.dataset.price, 10);
+        if (label && price > 0) {
+          finalName = `${activeCustom.name} (+ ${label})`;
+          finalPrice += price;
+        }
+      }
+
+      addToCart(finalName, finalPrice);
+      closeCustomModal();
+    }
+
+    // Modal navigation
     function openCartModal() {
-      updateCartDisplay();
+      renderCartList();
       document.getElementById("cartModal").classList.add("open");
+      document.body.style.overflow = "hidden";
     }
 
     function closeCartModal() {
       document.getElementById("cartModal").classList.remove("open");
+      document.body.style.overflow = "";
     }
 
-    // Payment Flow
     function openPaymentModal() {
       const name = document.getElementById("residentName").value.trim();
       const room = document.getElementById("roomNumber").value.trim();
 
       if (!name || !room) {
-        showToast("Please provide your name and room number first");
+        showToast("Please enter your name and room number");
         closeCartModal();
-        window.scrollTo({ top: 120, behavior: "smooth" });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         return;
       }
 
-      const totals = calculateOrderTotals();
-      if (totals.count === 0) {
-        showToast("Your cart is empty");
-        return;
-      }
+      const totals = calculateTotals();
+      document.getElementById("paymentAmountText").textContent = `₹${totals.total}`;
+      document.getElementById("checkAmount").textContent = `₹${totals.total}`;
+      document.getElementById("paymentDoneCheck").checked = false;
+      toggleWhatsAppButton();
 
       closeCartModal();
-
-      const roundedTotal = Math.round(totals.total);
-      document.getElementById("paymentTotal").innerText = formatINR(roundedTotal);
-      document.getElementById("checkboxPayAmount").innerText = formatINR(roundedTotal);
-
-      // UPI URL & QR
-      const upiParams = `pa=${encodeURIComponent(UPI_ID)}&pn=${encodeURIComponent(UPI_PAYEE_NAME)}&am=${roundedTotal}&cu=INR&tn=EkoKitchenOrder`;
-      const upiUrl = `upi://pay?${upiParams}`;
-      document.getElementById("upiQr").src = `https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=${encodeURIComponent(upiUrl)}`;
-
-      // Android Intent Link
-      const isAndroid = /Android/i.test(navigator.userAgent);
-      const androidBox = document.getElementById("androidIntentBox");
-      if (isAndroid) {
-        androidBox.classList.remove("hidden");
-        document.getElementById("btnAndroidUpi").href = `intent://pay?${upiParams}#Intent;scheme=upi;end`;
-      } else {
-        androidBox.classList.add("hidden");
-      }
-
-      document.getElementById("paymentConfirmed").checked = false;
-      toggleOrderButton();
-
       document.getElementById("paymentModal").classList.add("open");
+      document.body.style.overflow = "hidden";
     }
 
     function closePaymentModal() {
       document.getElementById("paymentModal").classList.remove("open");
+      document.body.style.overflow = "";
     }
 
-    function toggleOrderButton() {
-      const checked = document.getElementById("paymentConfirmed").checked;
-      const btn = document.getElementById("confirmOrderButton");
-
-      if (checked) {
-        btn.disabled = false;
-        btn.classList.remove("bg-stone-300", "text-stone-500", "cursor-not-allowed");
-        btn.classList.add("bg-[#191c18]", "text-white", "hover:bg-[#2a2e28]");
-      } else {
-        btn.disabled = true;
-        btn.classList.add("bg-stone-300", "text-stone-500", "cursor-not-allowed");
-        btn.classList.remove("bg-[#191c18]", "text-white", "hover:bg-[#2a2e28]");
-      }
+    function toggleWhatsAppButton() {
+      const checked = document.getElementById("paymentDoneCheck").checked;
+      const btn = document.getElementById("whatsAppBtn");
+      btn.disabled = !checked;
     }
 
-    function copyUpiId() {
-      navigator.clipboard.writeText(UPI_ID).then(() => {
-        const btn = document.getElementById("copyBtn");
-        btn.innerText = "Copied!";
-        btn.classList.add("text-emerald-700");
-        setTimeout(() => {
-          btn.innerText = "Copy";
-          btn.classList.remove("text-emerald-700");
-        }, 2000);
-      });
+    function copyUpi() {
+      navigator.clipboard.writeText(UPI_ID).then(() => showToast("UPI ID copied"));
     }
 
-    function confirmOrderOnWhatsApp() {
+    function sendToWhatsApp() {
       const name = document.getElementById("residentName").value.trim();
       const room = document.getElementById("roomNumber").value.trim();
-      const instructions = document.getElementById("specialInstructions").value.trim();
-      const totals = calculateOrderTotals();
+      const totals = calculateTotals();
 
-      const itemLines = Object.keys(cart).map(n => `• ${n} × ${cart[n].qty} = ${formatINR(cart[n].price * cart[n].qty)}`);
+      const itemsList = Object.keys(cart).map(k => `• ${k} × ${cart[k].qty} = ₹${cart[k].price * cart[k].qty}`).join('\n');
 
-      const message = [
-        "✨ *EKO KITCHEN CO. | IN-ROOM DINING ORDER* ✨",
-        "",
-        `👤 *Resident:* ${name}`,
-        `🚪 *Room:* ${room}`,
-        "",
-        "📋 *ORDER PARTICULARS:*",
-        ...itemLines,
-        "",
-        `Subtotal: ${formatINR(totals.subtotal)}`,
-        totals.discount > 0 ? `Privilege Discount: -${formatINR(totals.discount)}` : null,
-        `💰 *Total Paid:* ${formatINR(totals.total)}`,
-        instructions ? `📝 *Chef Instructions:* ${instructions}` : null,
-        "",
-        "⚠️ *VERIFICATION NOTICE:*",
-        "Order preparation commences upon verifying the attached payment proof screenshot below 👇",
-        "📸 *Attaching screenshot now...*"
-      ].filter(Boolean).join("\n");
+      const text = `✨ *NEW ORDER - EKO KITCHEN CO.* ✨\n\n` +
+                   `👤 *Resident:* ${name}\n` +
+                   `🚪 *Room Number:* ${room}\n\n` +
+                   `📋 *ORDER TRAY:*\n${itemsList}\n\n` +
+                   `💰 *Total Transferred:* ₹${totals.total}\n\n` +
+                   `⚠️ *PAYMENT PROOF:*\nAttaching my payment transfer screenshot right below. Please verify and start preparation.`;
 
-      alert("Opening WhatsApp...\n\n⚠️ PLEASE ATTACH YOUR PAYMENT SCREENSHOT NOW!\nThe kitchen will commence preparation once transaction proof is received.");
+      alert("Opening WhatsApp...\n\n📸 Please ATTACH your transaction screenshot now so the kitchen can verify and prepare your order.");
 
-      const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+      const waUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(text)}`;
       window.open(waUrl, "_blank");
     }
 
     function showToast(msg) {
       const toast = document.getElementById("toast");
-      toast.innerText = msg;
-      toast.classList.add("opacity-100");
-      setTimeout(() => toast.classList.remove("opacity-100"), 2200);
+      toast.textContent = msg;
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 2200);
     }
-
-    // Modal background tap dismissal
-    window.addEventListener("click", (e) => {
-      if (e.target.classList.contains("modal-backdrop")) {
-        e.target.classList.remove("open");
-      }
-    });
-
-    // Escape key listener
-    window.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") {
-        document.querySelectorAll(".modal-backdrop").forEach(m => m.classList.remove("open"));
-      }
-    });
-
-    // Initial render & scroll observer setup
-    renderMenuCards();
-    updateCartDisplay();
-    initCategoryObserver();
   </script>
 </body>
 </html>
